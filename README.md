@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚿 Powerwash Directory
 
-## Getting Started
+**Multi-agent directory app connecting customers with local pressure washing businesses. Uses scraped market data to surface service providers and convert leads into booked jobs.**
 
-First, run the development server:
+Part of [jays.website/business/](https://jays.website/business/) · In Development
+
+---
+
+## 1. Overview
+
+WashPro is a local service marketplace for the power washing industry. Homeowners enter their zip code, describe their job, and get matched with vetted local pros. Businesses get a managed lead pipeline. The directory layer is built for speed — quote requests in under 2 minutes.
+
+**Stack:** Next.js 15 · TypeScript · Tailwind CSS · Supabase · SQLite (local dev)
+
+---
+
+## 2. Features
+
+- **Zip-based matching** — hero input routes customers to local provider pool
+- **Lead submission** — structured quote requests (property type, services, size, notes)
+- **Admin panel** — review and manage incoming leads
+- **Provider directory** — searchable by service type and location
+- **SEO-ready** — sitemap, robots.txt, Google verification
+- **Deployable** — nginx config + systemd service included for VPS deployment
+
+---
+
+## 3. Quick Start
 
 ```bash
+git clone https://github.com/JaysWebDev/powerwash-directory
+cd powerwash-directory
+npm install
+
+cp .env.local.example .env.local
+# Fill in your Supabase project URL and keys
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 4. Environment Variables
 
-## Learn More
+```bash
+# .env.local
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+```
 
-To learn more about Next.js, take a look at the following resources:
+Get these from your Supabase project → Settings → API.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 5. Database
 
-## Deploy on Vercel
+Schema lives in `supabase/schema.sql`. Run migrations via the Supabase dashboard or CLI:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+supabase db push
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 6. VPS Deployment
+
+Nginx and systemd configs are included:
+
+```bash
+# Copy nginx config
+sudo cp outdoorwashing.conf /etc/nginx/sites-available/outdoorwashing.conf
+sudo ln -s /etc/nginx/sites-available/outdoorwashing.conf /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl reload nginx
+
+# Install systemd service
+sudo cp outdoorwashing.service /etc/systemd/system/
+sudo systemctl enable --now outdoorwashing
+```
+
+The service expects `.env.local` at the project root with Supabase credentials before start.
+
+---
+
+## 7. Troubleshooting
+
+**Port in use:** Check `lsof -i :3031` and adjust `PORT` in the service file.
+
+**DB connection errors:** Verify `NEXT_PUBLIC_SUPABASE_URL` and both keys are set in `.env.local`.
+
+**Build fails:** Run `npm run build` locally to surface TypeScript errors before deploying.
+
+---
+
+jays.website/business/ · [JaysWebDev](https://github.com/JaysWebDev)
