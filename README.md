@@ -1,8 +1,8 @@
 # 🚿 Powerwash Directory
 
-**Multi-agent directory app connecting customers with local pressure washing businesses. Uses scraped market data to surface service providers and convert leads into booked jobs.**
+**Local service marketplace connecting customers with pressure washing businesses — zip-based provider matching, lead capture, and admin panel. 1,445 companies across 20 city pages.**
 
-Part of [jays.website/business/](https://jays.website/business/) · In Development
+Live → [find.outdoorwashing.com](https://find.outdoorwashing.com) · [jays.website/business/](https://jays.website/business/)
 
 ---
 
@@ -19,7 +19,8 @@ WashPro is a local service marketplace for the power washing industry. Homeowner
 - **Zip-based matching** — hero input routes customers to local provider pool
 - **Lead submission** — structured quote requests (property type, services, size, notes)
 - **Admin panel** — review and manage incoming leads
-- **Provider directory** — searchable by service type and location
+- **Provider directory** — 1,445 companies, searchable by service type and location
+- **City pages** — 20 pre-built city landing pages for SEO
 - **SEO-ready** — sitemap, robots.txt, Google verification
 - **Deployable** — nginx config + systemd service included for VPS deployment
 
@@ -94,4 +95,4 @@ The service expects `.env.local` at the project root with Supabase credentials b
 
 ---
 
-jays.website/business/ · [JaysWebDev](https://github.com/JaysWebDev)
+[find.outdoorwashing.com](https://find.outdoorwashing.com) · jays.website/business/ · [JaysWebDev](https://github.com/JaysWebDev)
