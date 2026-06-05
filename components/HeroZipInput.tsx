@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Search } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 export default function HeroZipInput() {
   const [zip, setZip] = useState("");
@@ -35,19 +36,21 @@ export default function HeroZipInput() {
             maxLength={5}
             value={zip}
             onChange={(e) => setZip(e.target.value.replace(/\D/g, ""))}
-            placeholder="Enter your ZIP code..."
+            placeholder={siteConfig.cta.zipPlaceholder}
             className="flex-1 py-3 text-[#1e3a5f] text-lg bg-transparent focus:outline-none placeholder:text-[#94a3b8]"
+            style={{ color: "var(--cd)" }}
           />
         </div>
         <button
           type="submit"
-          className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-bold text-base px-6 py-3.5 rounded-xl transition-colors flex-shrink-0"
+          className="text-white font-bold text-base px-6 py-3.5 rounded-xl transition-colors flex-shrink-0"
+          style={{ backgroundColor: "var(--cp)" }}
         >
-          Get Quotes
+          {siteConfig.cta.text}
         </button>
       </div>
-      <p className="text-center text-[#93c5fd] text-sm mt-3">
-        Service available in 500+ cities · Average response: 18 minutes
+      <p className="text-center text-sm mt-3" style={{ color: "var(--cp-xl)" }}>
+        {siteConfig.cta.zipSubtext}
       </p>
     </form>
   );

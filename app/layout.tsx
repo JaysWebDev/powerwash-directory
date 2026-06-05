@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
+import { siteConfig } from "@/config/site";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -17,13 +18,14 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://find.outdoorwashing.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
+
+const { colors: c, seo } = siteConfig;
 
 export const metadata: Metadata = {
-  title: "WashPro Directory — Find Top-Rated Local Power Washing Pros",
-  description:
-    "Get free quotes from licensed, insured power washing professionals in your area. Compare rates and book in minutes.",
-  keywords: "power washing, pressure washing, local pros, free quotes, home cleaning",
+  title: seo.title,
+  description: seo.description,
+  keywords: seo.keywords,
   metadataBase: new URL(SITE_URL),
 };
 
@@ -32,16 +34,30 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // CSS custom properties — all color references in components use these vars
+  const cssVars = {
+    "--cp":    c.primary,
+    "--cp-h":  c.primaryHover,
+    "--cp-l":  c.primaryLight,
+    "--cp-xl": c.primaryXLight,
+    "--cd":    c.dark,
+    "--cd-d":  c.darkDeep,
+    "--cl":    c.lightBg,
+  } as React.CSSProperties;
+
+  const brandFull = `${siteConfig.brand} ${siteConfig.brandSuffix}`;
+
   return (
     <html
       lang="en"
+      style={cssVars}
       className={`${dmSans.variable} ${barlowCondensed.variable} h-full antialiased`}
     >
       <head>
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3493426366115346"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${siteConfig.adsenseClient}`}
           crossOrigin="anonymous"
         />
         <script
@@ -50,10 +66,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "WashPro Directory",
+              name: brandFull,
               url: SITE_URL,
-              description:
-                "Find top-rated local power washing professionals. Get free quotes from licensed, insured pros in your area.",
+              description: seo.description,
               potentialAction: {
                 "@type": "SearchAction",
                 target: `${SITE_URL}/?zip={zip_code}`,
@@ -68,10 +83,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "HomeAndConstructionBusiness",
-              name: "WashPro Directory",
+              name: brandFull,
               url: SITE_URL,
-              description:
-                "Connect with top-rated local power washing professionals. Free quotes from licensed, insured pros.",
+              description: `Connect with top-rated local ${siteConfig.verticalProNoun}. Free quotes from licensed, insured pros.`,
               areaServed: { "@type": "Country", name: "United States" },
               aggregateRating: {
                 "@type": "AggregateRating",
@@ -82,17 +96,8 @@ export default function RootLayout({
               },
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "Power Washing Services",
-                itemListElement: [
-                  "House Soft Washing",
-                  "Driveway & Concrete Cleaning",
-                  "Deck Restoration",
-                  "Roof Cleaning",
-                  "Fence Washing",
-                  "Gutter Cleaning",
-                  "Solar Panel Cleaning",
-                  "Commercial Property Washing",
-                ].map((name) => ({
+                name: seo.schemaServiceCategory,
+                itemListElement: seo.schemaServiceNames.map((name) => ({
                   "@type": "Offer",
                   itemOffered: { "@type": "Service", name },
                 })),

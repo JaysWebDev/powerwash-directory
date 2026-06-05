@@ -2,37 +2,11 @@
 
 import { useState, useEffect, useTransition } from "react";
 import { submitLead } from "@/app/actions/submitLead";
-import {
-  Home,
-  SquareStack,
-  TreePine,
-  Droplets,
-  Fence,
-  Building2,
-  Flame,
-  Sun,
-  CheckCircle,
-  ArrowRight,
-  Upload,
-} from "lucide-react";
+import { CheckCircle, ArrowRight, Upload } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
-const services = [
-  { id: "house-soft-washing", label: "House Soft Washing", icon: Home, description: "Gentle low-pressure clean for siding, brick & exteriors" },
-  { id: "driveway", label: "Driveway & Concrete", icon: SquareStack, description: "Remove oil stains, tire marks, mildew, and buildup" },
-  { id: "deck-restoration", label: "Deck Restoration", icon: TreePine, description: "Bring wood and composite surfaces back to life" },
-  { id: "roof-cleaning", label: "Roof Cleaning", icon: Droplets, description: "Safe soft-wash to remove algae, moss & black streaks" },
-  { id: "fence-washing", label: "Fence Washing", icon: Fence, description: "Wood, vinyl, and chain-link deep cleaning" },
-  { id: "gutter-cleaning", label: "Gutter Cleaning", icon: Flame, description: "Clear debris and flush downspouts for proper drainage" },
-  { id: "solar-panels", label: "Solar Panel Cleaning", icon: Sun, description: "Maximize energy output with a professional soft wash" },
-  { id: "commercial", label: "Commercial Property", icon: Building2, description: "Storefronts, parking lots, sidewalks & commercial buildings" },
-];
-
-const propertyTypes = [
-  { id: "single-family", label: "Single Family Home" },
-  { id: "townhouse", label: "Townhouse / Condo" },
-  { id: "commercial", label: "Commercial" },
-  { id: "other", label: "Other" },
-];
+const { services, propertyTypes } = siteConfig;
+const BrandIcon = siteConfig.icon;
 
 const inputClass =
   "w-full border border-[#cbd5e1] rounded-xl px-4 py-3 text-[#1e3a5f] bg-white focus:outline-none focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent transition-all placeholder:text-[#94a3b8] text-sm";
@@ -166,7 +140,7 @@ export default function ServicesAndQuote() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 bg-white/60 border border-[#bfdbfe] text-[#1e3a5f] text-sm font-medium px-4 py-1.5 rounded-full mb-5 backdrop-blur-sm">
-              <Droplets className="w-3.5 h-3.5 text-[#0ea5e9]" />
+              <BrandIcon className="w-3.5 h-3.5" style={{ color: "var(--cp)" }} />
               Free — No obligation
             </div>
             <h2 style={{ fontFamily: "var(--font-display)" }} className="text-4xl md:text-5xl font-bold text-[#1e3a5f] mb-3">
@@ -388,7 +362,7 @@ export default function ServicesAndQuote() {
                 disabled={selectedServices.length === 0 || isPending}
                 className="w-full bg-[#1e3a5f] hover:bg-[#152c48] disabled:bg-[#94a3b8] disabled:cursor-not-allowed text-white font-bold text-lg py-4 rounded-xl transition-all hover:scale-[1.01] shadow-md flex items-center justify-center gap-2"
               >
-                <Droplets className="w-5 h-5 text-[#38bdf8]" />
+                <BrandIcon className="w-5 h-5" style={{ color: "var(--cp-l)" }} />
                 {isPending ? "Submitting..." : "Get My Free Quotes"}
               </button>
 
