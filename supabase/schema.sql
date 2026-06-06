@@ -56,9 +56,22 @@ create table if not exists companies (
   rating                numeric(3,2) default 5.0,
   review_count          integer default 0,
 
+  -- Location
+  address               text,
+  latitude              numeric(10,7),
+  longitude             numeric(10,7),
+
+  -- Profile
+  slug                  text unique,
+  short_description     text,
+  description           text,
+  logo_url              text,
+
   -- Status
   is_active             boolean default true,
   is_verified           boolean default false,
+  is_featured           boolean default false,
+  is_approved           boolean default true,
 
   -- Billing / lead plan
   plan                  text default 'free',   -- free | basic | pro | premium
@@ -88,8 +101,11 @@ create table if not exists lead_assignments (
 create index if not exists leads_zip_code_idx     on leads(zip_code);
 create index if not exists leads_status_idx       on leads(status);
 create index if not exists leads_created_at_idx   on leads(created_at desc);
-create index if not exists companies_zip_codes_idx on companies using gin(zip_codes);
-create index if not exists companies_active_idx   on companies(is_active, plan);
+create index if not exists companies_zip_codes_idx  on companies using gin(zip_codes);
+create index if not exists companies_active_idx    on companies(is_active, plan);
+create index if not exists companies_slug_idx      on companies(slug);
+create index if not exists companies_city_state_idx on companies(city, state);
+create index if not exists companies_approved_idx  on companies(is_approved, is_featured, rating desc);
 
 -- ─── ROW LEVEL SECURITY ──────────────────────────────────────
 -- Leads: anyone can INSERT (form submission), only service role can SELECT/UPDATE
