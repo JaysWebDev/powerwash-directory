@@ -106,7 +106,22 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <footer style={{ background: c.darkDeep, color: "#cbd5e1" }} className="mt-auto py-8 px-6 text-sm">
+          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between gap-4">
+            <p className="font-semibold text-white">{brandFull}</p>
+            <nav className="flex flex-wrap gap-x-6 gap-y-2">
+              <a href="/" style={{ color: "#94a3b8" }} className="hover:text-white transition-colors">Home</a>
+              <a href="/about" style={{ color: "#94a3b8" }} className="hover:text-white transition-colors">About</a>
+              <a href="/privacy" style={{ color: "#94a3b8" }} className="hover:text-white transition-colors">Privacy Policy</a>
+            </nav>
+          </div>
+          <div className="max-w-6xl mx-auto mt-4 pt-4 border-t border-white/10 text-xs" style={{ color: "#64748b" }}>
+            © {new Date().getFullYear()} {brandFull}. All rights reserved.
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
