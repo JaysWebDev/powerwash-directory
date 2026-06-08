@@ -100,6 +100,15 @@ details[open] .faq-arrow {
   transition: transform 0.25s ease;
 }
 
+/* ─── Nav CTA button (uses CSS vars from siteConfig) ────────── */
+
+.nav-cta-btn {
+  background-color: var(--cp);
+}
+.nav-cta-btn:hover {
+  background-color: var(--cp-h);
+}
+
 /* ─── Base ───────────────────────────────────────────────── */
 
 html {

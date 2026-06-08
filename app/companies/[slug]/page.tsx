@@ -269,6 +269,20 @@ export default async function CompanyPage({ params }: Props) {
               </div>
               <ChevronRight className="w-4 h-4 text-[#94a3b8] group-hover:text-[#0ea5e9] transition-colors" />
             </a>
+
+            {/* Claim CTA */}
+            {!company.is_claimed && (
+              <a
+                href={`/claim/${slug}`}
+                className="flex items-center justify-between bg-[#f8fafc] rounded-2xl border border-dashed border-[#cbd5e1] hover:border-[#0ea5e9] hover:bg-[#f0f9ff] p-4 transition-all group"
+              >
+                <div>
+                  <p className="text-xs font-semibold text-[#0ea5e9] mb-0.5">Is this your business?</p>
+                  <p className="text-sm text-[#475569]">Claim this listing — it&apos;s free</p>
+                </div>
+                <ChevronRight className="w-4 h-4 text-[#94a3b8] group-hover:text-[#0ea5e9] transition-colors" />
+              </a>
+            )}
           </div>
         </div>
       </section>

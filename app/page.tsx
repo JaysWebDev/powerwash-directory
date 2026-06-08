@@ -202,12 +202,7 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.step}
-                className="relative flex flex-col items-center text-center p-8 rounded-2xl bg-[#f8fafc] border border-[#e2e8f0] hover:shadow-md transition-all"
-                style={{ ["--tw-border-opacity" as string]: "1" }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.borderColor = `color-mix(in srgb, ${c.primary} 30%, transparent)`)
-                }
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "")}
+                className="relative flex flex-col items-center text-center p-8 rounded-2xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#0ea5e9]/30 hover:shadow-md transition-all"
               >
                 <span
                   style={{ fontFamily: "var(--font-display)" }}

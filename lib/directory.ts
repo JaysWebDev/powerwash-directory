@@ -15,6 +15,7 @@ export interface Company {
   services: string[];
   is_verified: boolean;
   is_featured: boolean;
+  is_claimed: boolean;
   latitude: number | null;
   longitude: number | null;
   short_description: string | null;
@@ -270,7 +271,7 @@ export async function getCompanyBySlug(slug: string): Promise<Company | null> {
   const { data, error } = await supabase
     .from("companies")
     .select(
-      "id,slug,business_name,phone,address,city,state,website,rating,review_count,services,is_verified,is_featured,latitude,longitude,short_description,description,logo_url"
+      "id,slug,business_name,phone,address,city,state,website,rating,review_count,services,is_verified,is_featured,is_claimed,latitude,longitude,short_description,description,logo_url"
     )
     .eq("slug", slug)
     .eq("is_approved", true)
@@ -284,7 +285,7 @@ export async function getCompanyNeighbors(city: string, state: string, excludeSl
   const supabase = createServerClient();
   const { data } = await supabase
     .from("companies")
-    .select("id,slug,business_name,phone,address,city,state,rating,review_count,services,is_verified,is_featured,logo_url,short_description,latitude,longitude,website")
+    .select("id,slug,business_name,phone,address,city,state,rating,review_count,services,is_verified,is_featured,is_claimed,logo_url,short_description,latitude,longitude,website")
     .eq("city", city)
     .eq("state", state)
     .eq("is_approved", true)
@@ -311,7 +312,7 @@ export async function getCompaniesByCity(city: string, state: string): Promise<C
   const { data, error } = await supabase
     .from("companies")
     .select(
-      "id,slug,business_name,phone,address,city,state,website,rating,review_count,services,is_verified,is_featured,latitude,longitude,short_description,logo_url"
+      "id,slug,business_name,phone,address,city,state,website,rating,review_count,services,is_verified,is_featured,is_claimed,latitude,longitude,short_description,logo_url"
     )
     .eq("city", city)
     .eq("state", state)
