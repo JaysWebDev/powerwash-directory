@@ -1,11 +1,13 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Star, CheckCircle, Shield, Clock, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { Star, CheckCircle, Shield, Clock, ChevronRight, MapPin } from "lucide-react";
 import {
   parseLocationSlug,
   getCompaniesByCity,
   getNearbyCities,
+  getCityCompanyCounts,
   cityToSlug,
   DIRECTORY_CITIES,
 } from "@/lib/directory";
@@ -16,8 +18,9 @@ import ServicesAndQuote from "@/components/ServicesAndQuote";
 import { siteConfig, cityTemplate } from "@/config/site";
 
 const Icon = siteConfig.icon;
+const { colors: c } = siteConfig;
 
-export const revalidate = 86400; // Rebuild city pages once per day
+export const revalidate = 86400;
 
 type Props = { params: Promise<{ location: string }> };
 
@@ -61,7 +64,9 @@ export default async function CityPage({ params }: Props) {
   );
   const stateFull = cityEntry?.state ?? state;
 
-  // JSON-LD schema for this city page
+  const nearbyCities = getNearbyCities(city, state, 8);
+  const nearbyCounts = await getCityCompanyCounts(nearbyCities);
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -85,8 +90,6 @@ export default async function CityPage({ params }: Props) {
     })),
   };
 
-  const nearbyCities = getNearbyCities(city, state, 8);
-
   return (
     <main className="flex flex-col flex-1">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
@@ -94,13 +97,13 @@ export default async function CityPage({ params }: Props) {
       {/* ── NAV ───────────────────────────────────── */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#e2e8f0] shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Icon className="w-7 h-7" style={{ color: "var(--cp)" }} />
             <span className="font-bold text-xl tracking-tight" style={{ color: "var(--cd)" }}>
               {siteConfig.brand}{" "}
               <span style={{ color: "var(--cp)" }}>{siteConfig.brandSuffix}</span>
             </span>
-          </a>
+          </Link>
           <a
             href="#quote-form"
             className="text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors shadow-sm"
@@ -120,7 +123,7 @@ export default async function CityPage({ params }: Props) {
         />
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-16 w-full">
           <div className="flex items-center gap-1.5 text-white/50 text-xs mb-6">
-            <a href="/" className="hover:text-white transition-colors">Home</a>
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3" />
             <span className="text-white/80">{city}, {state}</span>
           </div>
@@ -160,12 +163,12 @@ export default async function CityPage({ params }: Props) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm text-[#64748b]">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-[#1e3a5f] text-lg">{companies.length}+</span>
+              <span className="font-bold text-lg" style={{ color: "var(--cd)" }}>{companies.length}+</span>
               <span>Local Pros in {city}</span>
             </div>
             <div className="flex items-center gap-1.5">
               {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 text-[#f59e0b] fill-[#f59e0b]" />)}
-              <span className="font-semibold text-[#1e3a5f] ml-1">4.8</span>
+              <span className="font-semibold ml-1" style={{ color: "var(--cd)" }}>4.8</span>
               <span>avg rating</span>
             </div>
             <div>Free quotes · No obligation</div>
@@ -174,18 +177,17 @@ export default async function CityPage({ params }: Props) {
       </section>
 
       {/* ── LISTINGS ──────────────────────────────── */}
-      <section className="py-16 bg-[#f8fafc]">
+      <section className="py-16" style={{ background: "#f8fafc" }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="mb-6">
-            <h2 className="text-3xl font-bold text-[#1e3a5f] mb-2">
-              Top Power Washing Companies in {city}, {state}
+            <h2 className="text-3xl font-bold mb-2" style={{ color: "var(--cd)" }}>
+              Top {siteConfig.verticalName} Companies in {city}, {state}
             </h2>
             <p className="text-[#64748b]">
-              Sorted by rating · All verified by WashPro Directory
+              Sorted by rating · All verified by {siteConfig.brand} {siteConfig.brandSuffix}
             </p>
           </div>
 
-          {/* Ad — above listings */}
           <AdUnit slot="5303723755" className="mb-8" />
 
           {companies.length > 0 ? (
@@ -195,8 +197,6 @@ export default async function CityPage({ params }: Props) {
                   <CompanyCard key={company.id} company={company} />
                 ))}
               </div>
-
-              {/* In-article ad between row 2 and row 3 */}
               {companies.length > 6 && (
                 <>
                   <AdUnit slot="9977465932" format="fluid" layout="in-article" className="my-8" />
@@ -210,10 +210,10 @@ export default async function CityPage({ params }: Props) {
             </>
           ) : (
             <div className="text-center py-16 bg-white rounded-2xl border border-[#e2e8f0]">
-              <Icon className="w-10 h-10 text-[#0ea5e9] mx-auto mb-3" />
-              <h3 className="font-bold text-[#1e3a5f] text-lg mb-2">No listings yet for {city}</h3>
+              <Icon className="w-10 h-10 mx-auto mb-3" style={{ color: "var(--cp)" }} />
+              <h3 className="font-bold text-lg mb-2" style={{ color: "var(--cd)" }}>No listings yet for {city}</h3>
               <p className="text-[#64748b] mb-6">Be the first to submit a quote request — we&apos;ll match you with a local pro.</p>
-              <a href="#quote-form" className="inline-block bg-[#0ea5e9] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#0284c7] transition-colors">
+              <a href="#quote-form" className="inline-block text-white font-semibold px-6 py-3 rounded-xl transition-colors" style={{ background: "var(--cp)" }}>
                 Get a Free Quote
               </a>
             </div>
@@ -226,41 +226,40 @@ export default async function CityPage({ params }: Props) {
 
       {/* ── NEARBY CITIES ─────────────────────────── */}
       {nearbyCities.length > 0 && (
-        <section className="py-12 bg-white border-t border-[#e2e8f0]">
+        <section className="py-14 border-t border-[#e2e8f0]" style={{ background: "var(--cl)" }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <h2 className="text-xl font-bold text-[#1e3a5f] mb-5">
-              Power Washing in Nearby Cities
-            </h2>
-            <div className="flex flex-wrap gap-3">
-              {nearbyCities.map((c) => (
-                <a
-                  key={c.city}
-                  href={`/${cityToSlug(c.city, c.stateAbbr)}`}
-                  className="px-4 py-2 bg-[#f8fafc] border border-[#e2e8f0] rounded-xl text-sm text-[#475569] hover:border-[#0ea5e9] hover:text-[#0ea5e9] transition-all"
-                >
-                  {c.city}, {c.stateAbbr}
-                </a>
-              ))}
+            <div className="flex items-center gap-2 mb-6">
+              <MapPin className="w-5 h-5" style={{ color: "var(--cp)" }} />
+              <h2 className="text-xl font-bold" style={{ color: "var(--cd)" }}>
+                {siteConfig.verticalName} in Nearby Cities
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {nearbyCities.map((nearby) => {
+                const count = nearbyCounts[`${nearby.city}-${nearby.stateAbbr}`] ?? 0;
+                return (
+                  <Link
+                    key={`${nearby.city}-${nearby.stateAbbr}`}
+                    href={`/${cityToSlug(nearby.city, nearby.stateAbbr)}`}
+                    className="group flex flex-col gap-1 bg-white rounded-xl border border-[#e2e8f0] px-4 py-3 transition-all hover:shadow-md"
+                    style={{ "--hover-border": "var(--cp)" } as React.CSSProperties}
+                  >
+                    <span className="font-semibold text-sm group-hover:underline" style={{ color: "var(--cd)" }}>
+                      {nearby.city}
+                    </span>
+                    <span className="text-xs text-[#94a3b8]">{nearby.stateAbbr}</span>
+                    {count > 0 && (
+                      <span className="text-xs mt-0.5" style={{ color: "var(--cp)" }}>
+                        {count} pro{count !== 1 ? "s" : ""}
+                      </span>
+                    )}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
       )}
-
-      {/* ── FOOTER ────────────────────────────────── */}
-      <footer className="bg-[#1e3a5f] text-white/60 py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <Icon className="w-5 h-5 text-[#0ea5e9]" />
-            <span className="font-bold text-white">WashPro <span className="text-[#0ea5e9]">Directory</span></span>
-          </div>
-          <p className="text-sm">© {new Date().getFullYear()} WashPro Directory. All rights reserved.</p>
-          <div className="flex gap-6 text-sm">
-            {["Privacy", "Terms", "Contact"].map((l) => (
-              <a key={l} href="#" className="hover:text-white transition-colors">{l}</a>
-            ))}
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

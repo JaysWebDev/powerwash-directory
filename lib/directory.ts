@@ -296,6 +296,28 @@ export async function getCompanyNeighbors(city: string, state: string, excludeSl
   return (data as Company[]) ?? [];
 }
 
+export async function getCityCompanyCounts(
+  cities: { city: string; stateAbbr: string }[]
+): Promise<Record<string, number>> {
+  if (cities.length === 0) return {};
+  const supabase = createServerClient();
+  const counts: Record<string, number> = {};
+
+  await Promise.all(
+    cities.map(async ({ city, stateAbbr }) => {
+      const { count } = await supabase
+        .from("companies")
+        .select("id", { count: "exact", head: true })
+        .eq("city", city)
+        .eq("state", stateAbbr)
+        .eq("is_approved", true);
+      counts[`${city}-${stateAbbr}`] = count ?? 0;
+    })
+  );
+
+  return counts;
+}
+
 export async function getAllCompanySlugs(): Promise<string[]> {
   const supabase = createServerClient();
   const { data } = await supabase
