@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site";
 const Icon = siteConfig.icon;
 
 export const revalidate = 86400;
-export const dynamicParams = true; // generate on first hit, cache 24h
+export const dynamicParams = true;
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -34,13 +34,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const SERVICE_LABELS: Record<string, string> = {
   "house-soft-washing": "House Soft Washing",
-  "driveway": "Driveway & Concrete",
-  "deck-restoration": "Deck Restoration",
-  "roof-cleaning": "Roof Cleaning",
-  "fence-washing": "Fence Washing",
-  "gutter-cleaning": "Gutter Cleaning",
-  "solar-panels": "Solar Panel Cleaning",
-  "commercial": "Commercial Property",
+  "driveway":           "Driveway & Concrete",
+  "deck-restoration":   "Deck Restoration",
+  "roof-cleaning":      "Roof Cleaning",
+  "fence-washing":      "Fence Washing",
+  "gutter-cleaning":    "Gutter Cleaning",
+  "solar-panels":       "Solar Panel Cleaning",
+  "commercial":         "Commercial Property",
 };
 
 function Stars({ rating }: { rating: number }) {
@@ -63,8 +63,9 @@ export default async function CompanyPage({ params }: Props) {
   if (!company) notFound();
 
   const citySlug = cityToSlug(company.city, company.state);
-  const cityEntry = DIRECTORY_CITIES.find(c => c.stateAbbr === company.state && c.city === company.city);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://find.outdoorwashing.com";
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const _cityEntry = DIRECTORY_CITIES.find(c => c.stateAbbr === company.state && c.city === company.city);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
 
   const schema = {
     "@context": "https://schema.org",
@@ -130,13 +131,13 @@ export default async function CompanyPage({ params }: Props) {
       {/* ── BREADCRUMB ──────────────────────── */}
       <div className="bg-[#f8fafc] border-b border-[#e2e8f0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-1.5 text-sm text-[#64748b]">
-          <a href="/" className="hover:text-[#1e3a5f] transition-colors">Home</a>
+          <a href="/" className="hover:underline transition-colors">Home</a>
           <ChevronRight className="w-3.5 h-3.5" />
-          <a href={`/${citySlug}`} className="hover:text-[#1e3a5f] transition-colors">
+          <a href={`/${citySlug}`} className="hover:underline transition-colors">
             {siteConfig.cityPage.headlineVerb} {company.city}, {company.state}
           </a>
           <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-[#1e3a5f] font-medium truncate">{company.business_name}</span>
+          <span className="font-medium truncate" style={{ color: "var(--cd)" }}>{company.business_name}</span>
         </div>
       </div>
 
@@ -145,14 +146,14 @@ export default async function CompanyPage({ params }: Props) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
           <div className="flex flex-col sm:flex-row gap-6 items-start">
             {/* Avatar */}
-            <div className="w-20 h-20 rounded-2xl bg-[#1e3a5f] flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+            <div className="w-20 h-20 rounded-2xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0" style={{ background: "var(--cd)" }}>
               {initials}
             </div>
 
             {/* Info */}
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2 mb-2">
-                <h1 className="text-2xl md:text-3xl font-bold text-[#1e3a5f]">{company.business_name}</h1>
+                <h1 className="text-2xl md:text-3xl font-bold" style={{ color: "var(--cd)" }}>{company.business_name}</h1>
                 {company.is_featured && (
                   <span className="inline-flex items-center gap-1 bg-[#fef3c7] text-[#d97706] text-xs font-bold px-2.5 py-1 rounded-full">
                     <Zap className="w-3 h-3" /> Featured
@@ -168,7 +169,7 @@ export default async function CompanyPage({ params }: Props) {
               {company.rating && (
                 <div className="flex items-center gap-3 mb-3">
                   <Stars rating={company.rating} />
-                  <span className="font-bold text-[#1e3a5f]">{company.rating.toFixed(1)}</span>
+                  <span className="font-bold" style={{ color: "var(--cd)" }}>{company.rating.toFixed(1)}</span>
                   {company.review_count > 0 && (
                     <span className="text-[#64748b] text-sm">({company.review_count} reviews)</span>
                   )}
@@ -177,25 +178,25 @@ export default async function CompanyPage({ params }: Props) {
 
               <div className="flex flex-wrap gap-4 text-sm text-[#475569]">
                 {company.phone && (
-                  <a href={`tel:${company.phone.replace(/\D/g, "")}`} className="flex items-center gap-1.5 hover:text-[#0ea5e9] transition-colors font-medium">
-                    <Phone className="w-4 h-4 text-[#0ea5e9]" />{company.phone}
+                  <a href={`tel:${company.phone.replace(/\D/g, "")}`} className="flex items-center gap-1.5 font-medium hover:underline transition-colors">
+                    <Phone className="w-4 h-4" style={{ color: "var(--cp)" }} />{company.phone}
                   </a>
                 )}
                 {company.address && (
                   <span className="flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-[#0ea5e9]" />{company.address}
+                    <MapPin className="w-4 h-4" style={{ color: "var(--cp)" }} />{company.address}
                   </span>
                 )}
                 {company.website && (
-                  <a href={company.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-[#0ea5e9] transition-colors">
-                    <Globe className="w-4 h-4 text-[#0ea5e9]" />Visit Website
+                  <a href={company.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:underline transition-colors">
+                    <Globe className="w-4 h-4" style={{ color: "var(--cp)" }} />Visit Website
                   </a>
                 )}
               </div>
             </div>
 
             {/* CTA */}
-            <a href="#quote-form" className="flex-shrink-0 bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-bold px-8 py-3.5 rounded-xl transition-colors shadow-sm text-sm">
+            <a href="#quote-form" className="flex-shrink-0 text-white font-bold px-8 py-3.5 rounded-xl transition-colors shadow-sm text-sm" style={{ background: "var(--cp)" }}>
               Get Free Quote
             </a>
           </div>
@@ -215,18 +216,18 @@ export default async function CompanyPage({ params }: Props) {
           <div className="md:col-span-2">
             {company.description && (
               <div className="mb-8">
-                <h2 className="text-xl font-bold text-[#1e3a5f] mb-3">About {company.business_name}</h2>
+                <h2 className="text-xl font-bold mb-3" style={{ color: "var(--cd)" }}>About {company.business_name}</h2>
                 <p className="text-[#475569] leading-relaxed">{company.description}</p>
               </div>
             )}
 
-            <h2 className="text-xl font-bold text-[#1e3a5f] mb-4">Services Offered</h2>
+            <h2 className="text-xl font-bold mb-4" style={{ color: "var(--cd)" }}>Services Offered</h2>
             {company.services?.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {company.services.map(s => (
                   <div key={s} className="flex items-center gap-3 bg-white rounded-xl p-4 border border-[#e2e8f0]">
-                    <div className="w-2 h-2 rounded-full bg-[#0ea5e9] flex-shrink-0" />
-                    <span className="text-[#1e3a5f] font-medium text-sm">{SERVICE_LABELS[s] ?? s}</span>
+                    <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: "var(--cp)" }} />
+                    <span className="font-medium text-sm" style={{ color: "var(--cd)" }}>{SERVICE_LABELS[s] ?? s}</span>
                   </div>
                 ))}
               </div>
@@ -238,11 +239,11 @@ export default async function CompanyPage({ params }: Props) {
           {/* Sidebar */}
           <div className="space-y-4">
             <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6">
-              <h3 className="font-bold text-[#1e3a5f] mb-4">Business Info</h3>
+              <h3 className="font-bold mb-4" style={{ color: "var(--cd)" }}>Business Info</h3>
               <dl className="space-y-3 text-sm">
                 <div>
                   <dt className="text-[#94a3b8] text-xs uppercase tracking-wide mb-0.5">Location</dt>
-                  <dd className="text-[#1e3a5f] font-medium">{company.city}, {company.state}</dd>
+                  <dd className="font-medium" style={{ color: "var(--cd)" }}>{company.city}, {company.state}</dd>
                 </div>
                 {company.is_verified && (
                   <div>
@@ -253,36 +254,27 @@ export default async function CompanyPage({ params }: Props) {
                 {company.rating && (
                   <div>
                     <dt className="text-[#94a3b8] text-xs uppercase tracking-wide mb-0.5">Rating</dt>
-                    <dd className="text-[#1e3a5f] font-medium">{company.rating.toFixed(1)} / 5.0 ({company.review_count} reviews)</dd>
+                    <dd className="font-medium" style={{ color: "var(--cd)" }}>{company.rating.toFixed(1)} / 5.0 ({company.review_count} reviews)</dd>
                   </div>
                 )}
               </dl>
-              <a href="#quote-form" className="mt-5 block text-center bg-[#1e3a5f] hover:bg-[#152c48] text-white font-bold py-3 rounded-xl transition-colors text-sm">
+              <a href="#quote-form" className="mt-5 block text-center text-white font-bold py-3 rounded-xl transition-colors text-sm" style={{ background: "var(--cd)" }}>
                 Request Free Quote
               </a>
+              {!company.is_claimed && (
+                <a href={`/claim/${slug}`} className="mt-3 block text-center text-xs font-medium py-2 rounded-xl border border-[#e2e8f0] text-[#64748b] hover:text-[#475569] transition-colors">
+                  Is this your business? Claim it →
+                </a>
+              )}
             </div>
 
-            <a href={`/${citySlug}`} className="flex items-center justify-between bg-white rounded-2xl border border-[#e2e8f0] p-4 hover:border-[#0ea5e9] transition-colors group">
+            <a href={`/${citySlug}`} className="flex items-center justify-between bg-white rounded-2xl border border-[#e2e8f0] p-4 hover:shadow-sm transition-all group">
               <div>
                 <p className="text-xs text-[#94a3b8] mb-0.5">Browse all pros in</p>
-                <p className="font-semibold text-[#1e3a5f] text-sm">{company.city}, {company.state}</p>
+                <p className="font-semibold text-sm" style={{ color: "var(--cd)" }}>{company.city}, {company.state}</p>
               </div>
-              <ChevronRight className="w-4 h-4 text-[#94a3b8] group-hover:text-[#0ea5e9] transition-colors" />
+              <ChevronRight className="w-4 h-4 text-[#94a3b8] group-hover:text-[#475569] transition-colors" />
             </a>
-
-            {/* Claim CTA */}
-            {!company.is_claimed && (
-              <a
-                href={`/claim/${slug}`}
-                className="flex items-center justify-between bg-[#f8fafc] rounded-2xl border border-dashed border-[#cbd5e1] hover:border-[#0ea5e9] hover:bg-[#f0f9ff] p-4 transition-all group"
-              >
-                <div>
-                  <p className="text-xs font-semibold text-[#0ea5e9] mb-0.5">Is this your business?</p>
-                  <p className="text-sm text-[#475569]">Claim this listing — it&apos;s free</p>
-                </div>
-                <ChevronRight className="w-4 h-4 text-[#94a3b8] group-hover:text-[#0ea5e9] transition-colors" />
-              </a>
-            )}
           </div>
         </div>
       </section>
@@ -294,36 +286,20 @@ export default async function CompanyPage({ params }: Props) {
       {neighbors.length > 0 && (
         <section className="py-12 bg-[#f8fafc] border-t border-[#e2e8f0]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <h2 className="text-xl font-bold text-[#1e3a5f] mb-6">
-              Other Power Washing Pros in {company.city}
+            <h2 className="text-xl font-bold mb-6" style={{ color: "var(--cd)" }}>
+              Other {siteConfig.verticalName} Pros in {company.city}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {neighbors.map(n => <CompanyCard key={n.id} company={n} />)}
             </div>
             <div className="mt-6">
-              <a href={`/${citySlug}`} className="inline-flex items-center gap-2 text-[#0ea5e9] font-semibold text-sm hover:underline">
+              <a href={`/${citySlug}`} className="inline-flex items-center gap-2 font-semibold text-sm hover:underline" style={{ color: "var(--cp)" }}>
                 View all pros in {company.city} <ChevronRight className="w-4 h-4" />
               </a>
             </div>
           </div>
         </section>
       )}
-
-      {/* ── FOOTER ──────────────────────────── */}
-      <footer className="bg-[#1e3a5f] text-white/60 py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <Icon className="w-5 h-5" style={{ color: "var(--cp)" }} />
-            <span className="font-bold text-white">WashPro <span className="text-[#0ea5e9]">Directory</span></span>
-          </div>
-          <p className="text-sm">© {new Date().getFullYear()} WashPro Directory. All rights reserved.</p>
-          <div className="flex gap-6 text-sm">
-            {["Privacy", "Terms", "Contact"].map(l => (
-              <a key={l} href="#" className="hover:text-white transition-colors">{l}</a>
-            ))}
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

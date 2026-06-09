@@ -1,8 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Droplets, BadgeCheck, Star, Phone, MapPin, ChevronRight } from "lucide-react";
+import { BadgeCheck, Star, Phone, MapPin, ChevronRight } from "lucide-react";
 import { getCompanyBySlug, cityToSlug } from "@/lib/directory";
+import { siteConfig } from "@/config/site";
 import ClaimForm from "./ClaimForm";
+
+const Icon = siteConfig.icon;
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -10,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const company = await getCompanyBySlug(slug);
   if (!company) return { title: "Not Found" };
-  return { title: `Claim ${company.business_name} — WashPro Directory` };
+  return { title: `Claim ${company.business_name} — ${siteConfig.brand} ${siteConfig.brandSuffix}` };
 }
 
 export default async function ClaimPage({ params }: Props) {
@@ -25,12 +28,12 @@ export default async function ClaimPage({ params }: Props) {
       <main className="min-h-screen bg-[#f8fafc] flex items-center justify-center px-4">
         <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-[#e2e8f0] max-w-md">
           <BadgeCheck className="w-12 h-12 text-[#16a34a] mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-[#1e3a5f] mb-3">Already Claimed</h1>
+          <h1 className="text-2xl font-bold mb-3" style={{ color: "var(--cd)" }}>Already Claimed</h1>
           <p className="text-[#64748b] mb-6">
-            <strong className="text-[#1e3a5f]">{company.business_name}</strong> has already been claimed
+            <strong style={{ color: "var(--cd)" }}>{company.business_name}</strong> has already been claimed
             by its owner.
           </p>
-          <a href={`/companies/${slug}`} className="inline-block bg-[#0ea5e9] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#0284c7] transition-colors text-sm">
+          <a href={`/companies/${slug}`} className="inline-block text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm" style={{ background: "var(--cp)" }}>
             View Listing
           </a>
         </div>
@@ -44,9 +47,10 @@ export default async function ClaimPage({ params }: Props) {
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#e2e8f0] shadow-sm">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
           <a href="/" className="flex items-center gap-2">
-            <Droplets className="w-7 h-7 text-[#0ea5e9]" />
-            <span className="font-bold text-xl text-[#1e3a5f] tracking-tight">
-              WashPro <span className="text-[#0ea5e9]">Directory</span>
+            <Icon className="w-7 h-7" style={{ color: "var(--cp)" }} />
+            <span className="font-bold text-xl tracking-tight" style={{ color: "var(--cd)" }}>
+              {siteConfig.brand}{" "}
+              <span style={{ color: "var(--cp)" }}>{siteConfig.brandSuffix}</span>
             </span>
           </a>
         </div>
@@ -55,17 +59,17 @@ export default async function ClaimPage({ params }: Props) {
       {/* Breadcrumb */}
       <div className="bg-white border-b border-[#e2e8f0]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-1.5 text-sm text-[#64748b]">
-          <a href="/" className="hover:text-[#1e3a5f] transition-colors">Home</a>
+          <a href="/" className="hover:underline transition-colors">Home</a>
           <ChevronRight className="w-3.5 h-3.5" />
-          <a href={`/${citySlug}`} className="hover:text-[#1e3a5f] transition-colors">
+          <a href={`/${citySlug}`} className="hover:underline transition-colors">
             {company.city}, {company.state}
           </a>
           <ChevronRight className="w-3.5 h-3.5" />
-          <a href={`/companies/${slug}`} className="hover:text-[#1e3a5f] transition-colors truncate">
+          <a href={`/companies/${slug}`} className="hover:underline transition-colors truncate">
             {company.business_name}
           </a>
           <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-[#1e3a5f] font-medium">Claim Listing</span>
+          <span className="font-medium" style={{ color: "var(--cd)" }}>Claim Listing</span>
         </div>
       </div>
 
@@ -78,11 +82,11 @@ export default async function ClaimPage({ params }: Props) {
               <p className="text-xs font-semibold text-[#94a3b8] uppercase tracking-wide mb-4">Your Listing</p>
 
               <div className="flex items-start gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#1e3a5f] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-sm flex-shrink-0" style={{ background: "var(--cd)" }}>
                   {company.business_name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase()}
                 </div>
                 <div>
-                  <h2 className="font-bold text-[#1e3a5f] leading-tight">{company.business_name}</h2>
+                  <h2 className="font-bold leading-tight" style={{ color: "var(--cd)" }}>{company.business_name}</h2>
                   <p className="text-sm text-[#64748b]">{company.city}, {company.state}</p>
                 </div>
               </div>
@@ -95,13 +99,13 @@ export default async function ClaimPage({ params }: Props) {
               )}
               {company.phone && (
                 <div className="flex items-center gap-2 mb-3 text-sm text-[#64748b]">
-                  <Phone className="w-4 h-4 text-[#0ea5e9]" />
+                  <Phone className="w-4 h-4" style={{ color: "var(--cp)" }} />
                   <span>{company.phone}</span>
                 </div>
               )}
               {company.address && (
                 <div className="flex items-center gap-2 text-sm text-[#64748b]">
-                  <MapPin className="w-4 h-4 text-[#0ea5e9]" />
+                  <MapPin className="w-4 h-4" style={{ color: "var(--cp)" }} />
                   <span className="truncate">{company.address}</span>
                 </div>
               )}
@@ -126,11 +130,11 @@ export default async function ClaimPage({ params }: Props) {
           {/* Right — claim form */}
           <div className="lg:col-span-3">
             <div className="bg-white rounded-2xl border border-[#e2e8f0] p-8">
-              <h1 className="text-2xl font-bold text-[#1e3a5f] mb-2">
+              <h1 className="text-2xl font-bold mb-2" style={{ color: "var(--cd)" }}>
                 Claim This Listing
               </h1>
               <p className="text-[#64748b] mb-8 text-sm leading-relaxed">
-                Is this your business? Tell us how you're connected and we'll verify your ownership
+                Is this your business? Tell us how you&apos;re connected and we&apos;ll verify your ownership
                 within 1–2 business days — completely free.
               </p>
 
