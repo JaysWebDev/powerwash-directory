@@ -83,7 +83,7 @@ export default function Home() {
       </nav>
 
       {/* ── HERO ────────────────────────────────────────────── */}
-      <section className="relative w-full min-h-[580px] md:min-h-[660px] flex items-center hero-clip">
+      <section className="relative w-full flex items-center hero-clip" style={{ minHeight: "clamp(480px, 60vh, 720px)" }}>
         <Image
           src="/hero-wash.jpg"
           alt={`Professional ${siteConfig.verticalProNoun}`}
@@ -105,7 +105,7 @@ export default function Home() {
           }}
         />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 w-full">
+        <div className="relative z-10 max-w-6xl mx-auto w-full page-px" style={{ paddingTop: "clamp(3rem, 8vw, 6rem)", paddingBottom: "clamp(3rem, 8vw, 6rem)" }}>
           <div className="max-w-xl">
             <div
               className="animate-fade-in-up inline-flex items-center gap-2 bg-white/10 border border-white/20 text-sm font-medium px-4 py-2 rounded-full mb-7 backdrop-blur-sm"
@@ -116,8 +116,8 @@ export default function Home() {
             </div>
 
             <h1
-              style={{ fontFamily: "var(--font-display)" }}
-              className="animate-fade-in-up animate-delay-1 text-5xl md:text-6xl font-bold text-white leading-[1.05] mb-5 tracking-tight"
+              style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-hero)" }}
+              className="animate-fade-in-up animate-delay-1 font-bold text-white leading-[1.05] mb-5 tracking-tight"
             >
               {hero.headlineLines.map((line, i) => (
                 <span key={i}>
@@ -131,7 +131,7 @@ export default function Home() {
               ))}
             </h1>
 
-            <p className="animate-fade-in-up animate-delay-2 text-lg text-white/80 mb-8 leading-relaxed">
+            <p className="animate-fade-in-up animate-delay-2 text-white/80 mb-8 leading-relaxed" style={{ fontSize: "clamp(0.95rem, 1.5vw + 0.4rem, 1.125rem)" }}>
               {hero.subtext}
             </p>
 
@@ -155,20 +155,20 @@ export default function Home() {
       </section>
 
       {/* ── STATS BAR ───────────────────────────────────────── */}
-      <section className="bg-white border-b border-[#e2e8f0] py-5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:divide-x md:divide-[#e2e8f0]">
+      <section className="bg-white border-b border-[#e2e8f0]" style={{ paddingBlock: "clamp(0.875rem, 2vw, 1.25rem)" }}>
+        <div className="max-w-6xl mx-auto page-px">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-0 md:divide-x md:divide-[#e2e8f0]">
             {stats.map(({ icon: StatIcon, value, label }) => (
               <div key={label} className="flex items-center justify-center gap-3 md:px-4">
-                <StatIcon className="w-5 h-5 flex-shrink-0" style={{ color: "var(--cp)" }} />
+                <StatIcon className="flex-shrink-0" style={{ width: "clamp(1rem, 2vw, 1.25rem)", height: "clamp(1rem, 2vw, 1.25rem)", color: "var(--cp)" }} />
                 <div>
                   <div
-                    style={{ fontFamily: "var(--font-display)", color: "var(--cd)" }}
-                    className="text-xl font-bold leading-tight"
+                    style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
+                    className="font-bold leading-tight"
                   >
                     {value}
                   </div>
-                  <div className="text-xs text-[#64748b]">{label}</div>
+                  <div className="text-[#64748b]" style={{ fontSize: "clamp(0.65rem, 1vw, 0.75rem)" }}>{label}</div>
                 </div>
               </div>
             ))}
@@ -180,23 +180,19 @@ export default function Home() {
       <ServicesAndQuote />
 
       {/* ── HOW IT WORKS ────────────────────────────────────── */}
-      <section id="how-it-works" className="py-12 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8 md:mb-16">
+      <section id="how-it-works" className="section-py bg-white">
+        <div className="max-w-6xl mx-auto page-px">
+          <div className="text-center heading-mb">
             <h2
-              style={{ fontFamily: "var(--font-display)", color: "var(--cd)" }}
-              className="text-4xl md:text-5xl font-bold mb-3"
+              style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "var(--fs-display)" }}
+              className="font-bold mb-3"
             >
               How It Works
             </h2>
-            <p className="text-[#64748b] text-lg">Three simple steps to a cleaner home</p>
+            <p className="text-[#64748b]" style={{ fontSize: "clamp(0.95rem, 1.5vw + 0.3rem, 1.125rem)" }}>Three simple steps to a cleaner home</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div
-              className="hidden md:block absolute top-14 left-[calc(16.67%+1rem)] right-[calc(16.67%+1rem)] h-px"
-              style={{ background: `linear-gradient(to right, transparent, color-mix(in srgb, var(--cp) 30%, transparent), transparent)` }}
-            />
+          <div className="grid-fluid-3 relative">
             {[
               {
                 step: "01",
@@ -219,22 +215,22 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.step}
-                className="relative flex flex-col items-center text-center p-8 rounded-2xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#0ea5e9]/30 hover:shadow-md transition-all"
+                className="relative flex flex-col items-center text-center rounded-2xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#0ea5e9]/30 hover:shadow-md transition-all card-pad"
               >
                 <span
-                  style={{ fontFamily: "var(--font-display)" }}
-                  className="absolute top-5 right-6 text-5xl font-bold text-[#e2e8f0] select-none"
+                  style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}
+                  className="absolute top-4 right-5 font-bold text-[#e2e8f0] select-none leading-none"
                 >
                   {item.step}
                 </span>
-                <div className="text-5xl mb-5">{item.emoji}</div>
+                <div className="mb-4" style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)" }}>{item.emoji}</div>
                 <h3
-                  style={{ fontFamily: "var(--font-display)", color: "var(--cd)" }}
-                  className="text-xl font-bold mb-3"
+                  style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "var(--fs-title)" }}
+                  className="font-bold mb-2"
                 >
                   {item.title}
                 </h3>
-                <p className="text-[#64748b] leading-relaxed text-sm">{item.desc}</p>
+                <p className="text-[#64748b] leading-relaxed" style={{ fontSize: "var(--fs-body)" }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -242,12 +238,12 @@ export default function Home() {
       </section>
 
       {/* ── REVIEWS ─────────────────────────────────────────── */}
-      <section id="reviews" className="py-12 md:py-24" style={{ backgroundColor: "var(--cl)" }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8 md:mb-16">
+      <section id="reviews" className="section-py" style={{ backgroundColor: "var(--cl)" }}>
+        <div className="max-w-6xl mx-auto page-px">
+          <div className="text-center heading-mb">
             <h2
-              style={{ fontFamily: "var(--font-display)", color: "var(--cd)" }}
-              className="text-4xl md:text-5xl font-bold mb-4"
+              style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "var(--fs-display)" }}
+              className="font-bold mb-4"
             >
               What Homeowners Say
             </h2>
@@ -256,23 +252,23 @@ export default function Home() {
                 <Star key={i} className="w-5 h-5 text-[#f59e0b] fill-[#f59e0b]" />
               ))}
             </div>
-            <p className="text-[#64748b]">
+            <p className="text-[#64748b]" style={{ fontSize: "var(--fs-body)" }}>
               <strong style={{ color: "var(--cd)" }}>4.9 / 5</strong> from 2,400+ verified reviews
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid-fluid-3">
             {reviews.map((review) => (
               <div
                 key={review.name}
-                className="bg-white rounded-2xl p-7 shadow-sm border border-[#e2e8f0] flex flex-col"
+                className="bg-white rounded-2xl shadow-sm border border-[#e2e8f0] flex flex-col card-pad"
               >
                 <div className="flex items-center gap-1 mb-5">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="w-4 h-4 text-[#f59e0b] fill-[#f59e0b]" />
                   ))}
                 </div>
-                <p className="text-[#475569] leading-relaxed text-[0.95rem] italic flex-1 mb-6">
+                <p className="text-[#475569] leading-relaxed italic flex-1 mb-6" style={{ fontSize: "var(--fs-body)" }}>
                   &ldquo;{review.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-3 pt-4 border-t border-[#f1f5f9]">
@@ -296,16 +292,16 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ─────────────────────────────────────────────── */}
-      <section id="faq" className="py-12 md:py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8 md:mb-16">
+      <section id="faq" className="section-py bg-white">
+        <div className="max-w-3xl mx-auto page-px">
+          <div className="text-center heading-mb">
             <h2
-              style={{ fontFamily: "var(--font-display)", color: "var(--cd)" }}
-              className="text-4xl md:text-5xl font-bold mb-3"
+              style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "var(--fs-display)" }}
+              className="font-bold mb-3"
             >
               Common Questions
             </h2>
-            <p className="text-[#64748b]">
+            <p className="text-[#64748b]" style={{ fontSize: "var(--fs-body)" }}>
               Everything you need to know about {siteConfig.verticalName.toLowerCase()}
             </p>
           </div>

@@ -109,6 +109,50 @@ details[open] .faq-arrow {
   background-color: var(--cp-h);
 }
 
+/* ─── Fluid scale ─────────────────────────────────────────── */
+/* All sizes interpolate linearly between min (320px vw) and max (1280px vw). */
+
+:root {
+  /* Typography */
+  --fs-hero:    clamp(2.1rem,  5vw + 0.6rem, 3.75rem);
+  --fs-display: clamp(1.65rem, 3vw + 0.75rem, 2.75rem);
+  --fs-title:   clamp(1.15rem, 1.5vw + 0.5rem, 1.75rem);
+  --fs-body:    clamp(0.875rem, 1vw + 0.25rem, 1rem);
+
+  /* Spacing */
+  --sp-section: clamp(2.75rem, 6vw + 0.5rem, 6rem);
+  --sp-heading: clamp(1.5rem,  3.5vw, 3.5rem);
+  --sp-card:    clamp(1.25rem, 2.5vw, 1.75rem);
+
+  /* Container */
+  --px-page: clamp(1rem, 4.5vw, 1.5rem);
+}
+
+/* Utility classes */
+.section-py  { padding-top: var(--sp-section); padding-bottom: var(--sp-section); }
+.heading-mb  { margin-bottom: var(--sp-heading); }
+.card-pad    { padding: var(--sp-card); }
+.page-px     { padding-left: var(--px-page); padding-right: var(--px-page); }
+
+/* Fluid grids — reflow at any viewport, no breakpoints needed */
+.grid-fluid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: clamp(0.875rem, 2.5vw, 1.5rem);
+}
+
+.grid-fluid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+.grid-fluid-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr));
+  gap: clamp(0.875rem, 2vw, 1.25rem);
+}
+
 /* ─── Base ───────────────────────────────────────────────── */
 
 html {

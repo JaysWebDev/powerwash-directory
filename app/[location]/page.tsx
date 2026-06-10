@@ -121,14 +121,14 @@ export default async function CityPage({ params }: Props) {
           className="absolute inset-0"
           style={{ background: `linear-gradient(to right, color-mix(in srgb, var(--cd) 92%, transparent), color-mix(in srgb, var(--cd) 70%, transparent), color-mix(in srgb, var(--cd) 30%, transparent))` }}
         />
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-16 w-full">
+        <div className="relative z-10 max-w-6xl mx-auto w-full page-px" style={{ paddingTop: "clamp(2.5rem, 6vw, 4rem)", paddingBottom: "clamp(2.5rem, 6vw, 4rem)" }}>
           <div className="flex items-center gap-1.5 text-white/50 text-xs mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3" />
             <span className="text-white/80">{city}, {state}</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4 tracking-tight">
+          <h1 className="font-bold text-white leading-tight mb-4 tracking-tight" style={{ fontSize: "var(--fs-display)" }}>
             {siteConfig.cityPage.headlineVerb}<br />
             <span style={{ color: "var(--cp-l)" }}>{city}, {state}</span>
           </h1>
@@ -177,10 +177,10 @@ export default async function CityPage({ params }: Props) {
       </section>
 
       {/* ── LISTINGS ──────────────────────────────── */}
-      <section className="py-10 md:py-16" style={{ background: "#f8fafc" }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <section className="section-py" style={{ background: "#f8fafc" }}>
+        <div className="max-w-6xl mx-auto page-px">
           <div className="mb-6">
-            <h2 className="text-3xl font-bold mb-2" style={{ color: "var(--cd)" }}>
+            <h2 className="font-bold mb-2" style={{ color: "var(--cd)", fontSize: "var(--fs-title)" }}>
               Top {siteConfig.verticalName} Companies in {city}, {state}
             </h2>
             <p className="text-[#64748b]">
@@ -192,7 +192,7 @@ export default async function CityPage({ params }: Props) {
 
           {companies.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid-fluid-card">
                 {companies.slice(0, 6).map((company) => (
                   <CompanyCard key={company.id} company={company} />
                 ))}
@@ -200,7 +200,7 @@ export default async function CityPage({ params }: Props) {
               {companies.length > 6 && (
                 <>
                   <AdUnit slot="9977465932" format="fluid" layout="in-article" className="my-8" />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  <div className="grid-fluid-card">
                     {companies.slice(6).map((company) => (
                       <CompanyCard key={company.id} company={company} />
                     ))}
@@ -226,15 +226,15 @@ export default async function CityPage({ params }: Props) {
 
       {/* ── NEARBY CITIES ─────────────────────────── */}
       {nearbyCities.length > 0 && (
-        <section className="py-10 md:py-14 border-t border-[#e2e8f0]" style={{ background: "var(--cl)" }}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <section className="section-py border-t border-[#e2e8f0]" style={{ background: "var(--cl)" }}>
+          <div className="max-w-6xl mx-auto page-px">
             <div className="flex items-center gap-2 mb-6">
               <MapPin className="w-5 h-5" style={{ color: "var(--cp)" }} />
               <h2 className="text-xl font-bold" style={{ color: "var(--cd)" }}>
                 {siteConfig.verticalName} in Nearby Cities
               </h2>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(160px, 100%), 1fr))", gap: "clamp(0.5rem, 1.5vw, 0.75rem)" }}>
               {nearbyCities.map((nearby) => {
                 const count = nearbyCounts[`${nearby.city}-${nearby.stateAbbr}`] ?? 0;
                 return (

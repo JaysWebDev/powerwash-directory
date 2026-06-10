@@ -38,7 +38,7 @@ export default function CompanyCard({ company }: { company: Company }) {
     .toUpperCase();
 
   return (
-    <div className="bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#0ea5e9]/40 hover:shadow-md transition-all p-6 flex flex-col gap-4">
+    <div className="bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#0ea5e9]/40 hover:shadow-md transition-all flex flex-col card-pad" style={{ gap: "clamp(0.75rem, 1.5vw, 1rem)" }}>
       {/* Header */}
       <div className="flex items-start gap-4">
         <div className="w-12 h-12 rounded-xl bg-[#1e3a5f] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
