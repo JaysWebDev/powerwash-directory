@@ -74,16 +74,16 @@ export default function ServicesAndQuote() {
   return (
     <>
       {/* ── SERVICES GRID ─────────────────────────────────────── */}
-      <section id="services" className="py-24 bg-white">
+      <section id="services" className="py-12 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 md:mb-14">
             <h2 style={{ fontFamily: "var(--font-display)" }} className="text-4xl md:text-5xl font-bold text-[#1e3a5f] mb-3">
               Our Services
             </h2>
             <p className="text-[#64748b] text-lg">Select the services you need — we&apos;ll match you with the right pros</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             {services.map((service) => {
               const Icon = service.icon;
               const isSelected = selectedServices.includes(service.id);
@@ -91,7 +91,7 @@ export default function ServicesAndQuote() {
                 <button
                   key={service.id}
                   onClick={() => handleServiceCardClick(service.id)}
-                  className={`group text-left p-5 rounded-2xl border-2 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer ${
+                  className={`group text-left p-4 md:p-5 rounded-2xl border-2 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer ${
                     isSelected
                       ? "border-[#0ea5e9] bg-[#f0f9ff] shadow-md"
                       : "border-[#e2e8f0] bg-white hover:border-[#0ea5e9]/40"
@@ -134,11 +134,11 @@ export default function ServicesAndQuote() {
       {/* ── QUOTE FORM ────────────────────────────────────────── */}
       <section
         id="quote-form"
-        className="py-24"
+        className="py-12 md:py-24"
         style={{ background: "linear-gradient(160deg, #dbeafe 0%, #e0f2fe 40%, #f0fdf4 100%)" }}
       >
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
+          <div className="text-center mb-6 md:mb-10">
             <div className="inline-flex items-center gap-2 bg-white/60 border border-[#bfdbfe] text-[#1e3a5f] text-sm font-medium px-4 py-1.5 rounded-full mb-5 backdrop-blur-sm">
               <BrandIcon className="w-3.5 h-3.5" style={{ color: "var(--cp)" }} />
               Free — No obligation

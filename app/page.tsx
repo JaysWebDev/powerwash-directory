@@ -27,41 +27,58 @@ export default function Home() {
       />
 
       {/* ── NAV ─────────────────────────────────────────────── */}
-      <nav
-        className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#e2e8f0] shadow-sm"
-      >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <Icon className="w-7 h-7" style={{ color: "var(--cp)" }} />
-            <span
-              style={{ fontFamily: "var(--font-display)", color: "var(--cd)" }}
-              className="font-bold text-xl tracking-tight"
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#e2e8f0] shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-14">
+            <div className="flex items-center gap-2">
+              <Icon className="w-6 h-6" style={{ color: "var(--cp)" }} />
+              <span
+                style={{ fontFamily: "var(--font-display)", color: "var(--cd)" }}
+                className="font-bold text-lg tracking-tight"
+              >
+                {siteConfig.brand}{" "}
+                <span style={{ color: "var(--cp)" }}>{siteConfig.brandSuffix}</span>
+              </span>
+            </div>
+            <div className="hidden md:flex items-center gap-8">
+              {[
+                ["Services", "#services"],
+                ["How It Works", "#how-it-works"],
+                ["Reviews", "#reviews"],
+              ].map(([label, href]) => (
+                <a
+                  key={label}
+                  href={href}
+                  className="text-sm font-medium text-[#475569] hover:text-[var(--cd)] transition-colors"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+            <a
+              href="#quote-form"
+              className="text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors shadow-sm nav-cta-btn"
             >
-              {siteConfig.brand}{" "}
-              <span style={{ color: "var(--cp)" }}>{siteConfig.brandSuffix}</span>
-            </span>
+              {siteConfig.cta.text}
+            </a>
           </div>
-          <div className="hidden md:flex items-center gap-8">
+          {/* Mobile section links — scrollable pill row, hidden on md+ */}
+          <div className="flex md:hidden items-center gap-2 pb-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
             {[
               ["Services", "#services"],
               ["How It Works", "#how-it-works"],
               ["Reviews", "#reviews"],
+              ["FAQ", "#faq"],
             ].map(([label, href]) => (
               <a
                 key={label}
                 href={href}
-                className="text-sm font-medium text-[#475569] hover:text-[var(--cd)] transition-colors"
+                className="flex-shrink-0 text-xs font-medium text-[#475569] hover:text-[#1e3a5f] px-3 py-1.5 rounded-full bg-[#f1f5f9] hover:bg-[#e2e8f0] transition-colors whitespace-nowrap"
               >
                 {label}
               </a>
             ))}
           </div>
-          <a
-            href="#quote-form"
-            className="text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors shadow-sm nav-cta-btn"
-          >
-            {siteConfig.cta.text}
-          </a>
         </div>
       </nav>
 
@@ -140,9 +157,9 @@ export default function Home() {
       {/* ── STATS BAR ───────────────────────────────────────── */}
       <section className="bg-white border-b border-[#e2e8f0] py-5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 divide-x divide-[#e2e8f0]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:divide-x md:divide-[#e2e8f0]">
             {stats.map(({ icon: StatIcon, value, label }) => (
-              <div key={label} className="flex items-center justify-center gap-3 px-4">
+              <div key={label} className="flex items-center justify-center gap-3 md:px-4">
                 <StatIcon className="w-5 h-5 flex-shrink-0" style={{ color: "var(--cp)" }} />
                 <div>
                   <div
@@ -163,9 +180,9 @@ export default function Home() {
       <ServicesAndQuote />
 
       {/* ── HOW IT WORKS ────────────────────────────────────── */}
-      <section id="how-it-works" className="py-24 bg-white">
+      <section id="how-it-works" className="py-12 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <h2
               style={{ fontFamily: "var(--font-display)", color: "var(--cd)" }}
               className="text-4xl md:text-5xl font-bold mb-3"
@@ -225,9 +242,9 @@ export default function Home() {
       </section>
 
       {/* ── REVIEWS ─────────────────────────────────────────── */}
-      <section id="reviews" className="py-24" style={{ backgroundColor: "var(--cl)" }}>
+      <section id="reviews" className="py-12 md:py-24" style={{ backgroundColor: "var(--cl)" }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <h2
               style={{ fontFamily: "var(--font-display)", color: "var(--cd)" }}
               className="text-4xl md:text-5xl font-bold mb-4"
@@ -279,9 +296,9 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ─────────────────────────────────────────────── */}
-      <section id="faq" className="py-24 bg-white">
+      <section id="faq" className="py-12 md:py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <h2
               style={{ fontFamily: "var(--font-display)", color: "var(--cd)" }}
               className="text-4xl md:text-5xl font-bold mb-3"

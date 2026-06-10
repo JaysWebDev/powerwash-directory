@@ -177,7 +177,7 @@ export default async function CityPage({ params }: Props) {
       </section>
 
       {/* ── LISTINGS ──────────────────────────────── */}
-      <section className="py-16" style={{ background: "#f8fafc" }}>
+      <section className="py-10 md:py-16" style={{ background: "#f8fafc" }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="mb-6">
             <h2 className="text-3xl font-bold mb-2" style={{ color: "var(--cd)" }}>
@@ -226,7 +226,7 @@ export default async function CityPage({ params }: Props) {
 
       {/* ── NEARBY CITIES ─────────────────────────── */}
       {nearbyCities.length > 0 && (
-        <section className="py-14 border-t border-[#e2e8f0]" style={{ background: "var(--cl)" }}>
+        <section className="py-10 md:py-14 border-t border-[#e2e8f0]" style={{ background: "var(--cl)" }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="flex items-center gap-2 mb-6">
               <MapPin className="w-5 h-5" style={{ color: "var(--cp)" }} />
