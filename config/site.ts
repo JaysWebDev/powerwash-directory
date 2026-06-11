@@ -165,7 +165,7 @@ export const siteConfig: SiteConfig = {
   },
 
   hero: {
-    badge: "Rated 4.9 / 5 by 2,400+ homeowners",
+    badge: "Trusted by homeowners across the US · Free service",
     headlineLines: [
       { text: "Get Your Property" },
       { text: "Power Washed", highlight: true },
@@ -188,21 +188,21 @@ export const siteConfig: SiteConfig = {
 
   reviews: [
     {
-      name: "Sarah M.",
+      name: "Homeowner",
       city: "Charlotte, NC",
-      initials: "SM",
-      text: "Found an amazing pro through WashPro in under 10 minutes. My driveway looks brand new — got 3 quotes and the pricing was super competitive.",
+      initials: "NC",
+      text: "Found a great local pro in minutes. My driveway looks brand new — got 3 quotes and the pricing was competitive.",
     },
     {
-      name: "James T.",
+      name: "Homeowner",
       city: "Nashville, TN",
-      initials: "JT",
-      text: "Had a vetted pro at my house the next morning. House siding looks incredible. The whole process was way easier than I expected.",
+      initials: "TN",
+      text: "Had a vetted pro at my house the next morning. House siding looks incredible. The whole process was way easier than expected.",
     },
     {
-      name: "Linda R.",
+      name: "Homeowner",
       city: "Austin, TX",
-      initials: "LR",
+      initials: "TX",
       text: "My deck hasn't looked this good in years. WashPro matched me with a fantastic local company — great pricing, great work, zero hassle.",
     },
   ],

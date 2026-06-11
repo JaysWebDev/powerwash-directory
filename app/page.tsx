@@ -168,13 +168,19 @@ export default function Home() {
                 ))}
               </div>
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-white">
-                <div className="flex gap-0.5 mb-2">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#fbbf24] text-[#fbbf24]" />
+                <div className="space-y-2">
+                  {[
+                    "Licensed & insured pros",
+                    "Free — no obligation",
+                    "Quotes within 24 hours",
+                    "Compare before you commit",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2 text-sm text-white/80">
+                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "var(--cp-l)" }} />
+                      {item}
+                    </div>
                   ))}
                 </div>
-                <p className="text-sm text-white/80 italic leading-relaxed">&ldquo;Found a great local pro within hours. Easy process, great result!&rdquo;</p>
-                <p className="text-xs text-white/50 mt-2">— Sarah M., Charlotte NC</p>
               </div>
             </div>
 
@@ -281,7 +287,7 @@ export default function Home() {
               ))}
             </div>
             <p className="text-[#64748b]" style={{ fontSize: "var(--fs-body)" }}>
-              <strong style={{ color: "var(--cd)" }}>4.9 / 5</strong> from 2,400+ verified reviews
+              <strong style={{ color: "var(--cd)" }}>4.8 / 5</strong> from 2,400+ reviews
             </p>
           </div>
 
@@ -358,26 +364,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOOTER ──────────────────────────────────────────── */}
-      <footer className="text-white/60 py-10" style={{ backgroundColor: "var(--cd)" }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <Icon className="w-5 h-5" style={{ color: "var(--cp)" }} />
-            <span style={{ fontFamily: "var(--font-display)" }} className="font-bold text-white text-lg">
-              {siteConfig.brand}{" "}
-              <span style={{ color: "var(--cp)" }}>{siteConfig.brandSuffix}</span>
-            </span>
-          </div>
-          <p className="text-sm">© {new Date().getFullYear()} {brandFull}. All rights reserved.</p>
-          <div className="flex gap-6 text-sm">
-            {["Privacy", "Terms", "Contact"].map((link) => (
-              <a key={link} href="#" className="hover:text-white transition-colors">
-                {link}
-              </a>
-            ))}
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

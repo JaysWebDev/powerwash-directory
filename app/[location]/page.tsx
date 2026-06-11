@@ -168,7 +168,7 @@ export default async function CityPage({ params }: Props) {
             </div>
             <div className="flex items-center gap-1.5">
               {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 text-[#f59e0b] fill-[#f59e0b]" />)}
-              <span className="font-semibold ml-1" style={{ color: "var(--cd)" }}>4.8</span>
+              <span className="font-semibold ml-1" style={{ color: "var(--cd)" }}>4.8 / 5</span>
               <span>avg rating</span>
             </div>
             <div>Free quotes · No obligation</div>

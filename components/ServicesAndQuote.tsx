@@ -160,7 +160,7 @@ export default function ServicesAndQuote() {
                   { icon: CheckCircle, text: "Licensed & insured pros only" },
                   { icon: Clock,        text: "Quotes delivered within 24 hours" },
                   { icon: Shield,       text: "Free service — no hidden fees" },
-                  { icon: Star,         text: "Average 4.9 / 5 from 2,400+ reviews" },
+                  { icon: Star,         text: "Average 4.8 / 5 across local pros" },
                 ] as const).map(({ icon: BenefitIcon, text }) => (
                   <div key={text} className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center flex-shrink-0">
@@ -172,15 +172,15 @@ export default function ServicesAndQuote() {
               </div>
 
               <div className="bg-white/60 border border-[#bfdbfe] rounded-2xl p-5">
-                <div className="flex gap-0.5 mb-3">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#64748b] mb-3">How it works</p>
+                <ol className="space-y-2">
+                  {["Submit one form", "Get matched with up to 3 local pros", "Compare quotes — no obligation"].map((step, i) => (
+                    <li key={step} className="flex items-start gap-3 text-sm text-[#1e3a5f]">
+                      <span className="w-5 h-5 rounded-full bg-[#1e3a5f] text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">{i + 1}</span>
+                      {step}
+                    </li>
                   ))}
-                </div>
-                <p className="text-[#1e3a5f] text-sm italic leading-relaxed mb-3">
-                  &ldquo;Used this to find a power washing pro for my driveway. Had 3 quotes by the next morning and hired someone by noon!&rdquo;
-                </p>
-                <p className="text-[#64748b] text-xs font-medium">— James K., Nashville TN</p>
+                </ol>
               </div>
             </div>
 
