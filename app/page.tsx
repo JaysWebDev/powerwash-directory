@@ -106,50 +106,78 @@ export default function Home() {
         />
 
         <div className="relative z-10 max-w-6xl mx-auto w-full page-px" style={{ paddingTop: "clamp(3rem, 8vw, 6rem)", paddingBottom: "clamp(3rem, 8vw, 6rem)" }}>
-          <div className="max-w-xl">
-            <div
-              className="animate-fade-in-up inline-flex items-center gap-2 bg-white/10 border border-white/20 text-sm font-medium px-4 py-2 rounded-full mb-7 backdrop-blur-sm"
-              style={{ color: "var(--cp-l)", maxWidth: "100%" }}
-            >
-              <Star className="w-3.5 h-3.5 fill-current flex-shrink-0" />
-              <span className="truncate">{hero.badge}</span>
+          <div className="grid md:grid-cols-[1fr_300px] lg:grid-cols-[1fr_340px] gap-8 xl:gap-16 items-center">
+
+            {/* ── Left: main content ── */}
+            <div>
+              <div
+                className="animate-fade-in-up inline-flex items-center gap-2 bg-white/10 border border-white/20 text-sm font-medium px-4 py-2 rounded-full mb-7 backdrop-blur-sm"
+                style={{ color: "var(--cp-l)", maxWidth: "100%" }}
+              >
+                <Star className="w-3.5 h-3.5 fill-current flex-shrink-0" />
+                <span className="truncate">{hero.badge}</span>
+              </div>
+
+              <h1
+                style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-hero)" }}
+                className="animate-fade-in-up animate-delay-1 font-bold text-white leading-[1.05] mb-5 tracking-tight"
+              >
+                {hero.headlineLines.map((line, i) => (
+                  <span key={i}>
+                    {line.highlight ? (
+                      <span style={{ color: "var(--cp-l)" }}>{line.text}</span>
+                    ) : (
+                      line.text
+                    )}
+                    {i < hero.headlineLines.length - 1 && <br />}
+                  </span>
+                ))}
+              </h1>
+
+              <p className="animate-fade-in-up animate-delay-2 text-white/80 mb-8 leading-relaxed" style={{ fontSize: "clamp(0.95rem, 1.5vw + 0.4rem, 1.125rem)" }}>
+                {hero.subtext}
+              </p>
+
+              <div className="animate-fade-in-up animate-delay-3">
+                <HeroZipInput />
+              </div>
+
+              <div className="animate-fade-in-up animate-delay-4 flex flex-wrap gap-x-6 gap-y-3 mt-8">
+                {hero.trustSignals.map(({ icon: TrustIcon, label }) => (
+                  <div key={label} className="flex items-center gap-2 text-white/70 text-sm">
+                    <TrustIcon
+                      className="w-4 h-4 flex-shrink-0"
+                      style={{ color: "var(--cp-l)" }}
+                    />
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <h1
-              style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-hero)" }}
-              className="animate-fade-in-up animate-delay-1 font-bold text-white leading-[1.05] mb-5 tracking-tight"
-            >
-              {hero.headlineLines.map((line, i) => (
-                <span key={i}>
-                  {line.highlight ? (
-                    <span style={{ color: "var(--cp-l)" }}>{line.text}</span>
-                  ) : (
-                    line.text
-                  )}
-                  {i < hero.headlineLines.length - 1 && <br />}
-                </span>
-              ))}
-            </h1>
-
-            <p className="animate-fade-in-up animate-delay-2 text-white/80 mb-8 leading-relaxed" style={{ fontSize: "clamp(0.95rem, 1.5vw + 0.4rem, 1.125rem)" }}>
-              {hero.subtext}
-            </p>
-
-            <div className="animate-fade-in-up animate-delay-3">
-              <HeroZipInput />
-            </div>
-
-            <div className="animate-fade-in-up animate-delay-4 flex flex-wrap gap-x-6 gap-y-3 mt-8">
-              {hero.trustSignals.map(({ icon: TrustIcon, label }) => (
-                <div key={label} className="flex items-center gap-2 text-white/70 text-sm">
-                  <TrustIcon
-                    className="w-4 h-4 flex-shrink-0"
-                    style={{ color: "var(--cp-l)" }}
-                  />
-                  <span>{label}</span>
+            {/* ── Right: trust panel (desktop only) ── */}
+            <div className="hidden md:flex flex-col gap-3">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 text-white">
+                <p className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-4">Directory Stats</p>
+                {stats.map(({ icon: StatIcon, value, label }) => (
+                  <div key={label} className="flex items-center gap-3 py-2.5 border-b border-white/10 last:border-0">
+                    <StatIcon className="w-4 h-4 flex-shrink-0" style={{ color: "var(--cp-l)" }} />
+                    <span className="font-bold text-white text-sm">{value}</span>
+                    <span className="text-white/60 text-sm">{label}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-white">
+                <div className="flex gap-0.5 mb-2">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-[#fbbf24] text-[#fbbf24]" />
+                  ))}
                 </div>
-              ))}
+                <p className="text-sm text-white/80 italic leading-relaxed">&ldquo;Found a great local pro within hours. Easy process, great result!&rdquo;</p>
+                <p className="text-xs text-white/50 mt-2">— Sarah M., Charlotte NC</p>
+              </div>
             </div>
+
           </div>
         </div>
       </section>

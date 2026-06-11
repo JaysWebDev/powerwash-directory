@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useTransition } from "react";
 import { submitLead } from "@/app/actions/submitLead";
-import { CheckCircle, ArrowRight, Upload } from "lucide-react";
+import { CheckCircle, ArrowRight, Upload, Clock, Shield, Star } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 const { services, propertyTypes } = siteConfig;
@@ -137,19 +137,68 @@ export default function ServicesAndQuote() {
         className="section-py"
         style={{ background: "linear-gradient(160deg, #dbeafe 0%, #e0f2fe 40%, #f0fdf4 100%)" }}
       >
-        <div className="max-w-2xl mx-auto page-px">
-          <div className="text-center mb-6 md:mb-10">
-            <div className="inline-flex items-center gap-2 bg-white/60 border border-[#bfdbfe] text-[#1e3a5f] text-sm font-medium px-4 py-1.5 rounded-full mb-5 backdrop-blur-sm">
-              <BrandIcon className="w-3.5 h-3.5" style={{ color: "var(--cp)" }} />
-              Free — No obligation
+        <div className="max-w-5xl mx-auto page-px">
+          <div className="grid md:grid-cols-[1fr_1.3fr] gap-10 xl:gap-16 items-start">
+
+            {/* ── Left info panel (desktop only) ── */}
+            <div className="hidden md:flex flex-col gap-7 sticky top-24">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-white/60 border border-[#bfdbfe] text-[#1e3a5f] text-sm font-medium px-4 py-1.5 rounded-full mb-5 backdrop-blur-sm">
+                  <BrandIcon className="w-3.5 h-3.5" style={{ color: "var(--cp)" }} />
+                  Free — No obligation
+                </div>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-display)" }} className="font-bold text-[#1e3a5f] mb-4">
+                  Get Free Quotes
+                </h2>
+                <p className="text-[#475569] text-lg leading-relaxed">
+                  We&apos;ll match you with up to <strong className="text-[#1e3a5f]">3 top-rated local pros</strong> within 24 hours
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {([
+                  { icon: CheckCircle, text: "Licensed & insured pros only" },
+                  { icon: Clock,        text: "Quotes delivered within 24 hours" },
+                  { icon: Shield,       text: "Free service — no hidden fees" },
+                  { icon: Star,         text: "Average 4.9 / 5 from 2,400+ reviews" },
+                ] as const).map(({ icon: BenefitIcon, text }) => (
+                  <div key={text} className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center flex-shrink-0">
+                      <BenefitIcon className="w-4 h-4 text-[#1e3a5f]" />
+                    </div>
+                    <span className="text-sm font-medium text-[#1e3a5f]">{text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="bg-white/60 border border-[#bfdbfe] rounded-2xl p-5">
+                <div className="flex gap-0.5 mb-3">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
+                  ))}
+                </div>
+                <p className="text-[#1e3a5f] text-sm italic leading-relaxed mb-3">
+                  &ldquo;Used this to find a power washing pro for my driveway. Had 3 quotes by the next morning and hired someone by noon!&rdquo;
+                </p>
+                <p className="text-[#64748b] text-xs font-medium">— James K., Nashville TN</p>
+              </div>
             </div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-display)" }} className="font-bold text-[#1e3a5f] mb-3">
-              Get Free Quotes
-            </h2>
-            <p className="text-[#475569]">
-              We&apos;ll match you with up to <strong className="text-[#1e3a5f]">3 top-rated local pros</strong> within 24 hours
-            </p>
-          </div>
+
+            {/* ── Right: form ── */}
+            <div>
+              {/* Mobile header */}
+              <div className="text-center mb-6 md:hidden">
+                <div className="inline-flex items-center gap-2 bg-white/60 border border-[#bfdbfe] text-[#1e3a5f] text-sm font-medium px-4 py-1.5 rounded-full mb-5 backdrop-blur-sm">
+                  <BrandIcon className="w-3.5 h-3.5" style={{ color: "var(--cp)" }} />
+                  Free — No obligation
+                </div>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-display)" }} className="font-bold text-[#1e3a5f] mb-3">
+                  Get Free Quotes
+                </h2>
+                <p className="text-[#475569]">
+                  We&apos;ll match you with up to <strong className="text-[#1e3a5f]">3 top-rated local pros</strong> within 24 hours
+                </p>
+              </div>
 
           {submitted ? (
             <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-[#bfdbfe]">
@@ -372,6 +421,8 @@ export default function ServicesAndQuote() {
               </p>
             </form>
           )}
+            </div>
+          </div>
         </div>
       </section>
     </>
