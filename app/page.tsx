@@ -109,10 +109,10 @@ export default function Home() {
           <div className="max-w-xl">
             <div
               className="animate-fade-in-up inline-flex items-center gap-2 bg-white/10 border border-white/20 text-sm font-medium px-4 py-2 rounded-full mb-7 backdrop-blur-sm"
-              style={{ color: "var(--cp-l)" }}
+              style={{ color: "var(--cp-l)", maxWidth: "100%" }}
             >
-              <Star className="w-3.5 h-3.5 fill-current" />
-              {hero.badge}
+              <Star className="w-3.5 h-3.5 fill-current flex-shrink-0" />
+              <span className="truncate">{hero.badge}</span>
             </div>
 
             <h1
@@ -192,7 +192,7 @@ export default function Home() {
             <p className="text-[#64748b]" style={{ fontSize: "clamp(0.95rem, 1.5vw + 0.3rem, 1.125rem)" }}>Three simple steps to a cleaner home</p>
           </div>
 
-          <div className="grid-fluid-3 relative">
+          <div className="relative" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "clamp(0.875rem, 2.5vw, 1.5rem)" }}>
             {[
               {
                 step: "01",
@@ -257,7 +257,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid-fluid-3">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "clamp(0.875rem, 2.5vw, 1.5rem)" }}>
             {reviews.map((review) => (
               <div
                 key={review.name}

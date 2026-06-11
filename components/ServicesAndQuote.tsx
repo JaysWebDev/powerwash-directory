@@ -83,7 +83,7 @@ export default function ServicesAndQuote() {
             <p className="text-[#64748b]" style={{ fontSize: "clamp(0.875rem, 1.5vw + 0.3rem, 1.125rem)" }}>Select the services you need — we&apos;ll match you with the right pros</p>
           </div>
 
-          <div className="grid-fluid-4">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(170px, 100%), 1fr))", gap: "clamp(0.75rem, 2vw, 1rem)" }}>
             {services.map((service) => {
               const Icon = service.icon;
               const isSelected = selectedServices.includes(service.id);
