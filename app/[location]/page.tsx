@@ -116,7 +116,7 @@ export default async function CityPage({ params }: Props) {
 
       {/* ── HERO ──────────────────────────────────── */}
       <section className="relative w-full min-h-[440px] flex items-center">
-        <Image src="/hero-wash.jpg" alt={`${siteConfig.verticalName} in ${city}, ${state}`} fill className="object-cover object-center" priority sizes="100vw" />
+        <Image src="/hero-wash.jpg" alt={`Power washing service in ${city}, ${state}`} fill className="object-cover object-center" priority sizes="100vw" />
         <div
           className="absolute inset-0"
           style={{ background: `linear-gradient(to right, color-mix(in srgb, var(--cd) 92%, transparent), color-mix(in srgb, var(--cd) 70%, transparent), color-mix(in srgb, var(--cd) 30%, transparent))` }}

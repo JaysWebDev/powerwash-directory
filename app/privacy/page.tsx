@@ -6,9 +6,18 @@ const brand = `${siteConfig.brand} ${siteConfig.brandSuffix}`;
 const domain = siteConfig.domain;
 const updated = "June 8, 2025";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${domain}`;
+
 export const metadata: Metadata = {
   title: `Privacy Policy | ${brand}`,
-  description: `Privacy policy for ${brand} — how we collect, use, and protect your information.`,
+  description: `Privacy policy for ${brand} — how we collect, use, and protect your personal information when you use our free directory service.`,
+  alternates: { canonical: `${SITE_URL}/privacy` },
+  openGraph: {
+    title: `Privacy Policy | ${brand}`,
+    description: `Privacy policy for ${brand} — how we collect, use, and protect your personal information.`,
+    url: `${SITE_URL}/privacy`,
+    type: "website",
+  },
 };
 
 export default function PrivacyPage() {

@@ -8,6 +8,8 @@ const { hero, stats, reviews, faqs, colors: c } = siteConfig;
 const Icon = siteConfig.icon;
 const brandFull = `${siteConfig.brand} ${siteConfig.brandSuffix}`;
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -18,13 +20,46 @@ const faqSchema = {
   })),
 };
 
+const serviceListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Power Washing Services",
+  url: SITE_URL,
+  itemListElement: siteConfig.services.map((service, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Service",
+      name: service.label,
+      description: service.description,
+      provider: {
+        "@type": "Organization",
+        name: brandFull,
+        url: SITE_URL,
+      },
+      areaServed: { "@type": "Country", name: "United States" },
+      serviceType: "Power Washing",
+    },
+  })),
+};
+
+export const metadata = {
+  title: siteConfig.seo.title,
+  description: siteConfig.seo.description,
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    title: siteConfig.seo.title,
+    description: siteConfig.seo.description,
+    url: SITE_URL,
+    type: "website" as const,
+  },
+};
+
 export default function Home() {
   return (
     <main className="flex flex-col flex-1">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceListSchema) }} />
 
       {/* ── NAV ─────────────────────────────────────────────── */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#e2e8f0] shadow-sm">
@@ -86,7 +121,7 @@ export default function Home() {
       <section className="relative w-full flex items-center hero-clip" style={{ minHeight: "clamp(480px, 60vh, 720px)" }}>
         <Image
           src="/hero-wash.jpg"
-          alt={`Professional ${siteConfig.verticalProNoun}`}
+          alt="Professional power washing the exterior of a suburban home"
           fill
           className="object-cover object-center"
           priority

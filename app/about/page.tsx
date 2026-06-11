@@ -6,9 +6,18 @@ import { siteConfig } from "@/config/site";
 const brand = `${siteConfig.brand} ${siteConfig.brandSuffix}`;
 const domain = siteConfig.domain;
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
+
 export const metadata: Metadata = {
   title: `About Us | ${brand}`,
-  description: `${brand} helps homeowners find trusted, licensed ${siteConfig.verticalProNoun} near them. Free quotes, verified reviews, no obligation.`,
+  description: `${brand} connects homeowners with trusted, licensed ${siteConfig.verticalProNoun}. Free service — compare quotes, read real reviews, hire with confidence.`,
+  alternates: { canonical: `${SITE_URL}/about` },
+  openGraph: {
+    title: `About Us | ${brand}`,
+    description: `${brand} connects homeowners with trusted, licensed ${siteConfig.verticalProNoun}. Free service — compare quotes, read real reviews, hire with confidence.`,
+    url: `${SITE_URL}/about`,
+    type: "website",
+  },
 };
 
 const steps = [

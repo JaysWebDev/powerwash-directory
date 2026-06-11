@@ -84,7 +84,6 @@ export interface SiteConfig {
   seo: {
     title: string;
     description: string;
-    keywords: string;
     schemaServiceCategory: string;
     schemaServiceNames: string[];
   };
@@ -146,11 +145,9 @@ export const siteConfig: SiteConfig = {
   },
 
   seo: {
-    title: "WashPro Directory — Find Top-Rated Local Power Washing Pros",
+    title: "Power Washing Near Me | Free Quotes from Local Pros | WashPro Directory",
     description:
-      "Get free quotes from licensed, insured power washing professionals in your area. Compare rates and book in minutes.",
-    keywords:
-      "power washing, pressure washing, local pros, free quotes, home cleaning",
+      "Find licensed, insured power washing pros near you. Get free quotes from local companies — compare rates, read reviews, and hire the right pro in minutes. No obligation.",
     schemaServiceCategory: "Power Washing Services",
     schemaServiceNames: [
       "House Soft Washing",
