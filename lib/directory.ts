@@ -207,6 +207,139 @@ export const DIRECTORY_CITIES: { city: string; state: string; stateAbbr: string 
   { city: "Trumbull",       state: "Connecticut",    stateAbbr: "CT" },
   { city: "Naugatuck",      state: "Connecticut",    stateAbbr: "CT" },
   { city: "Enfield",        state: "Connecticut",    stateAbbr: "CT" },
+  // ── 100-City Expansion — Jun 2026 ────────────────────────────────────────
+  // Florida
+  { city: "Fort Lauderdale",  state: "Florida",        stateAbbr: "FL" },
+  { city: "St. Petersburg",   state: "Florida",        stateAbbr: "FL" },
+  { city: "Cape Coral",       state: "Florida",        stateAbbr: "FL" },
+  { city: "Clearwater",       state: "Florida",        stateAbbr: "FL" },
+  { city: "Gainesville",      state: "Florida",        stateAbbr: "FL" },
+  // Georgia
+  { city: "Savannah",         state: "Georgia",        stateAbbr: "GA" },
+  { city: "Augusta",          state: "Georgia",        stateAbbr: "GA" },
+  { city: "Columbus",         state: "Georgia",        stateAbbr: "GA" },
+  { city: "Alpharetta",       state: "Georgia",        stateAbbr: "GA" },
+  { city: "Marietta",         state: "Georgia",        stateAbbr: "GA" },
+  // Tennessee
+  { city: "Knoxville",        state: "Tennessee",      stateAbbr: "TN" },
+  { city: "Chattanooga",      state: "Tennessee",      stateAbbr: "TN" },
+  { city: "Murfreesboro",     state: "Tennessee",      stateAbbr: "TN" },
+  { city: "Franklin",         state: "Tennessee",      stateAbbr: "TN" },
+  // North Carolina
+  { city: "Cary",             state: "North Carolina", stateAbbr: "NC" },
+  { city: "Concord",          state: "North Carolina", stateAbbr: "NC" },
+  { city: "High Point",       state: "North Carolina", stateAbbr: "NC" },
+  { city: "Wilmington",       state: "North Carolina", stateAbbr: "NC" },
+  // Ohio
+  { city: "Cleveland",        state: "Ohio",           stateAbbr: "OH" },
+  { city: "Dayton",           state: "Ohio",           stateAbbr: "OH" },
+  { city: "Youngstown",       state: "Ohio",           stateAbbr: "OH" },
+  // Virginia
+  { city: "Newport News",     state: "Virginia",       stateAbbr: "VA" },
+  { city: "Hampton",          state: "Virginia",       stateAbbr: "VA" },
+  { city: "Alexandria",       state: "Virginia",       stateAbbr: "VA" },
+  // Maryland
+  { city: "Rockville",        state: "Maryland",       stateAbbr: "MD" },
+  { city: "Gaithersburg",     state: "Maryland",       stateAbbr: "MD" },
+  { city: "Silver Spring",    state: "Maryland",       stateAbbr: "MD" },
+  // Michigan
+  { city: "Detroit",          state: "Michigan",       stateAbbr: "MI" },
+  { city: "Grand Rapids",     state: "Michigan",       stateAbbr: "MI" },
+  { city: "Warren",           state: "Michigan",       stateAbbr: "MI" },
+  { city: "Sterling Heights", state: "Michigan",       stateAbbr: "MI" },
+  { city: "Ann Arbor",        state: "Michigan",       stateAbbr: "MI" },
+  { city: "Lansing",          state: "Michigan",       stateAbbr: "MI" },
+  { city: "Dearborn",         state: "Michigan",       stateAbbr: "MI" },
+  { city: "Livonia",          state: "Michigan",       stateAbbr: "MI" },
+  // South Carolina
+  { city: "Charleston",       state: "South Carolina", stateAbbr: "SC" },
+  { city: "Columbia",         state: "South Carolina", stateAbbr: "SC" },
+  { city: "Greenville",       state: "South Carolina", stateAbbr: "SC" },
+  { city: "Myrtle Beach",     state: "South Carolina", stateAbbr: "SC" },
+  { city: "Spartanburg",      state: "South Carolina", stateAbbr: "SC" },
+  // Wisconsin
+  { city: "Milwaukee",        state: "Wisconsin",      stateAbbr: "WI" },
+  { city: "Green Bay",        state: "Wisconsin",      stateAbbr: "WI" },
+  { city: "Kenosha",          state: "Wisconsin",      stateAbbr: "WI" },
+  { city: "Racine",           state: "Wisconsin",      stateAbbr: "WI" },
+  // Minnesota
+  { city: "Rochester",        state: "Minnesota",      stateAbbr: "MN" },
+  { city: "Bloomington",      state: "Minnesota",      stateAbbr: "MN" },
+  { city: "Duluth",           state: "Minnesota",      stateAbbr: "MN" },
+  // Louisiana
+  { city: "New Orleans",      state: "Louisiana",      stateAbbr: "LA" },
+  { city: "Lafayette",        state: "Louisiana",      stateAbbr: "LA" },
+  { city: "Bossier City",     state: "Louisiana",      stateAbbr: "LA" },
+  // Alabama
+  { city: "Huntsville",       state: "Alabama",        stateAbbr: "AL" },
+  { city: "Mobile",           state: "Alabama",        stateAbbr: "AL" },
+  { city: "Hoover",           state: "Alabama",        stateAbbr: "AL" },
+  // Kansas
+  { city: "Wichita",          state: "Kansas",         stateAbbr: "KS" },
+  { city: "Overland Park",    state: "Kansas",         stateAbbr: "KS" },
+  { city: "Kansas City",      state: "Kansas",         stateAbbr: "KS" },
+  { city: "Olathe",           state: "Kansas",         stateAbbr: "KS" },
+  // Oklahoma
+  { city: "Tulsa",            state: "Oklahoma",       stateAbbr: "OK" },
+  { city: "Norman",           state: "Oklahoma",       stateAbbr: "OK" },
+  // Illinois
+  { city: "Naperville",       state: "Illinois",       stateAbbr: "IL" },
+  { city: "Rockford",         state: "Illinois",       stateAbbr: "IL" },
+  { city: "Springfield",      state: "Illinois",       stateAbbr: "IL" },
+  { city: "Joliet",           state: "Illinois",       stateAbbr: "IL" },
+  // Indiana
+  { city: "Evansville",       state: "Indiana",        stateAbbr: "IN" },
+  { city: "South Bend",       state: "Indiana",        stateAbbr: "IN" },
+  // Colorado
+  { city: "Fort Collins",     state: "Colorado",       stateAbbr: "CO" },
+  { city: "Boulder",          state: "Colorado",       stateAbbr: "CO" },
+  // Washington
+  { city: "Vancouver",        state: "Washington",     stateAbbr: "WA" },
+  { city: "Bellevue",         state: "Washington",     stateAbbr: "WA" },
+  // Oregon
+  { city: "Eugene",           state: "Oregon",         stateAbbr: "OR" },
+  { city: "Salem",            state: "Oregon",         stateAbbr: "OR" },
+  // Missouri
+  { city: "Springfield",      state: "Missouri",       stateAbbr: "MO" },
+  { city: "Independence",     state: "Missouri",       stateAbbr: "MO" },
+  // Idaho
+  { city: "Boise",            state: "Idaho",          stateAbbr: "ID" },
+  { city: "Meridian",         state: "Idaho",          stateAbbr: "ID" },
+  { city: "Coeur d'Alene",    state: "Idaho",          stateAbbr: "ID" },
+  // Mississippi
+  { city: "Jackson",          state: "Mississippi",    stateAbbr: "MS" },
+  { city: "Southaven",        state: "Mississippi",    stateAbbr: "MS" },
+  // Arkansas
+  { city: "Fayetteville",     state: "Arkansas",       stateAbbr: "AR" },
+  // Nevada
+  { city: "Sparks",           state: "Nevada",         stateAbbr: "NV" },
+  // Pennsylvania
+  { city: "Allentown",        state: "Pennsylvania",   stateAbbr: "PA" },
+  { city: "Erie",             state: "Pennsylvania",   stateAbbr: "PA" },
+  // New York
+  { city: "Staten Island",    state: "New York",       stateAbbr: "NY" },
+  { city: "Syracuse",         state: "New York",       stateAbbr: "NY" },
+  // New Jersey
+  { city: "Paterson",         state: "New Jersey",     stateAbbr: "NJ" },
+  { city: "Elizabeth",        state: "New Jersey",     stateAbbr: "NJ" },
+  // Kentucky
+  { city: "Bowling Green",    state: "Kentucky",       stateAbbr: "KY" },
+  { city: "Covington",        state: "Kentucky",       stateAbbr: "KY" },
+  // Texas
+  { city: "Arlington",        state: "Texas",          stateAbbr: "TX" },
+  { city: "El Paso",          state: "Texas",          stateAbbr: "TX" },
+  { city: "Waco",             state: "Texas",          stateAbbr: "TX" },
+  // Utah
+  { city: "Salt Lake City",   state: "Utah",           stateAbbr: "UT" },
+  { city: "West Valley City", state: "Utah",           stateAbbr: "UT" },
+  { city: "Provo",            state: "Utah",           stateAbbr: "UT" },
+  { city: "Sandy",            state: "Utah",           stateAbbr: "UT" },
+  // Northern Plains & Mountain West
+  { city: "Sioux Falls",      state: "South Dakota",   stateAbbr: "SD" },
+  { city: "Fargo",            state: "North Dakota",   stateAbbr: "ND" },
+  { city: "Billings",         state: "Montana",        stateAbbr: "MT" },
+  { city: "Cheyenne",         state: "Wyoming",        stateAbbr: "WY" },
+  { city: "Charleston",       state: "West Virginia",  stateAbbr: "WV" },
 ];
 
 export function cityToSlug(city: string, stateAbbr: string): string {
