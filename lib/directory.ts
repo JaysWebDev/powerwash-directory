@@ -371,6 +371,38 @@ export function parseLocationSlug(slug: string): { city: string; state: string }
   return { city, state };
 }
 
+// ── State helpers ─────────────────────────────────────────────────────────────
+
+export const DIRECTORY_STATES: { state: string; stateAbbr: string }[] =
+  Array.from(
+    new Map(DIRECTORY_CITIES.map((c) => [c.stateAbbr, { state: c.state, stateAbbr: c.stateAbbr }])).values()
+  ).sort((a, b) => a.state.localeCompare(b.state));
+
+function slugifyState(stateName: string): string {
+  return stateName
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/[\s-]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export function stateToSlug(stateAbbr: string): string {
+  const entry = DIRECTORY_STATES.find((s) => s.stateAbbr === stateAbbr);
+  if (!entry) return `${siteConfig.verticalSlug}-${stateAbbr.toLowerCase()}`;
+  return `${siteConfig.verticalSlug}-${slugifyState(entry.state)}`;
+}
+
+export function parseStateSlug(slug: string): { state: string; stateAbbr: string } | null {
+  const prefix = `${siteConfig.verticalSlug}-`;
+  if (!slug.startsWith(prefix)) return null;
+  const rest = slug.slice(prefix.length);
+  return DIRECTORY_STATES.find((s) => slugifyState(s.state) === rest) ?? null;
+}
+
+export function getCitiesInState(stateAbbr: string) {
+  return DIRECTORY_CITIES.filter((c) => c.stateAbbr === stateAbbr);
+}
+
 // Regional groups for cross-state "nearby cities" linking
 export const REGIONAL_GROUPS: Record<string, string[]> = {
   newengland:   ["MA", "RI", "CT", "NH", "VT", "ME"],
