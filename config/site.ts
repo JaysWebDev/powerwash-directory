@@ -225,6 +225,26 @@ export const siteConfig: SiteConfig = {
       q: "Is power washing safe for plants and landscaping?",
       a: "Experienced pros take precautions: wetting plants before and after, using eco-friendly detergents, and directing spray away from beds. Ask your pro about their specific approach.",
     },
+    {
+      q: "What's the difference between pressure washing and soft washing?",
+      a: "Pressure washing uses high-pressure water to blast away hard dirt from concrete, brick, and stone. Soft washing uses low pressure plus specialized cleaning solutions to safely remove mold, algae, and stains from more delicate surfaces like siding, roofs, and fences. Most pros use both methods depending on what's being cleaned.",
+    },
+    {
+      q: "Can power washing damage my home's siding or roof?",
+      a: "In the wrong hands, yes — high pressure can crack siding, strip paint, or force water under shingles. That's why professional technique matters. Reputable pros always use the correct pressure and method for each surface. Vinyl siding and roofs are always cleaned with soft-wash low-pressure techniques by trained contractors.",
+    },
+    {
+      q: "Do I need to be home when the work is done?",
+      a: "Not necessarily. Most pros just need access to an outdoor water spigot and the areas to be cleaned. If gates or specific access points need to be unlocked, coordinate with your pro before the appointment. Many homeowners are at work during the service with no issues.",
+    },
+    {
+      q: "What's included in a quote — are there hidden fees?",
+      a: "A good quote covers labor, cleaning solutions, and equipment. Watch out for add-ons like 'chemical fees' or 'travel surcharges' that aren't mentioned upfront. When you request quotes through WashPro, pros are expected to give all-in pricing. Always confirm what's included in writing before work begins.",
+    },
+    {
+      q: "Is power washing worth it before selling my house?",
+      a: "Absolutely. Curb appeal is one of the biggest factors in first impressions, and a clean exterior can add thousands to perceived home value. Driveways, siding, decks, and walkways that look dingy can turn off buyers before they even step inside. A $200–$400 professional wash can easily net a 5–10x return in improved offer quality.",
+    },
   ],
 
   services: [

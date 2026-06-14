@@ -210,6 +210,7 @@ export const DIRECTORY_CITIES: { city: string; state: string; stateAbbr: string 
   // ── 100-City Expansion — Jun 2026 ────────────────────────────────────────
   // Florida
   { city: "Fort Lauderdale",  state: "Florida",        stateAbbr: "FL" },
+  { city: "Fort Myers",       state: "Florida",        stateAbbr: "FL" },
   { city: "St. Petersburg",   state: "Florida",        stateAbbr: "FL" },
   { city: "Cape Coral",       state: "Florida",        stateAbbr: "FL" },
   { city: "Clearwater",       state: "Florida",        stateAbbr: "FL" },
@@ -319,6 +320,7 @@ export const DIRECTORY_CITIES: { city: string; state: string; stateAbbr: string 
   // New York
   { city: "Staten Island",    state: "New York",       stateAbbr: "NY" },
   { city: "Syracuse",         state: "New York",       stateAbbr: "NY" },
+  { city: "Brooklyn",         state: "New York",       stateAbbr: "NY" },
   // New Jersey
   { city: "Paterson",         state: "New Jersey",     stateAbbr: "NJ" },
   { city: "Elizabeth",        state: "New Jersey",     stateAbbr: "NJ" },

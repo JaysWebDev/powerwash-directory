@@ -72,7 +72,7 @@ export default function Home() {
                 className="font-bold text-lg tracking-tight"
               >
                 {siteConfig.brand}{" "}
-                <span style={{ color: "var(--cp)" }}>{siteConfig.brandSuffix}</span>
+                <span style={{ color: "var(--cp-h)" }}>{siteConfig.brandSuffix}</span>
               </span>
             </div>
             <div className="hidden md:flex items-center gap-8">

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Star, Phone, MapPin, Globe, BadgeCheck, ChevronRight, Zap } from "lucide-react";
-import { getCompanyBySlug, getCompanyNeighbors, cityToSlug, DIRECTORY_CITIES } from "@/lib/directory";
+import { getCompanyBySlug, getCompanyNeighbors, cityToSlug, stateToSlug, DIRECTORY_CITIES } from "@/lib/directory";
 import CompanyCard from "@/components/CompanyCard";
 import ServicesAndQuote from "@/components/ServicesAndQuote";
 import AdUnit from "@/components/AdUnit";
@@ -63,8 +63,9 @@ export default async function CompanyPage({ params }: Props) {
   if (!company) notFound();
 
   const citySlug = cityToSlug(company.city, company.state);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const _cityEntry = DIRECTORY_CITIES.find(c => c.stateAbbr === company.state && c.city === company.city);
+  const cityEntry = DIRECTORY_CITIES.find(c => c.stateAbbr === company.state && c.city === company.city);
+  const stateFull = cityEntry?.state ?? company.state;
+  const stateSlug = stateToSlug(company.state);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
 
   const schema = {
@@ -102,11 +103,23 @@ export default async function CompanyPage({ params }: Props) {
     } : undefined,
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: stateFull, item: `${siteUrl}/${stateSlug}` },
+      { "@type": "ListItem", position: 3, name: `${siteConfig.verticalName} in ${company.city}, ${company.state}`, item: `${siteUrl}/${citySlug}` },
+      { "@type": "ListItem", position: 4, name: company.business_name, item: `${siteUrl}/companies/${slug}` },
+    ],
+  };
+
   const initials = company.business_name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase();
 
   return (
     <main className="flex flex-col flex-1">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* ── NAV ─────────────────────────────── */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#e2e8f0] shadow-sm">
@@ -133,8 +146,10 @@ export default async function CompanyPage({ params }: Props) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-1.5 text-sm text-[#64748b]">
           <a href="/" className="hover:underline transition-colors">Home</a>
           <ChevronRight className="w-3.5 h-3.5" />
+          <a href={`/${stateSlug}`} className="hover:underline transition-colors">{stateFull}</a>
+          <ChevronRight className="w-3.5 h-3.5" />
           <a href={`/${citySlug}`} className="hover:underline transition-colors">
-            {siteConfig.cityPage.headlineVerb} {company.city}, {company.state}
+            {company.city}, {company.state}
           </a>
           <ChevronRight className="w-3.5 h-3.5" />
           <span className="font-medium truncate" style={{ color: "var(--cd)" }}>{company.business_name}</span>

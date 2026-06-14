@@ -108,22 +108,76 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         {children}
-        <footer style={{ background: c.darkDeep, color: "#cbd5e1" }} className="mt-auto py-10 px-6 text-sm">
-          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-start gap-6">
-            <div>
-              <p className="font-semibold text-white text-base mb-1">{brandFull}</p>
-              <p style={{ color: "#64748b" }} className="text-xs max-w-xs">
-                Free directory connecting homeowners with licensed, insured local pros.
+        <footer style={{ background: c.darkDeep, color: "#cbd5e1" }} className="mt-auto pt-12 pb-8 px-6 text-sm">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 mb-8">
+            {/* Brand */}
+            <div className="col-span-2 sm:col-span-1">
+              <p className="font-semibold text-white text-base mb-2">{brandFull}</p>
+              <p style={{ color: "#64748b" }} className="text-xs leading-relaxed max-w-xs mb-4">
+                Free directory connecting homeowners with licensed, insured local power washing pros.
               </p>
+              <a
+                href="/cost-calculator"
+                style={{ color: "#38bdf8" }}
+                className="text-xs font-semibold hover:text-white transition-colors"
+              >
+                Free Cost Estimator →
+              </a>
             </div>
-            <nav className="flex flex-wrap gap-x-8 gap-y-2">
-              <a href="/" style={{ color: "#94a3b8" }} className="hover:text-white transition-colors">Home</a>
-              <a href="/about" style={{ color: "#94a3b8" }} className="hover:text-white transition-colors">About</a>
-              <a href="/privacy" style={{ color: "#94a3b8" }} className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href={`mailto:hello@${siteConfig.domain}`} style={{ color: "#94a3b8" }} className="hover:text-white transition-colors">Contact</a>
+            {/* Services */}
+            <nav aria-label="Services">
+              <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "#64748b" }}>Services</p>
+              <ul className="space-y-2">
+                {[
+                  { href: "/services/house-soft-washing", label: "House Soft Washing" },
+                  { href: "/services/driveway",           label: "Driveway Cleaning" },
+                  { href: "/services/deck-restoration",   label: "Deck Restoration" },
+                  { href: "/services/roof-cleaning",      label: "Roof Cleaning" },
+                  { href: "/services/gutter-cleaning",    label: "Gutter Cleaning" },
+                  { href: "/services",                    label: "All Services →" },
+                ].map(({ href, label }) => (
+                  <li key={href}>
+                    <a href={href} style={{ color: "#94a3b8" }} className="hover:text-white transition-colors text-xs">{label}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            {/* Guides */}
+            <nav aria-label="Guides">
+              <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "#64748b" }}>Guides</p>
+              <ul className="space-y-2">
+                {[
+                  { href: "/guides/power-washing-cost",          label: "Cost Guide 2026" },
+                  { href: "/guides/pressure-vs-soft-washing",    label: "Pressure vs Soft Wash" },
+                  { href: "/guides/remove-roof-algae",           label: "Remove Roof Algae" },
+                  { href: "/guides/power-washing-home-value",    label: "Boost Home Value" },
+                  { href: "/guides/vet-power-washing-contractor", label: "Vet a Contractor" },
+                  { href: "/guides",                             label: "All Guides →" },
+                ].map(({ href, label }) => (
+                  <li key={href}>
+                    <a href={href} style={{ color: "#94a3b8" }} className="hover:text-white transition-colors text-xs">{label}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            {/* Company */}
+            <nav aria-label="Company">
+              <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "#64748b" }}>Company</p>
+              <ul className="space-y-2">
+                {[
+                  { href: "/",          label: "Home" },
+                  { href: "/about",     label: "About" },
+                  { href: "/privacy",   label: "Privacy Policy" },
+                  { href: `mailto:hello@${siteConfig.domain}`, label: "Contact" },
+                ].map(({ href, label }) => (
+                  <li key={href}>
+                    <a href={href} style={{ color: "#94a3b8" }} className="hover:text-white transition-colors text-xs">{label}</a>
+                  </li>
+                ))}
+              </ul>
             </nav>
           </div>
-          <div className="max-w-6xl mx-auto mt-6 pt-4 border-t border-white/10 text-xs" style={{ color: "#64748b" }}>
+          <div className="max-w-6xl mx-auto pt-6 border-t border-white/10 text-xs" style={{ color: "#64748b" }}>
             © {new Date().getFullYear()} {brandFull}. All rights reserved. · {brandFull} is a free matching service — not a contractor.
           </div>
         </footer>

@@ -106,6 +106,17 @@ export default async function CityPage({ params }: Props) {
   };
 
   const stateSlug = stateToSlug(state);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: stateFull, item: `${siteUrl}/${stateSlug}` },
+      { "@type": "ListItem", position: 3, name: `${siteConfig.verticalName} in ${city}, ${state}`, item: `${siteUrl}/${location}` },
+    ],
+  };
 
   const schema = {
     "@context": "https://schema.org",
@@ -134,6 +145,7 @@ export default async function CityPage({ params }: Props) {
     <main className="flex flex-col flex-1">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* ── NAV ───────────────────────────────────── */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#e2e8f0] shadow-sm">
@@ -354,6 +366,15 @@ async function StatePage({
     })),
   };
 
+  const stateBreadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: state, item: `${siteUrl}/${location}` },
+    ],
+  };
+
   const { REGIONAL_GROUPS } = await import("@/lib/directory");
   const region = Object.values(REGIONAL_GROUPS).find((states) => states.includes(stateAbbr)) ?? [];
   const nearbyStates = DIRECTORY_STATES.filter(
@@ -364,6 +385,7 @@ async function StatePage({
     <main className="flex flex-col flex-1">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(stateBreadcrumbSchema) }} />
 
       {/* ── NAV ───────────────────────────────────── */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#e2e8f0] shadow-sm">
