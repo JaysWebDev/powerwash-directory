@@ -5,6 +5,9 @@ import { getCompanyBySlug, cityToSlug } from "@/lib/directory";
 import { siteConfig } from "@/config/site";
 import ClaimForm from "./ClaimForm";
 
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
+
 const Icon = siteConfig.icon;
 
 type Props = { params: Promise<{ slug: string }> };
@@ -12,8 +15,12 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const company = await getCompanyBySlug(slug);
-  if (!company) return { title: "Not Found" };
-  return { title: `Claim ${company.business_name} — ${siteConfig.brand} ${siteConfig.brandSuffix}` };
+  if (!company) return { title: "Not Found", robots: { index: false, follow: false } };
+  return {
+    title: `Claim ${company.business_name} — ${siteConfig.brand} ${siteConfig.brandSuffix}`,
+    alternates: { canonical: `${BASE_URL}/claim/${slug}` },
+    robots: { index: false, follow: false },
+  };
 }
 
 export default async function ClaimPage({ params }: Props) {
