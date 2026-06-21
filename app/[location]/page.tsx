@@ -15,6 +15,7 @@ import {
   DIRECTORY_CITIES,
   DIRECTORY_STATES,
 } from "@/lib/directory";
+import { getCityContext } from "@/lib/city-content";
 import CompanyCard from "@/components/CompanyCard";
 import AdUnit from "@/components/AdUnit";
 import HeroZipInput from "@/components/HeroZipInput";
@@ -141,10 +142,11 @@ export default async function CityPage({ params }: Props) {
     })),
   };
 
+  const cityContext = getCityContext(state);
+
   return (
     <main className="flex flex-col flex-1">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* ── NAV ───────────────────────────────────── */}
@@ -228,6 +230,18 @@ export default async function CityPage({ params }: Props) {
             </div>
             <div>Free quotes · No obligation</div>
           </div>
+        </div>
+      </section>
+
+      {/* ── CITY CONTEXT ──────────────────────────── */}
+      <section className="bg-white border-b border-[#e2e8f0] py-6">
+        <div className="max-w-6xl mx-auto page-px">
+          <h2 className="font-bold mb-2 text-base" style={{ color: "var(--cd)" }}>
+            Power Washing in {city}, {state}
+          </h2>
+          <p className="text-[#475569] text-sm leading-relaxed max-w-3xl">
+            {cityContext.climate} {cityContext.timing} {cityContext.tip}
+          </p>
         </div>
       </section>
 
@@ -384,7 +398,6 @@ async function StatePage({
   return (
     <main className="flex flex-col flex-1">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(stateBreadcrumbSchema) }} />
 
       {/* ── NAV ───────────────────────────────────── */}

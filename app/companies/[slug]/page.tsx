@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Star, Phone, MapPin, Globe, BadgeCheck, ChevronRight, Zap } from "lucide-react";
-import { getCompanyBySlug, getCompanyNeighbors, cityToSlug, stateToSlug, DIRECTORY_CITIES } from "@/lib/directory";
+import { getCompanyBySlug, getCompanyNeighbors, getAllCompanySlugs, cityToSlug, stateToSlug, DIRECTORY_CITIES } from "@/lib/directory";
 import CompanyCard from "@/components/CompanyCard";
 import ServicesAndQuote from "@/components/ServicesAndQuote";
 import AdUnit from "@/components/AdUnit";
@@ -11,6 +11,11 @@ const Icon = siteConfig.icon;
 
 export const revalidate = 86400;
 export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const slugs = await getAllCompanySlugs();
+  return slugs.map((slug) => ({ slug }));
+}
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -115,6 +120,10 @@ export default async function CompanyPage({ params }: Props) {
   };
 
   const initials = company.business_name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase();
+
+  const descriptionText = company.description
+    ?? company.short_description
+    ?? `${company.business_name} is a ${siteConfig.verticalName.toLowerCase()} company serving ${company.city}, ${company.state}${company.services?.length ? `, offering services including ${company.services.slice(0, 3).map(s => SERVICE_LABELS[s] ?? s).join(", ")}` : ""}. ${company.rating ? `They have a ${company.rating.toFixed(1)}-star rating based on ${company.review_count} customer reviews.` : "Contact them for a free quote on your next exterior cleaning project."}`;
 
   return (
     <main className="flex flex-col flex-1">
@@ -229,12 +238,10 @@ export default async function CompanyPage({ params }: Props) {
 
           {/* Services */}
           <div className="md:col-span-2">
-            {company.description && (
-              <div className="mb-8">
-                <h2 className="text-xl font-bold mb-3" style={{ color: "var(--cd)" }}>About {company.business_name}</h2>
-                <p className="text-[#475569] leading-relaxed">{company.description}</p>
-              </div>
-            )}
+            <div className="mb-8">
+              <h2 className="text-xl font-bold mb-3" style={{ color: "var(--cd)" }}>About {company.business_name}</h2>
+              <p className="text-[#475569] leading-relaxed">{descriptionText}</p>
+            </div>
 
             <h2 className="text-xl font-bold mb-4" style={{ color: "var(--cd)" }}>Services Offered</h2>
             {company.services?.length > 0 ? (

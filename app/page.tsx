@@ -2,9 +2,11 @@ import Image from "next/image";
 import { Star, ChevronDown } from "lucide-react";
 import ServicesAndQuote from "@/components/ServicesAndQuote";
 import HeroZipInput from "@/components/HeroZipInput";
+import CompanyCard from "@/components/CompanyCard";
 import { siteConfig } from "@/config/site";
+import { getFeaturedCompanies } from "@/lib/directory";
 
-const { hero, stats, reviews, faqs, colors: c } = siteConfig;
+const { hero, stats, faqs, colors: c } = siteConfig;
 const Icon = siteConfig.icon;
 const brandFull = `${siteConfig.brand} ${siteConfig.brandSuffix}`;
 
@@ -55,7 +57,9 @@ export const metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  const featuredCompanies = await getFeaturedCompanies(3);
+
   return (
     <main className="flex flex-col flex-1">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -306,59 +310,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── REVIEWS ─────────────────────────────────────────── */}
-      <section id="reviews" className="section-py" style={{ backgroundColor: "var(--cl)" }}>
-        <div className="max-w-6xl mx-auto page-px">
-          <div className="text-center heading-mb">
-            <h2
-              style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "var(--fs-display)" }}
-              className="font-bold mb-4"
-            >
-              What Homeowners Say
-            </h2>
-            <div className="flex justify-center items-center gap-1 mb-1">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-[#f59e0b] fill-[#f59e0b]" />
+      {/* ── FEATURED PROS ───────────────────────────────────── */}
+      {featuredCompanies.length > 0 && (
+        <section id="featured" className="section-py" style={{ backgroundColor: "var(--cl)" }}>
+          <div className="max-w-6xl mx-auto page-px">
+            <div className="text-center heading-mb">
+              <h2
+                style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "var(--fs-display)" }}
+                className="font-bold mb-3"
+              >
+                Featured Local Pros
+              </h2>
+              <p className="text-[#64748b]" style={{ fontSize: "var(--fs-body)" }}>
+                A sample of the verified professionals listed in our directory
+              </p>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "clamp(0.875rem, 2.5vw, 1.5rem)" }}>
+              {featuredCompanies.map((company) => (
+                <CompanyCard key={company.id} company={company} />
               ))}
             </div>
-            <p className="text-[#64748b]" style={{ fontSize: "var(--fs-body)" }}>
-              <strong style={{ color: "var(--cd)" }}>4.8 / 5</strong> from 2,400+ reviews
+            <p className="text-center text-sm text-[#64748b] mt-8">
+              Enter your ZIP code above to browse all pros in your area.
             </p>
           </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "clamp(0.875rem, 2.5vw, 1.5rem)" }}>
-            {reviews.map((review) => (
-              <div
-                key={review.name}
-                className="bg-white rounded-2xl shadow-sm border border-[#e2e8f0] flex flex-col card-pad"
-              >
-                <div className="flex items-center gap-1 mb-5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-[#f59e0b] fill-[#f59e0b]" />
-                  ))}
-                </div>
-                <p className="text-[#475569] leading-relaxed italic flex-1 mb-6" style={{ fontSize: "var(--fs-body)" }}>
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-[#f1f5f9]">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                    style={{ backgroundColor: "var(--cd)" }}
-                  >
-                    {review.initials}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm" style={{ color: "var(--cd)" }}>
-                      {review.name}
-                    </p>
-                    <p className="text-[#94a3b8] text-xs">{review.city}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── FAQ ─────────────────────────────────────────────── */}
       <section id="faq" className="section-py bg-white">

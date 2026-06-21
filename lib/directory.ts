@@ -496,6 +496,31 @@ export async function getAllCompanySlugs(): Promise<string[]> {
   return (data ?? []).map((r: { slug: string }) => r.slug).filter(Boolean);
 }
 
+export async function getFeaturedCompanies(limit = 3): Promise<Company[]> {
+  const supabase = createServerClient();
+  const { data } = await supabase
+    .from("companies")
+    .select("id,slug,business_name,phone,address,city,state,rating,review_count,services,is_verified,is_featured,is_claimed,logo_url,short_description,latitude,longitude,website")
+    .eq("is_approved", true)
+    .eq("is_featured", true)
+    .order("rating", { ascending: false })
+    .limit(limit);
+
+  if (!data || data.length === 0) {
+    const { data: fallback } = await supabase
+      .from("companies")
+      .select("id,slug,business_name,phone,address,city,state,rating,review_count,services,is_verified,is_featured,is_claimed,logo_url,short_description,latitude,longitude,website")
+      .eq("is_approved", true)
+      .not("rating", "is", null)
+      .order("rating", { ascending: false })
+      .order("review_count", { ascending: false })
+      .limit(limit);
+    return (fallback as Company[]) ?? [];
+  }
+
+  return (data as Company[]) ?? [];
+}
+
 export async function getCompaniesByCity(city: string, state: string): Promise<Company[]> {
   const supabase = createServerClient();
   const { data, error } = await supabase

@@ -19,8 +19,7 @@ import {
   Flame,
   Sun,
   Building2,
-  Users,
-  Star,
+  MapPin,
   Zap,
   BadgeCheck,
   CheckCircle,
@@ -96,8 +95,6 @@ export interface SiteConfig {
   };
 
   stats: { icon: LucideIcon; value: string; label: string }[];
-
-  reviews: { name: string; city: string; initials: string; text: string }[];
 
   faqs: { q: string; a: string }[];
 
@@ -177,31 +174,10 @@ export const siteConfig: SiteConfig = {
   },
 
   stats: [
-    { icon: Users,      value: "12,000+", label: "Homeowners Served" },
-    { icon: Star,       value: "4.8 / 5", label: "Average Rating" },
-    { icon: Zap,        value: "< 24 hrs", label: "Avg. Response Time" },
-    { icon: BadgeCheck, value: "100%",    label: "Free & No Obligation" },
-  ],
-
-  reviews: [
-    {
-      name: "Homeowner",
-      city: "Charlotte, NC",
-      initials: "NC",
-      text: "Found a great local pro in minutes. My driveway looks brand new — got 3 quotes and the pricing was competitive.",
-    },
-    {
-      name: "Homeowner",
-      city: "Nashville, TN",
-      initials: "TN",
-      text: "Had a vetted pro at my house the next morning. House siding looks incredible. The whole process was way easier than expected.",
-    },
-    {
-      name: "Homeowner",
-      city: "Austin, TX",
-      initials: "TX",
-      text: "My deck hasn't looked this good in years. WashPro matched me with a fantastic local company — great pricing, great work, zero hassle.",
-    },
+    { icon: Building2, value: "1,400+", label: "Listed Local Pros" },
+    { icon: MapPin,    value: "300+",   label: "Cities Covered" },
+    { icon: Zap,       value: "Free",   label: "Quotes — Always" },
+    { icon: BadgeCheck, value: "Zero",  label: "Obligation to Hire" },
   ],
 
   faqs: [

@@ -85,27 +85,6 @@ export const siteConfig: SiteConfig = {
     { icon: BadgeCheck, value: "100%", label: "Free & No Obligation" },
   ],
 
-  reviews: [
-    {
-      name: "Homeowner",
-      city: "Seattle, WA",
-      initials: "WA",
-      text: "My gutters were completely clogged. The pro came out same day, cleaned everything perfectly, and the price was very reasonable.",
-    },
-    {
-      name: "Homeowner",
-      city: "Atlanta, GA",
-      initials: "GA",
-      text: "Found a great local company through GutterPro. They installed gutter guards and now I never have to worry about cleaning again.",
-    },
-    {
-      name: "Homeowner",
-      city: "Denver, CO",
-      initials: "CO",
-      text: "Water was overflowing everywhere. Quick response, professional work, and they fixed the downspout issue for way less than I expected.",
-    },
-  ],
-
   faqs: [
     {
       q: "How much does gutter cleaning cost?",
