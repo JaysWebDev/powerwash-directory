@@ -342,6 +342,13 @@ export const DIRECTORY_CITIES: { city: string; state: string; stateAbbr: string 
   { city: "Billings",         state: "Montana",        stateAbbr: "MT" },
   { city: "Cheyenne",         state: "Wyoming",        stateAbbr: "WY" },
   { city: "Charleston",       state: "West Virginia",  stateAbbr: "WV" },
+  // ── New England completions — Jun 2026 ───────────────────────────────────
+  { city: "Manchester",       state: "New Hampshire",     stateAbbr: "NH" },
+  { city: "Concord",          state: "New Hampshire",     stateAbbr: "NH" },
+  { city: "Portland",         state: "Maine",             stateAbbr: "ME" },
+  { city: "Albany",           state: "New York",          stateAbbr: "NY" },
+  { city: "Burlington",       state: "Vermont",           stateAbbr: "VT" },
+  { city: "Washington",       state: "District of Columbia", stateAbbr: "DC" },
 ];
 
 export function cityToSlug(city: string, stateAbbr: string): string {
