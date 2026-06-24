@@ -372,6 +372,70 @@ export const guidesContent: GuideContent[] = [
     relatedServices: ["house-soft-washing", "roof-cleaning", "commercial"],
     relatedGuides: ["power-washing-cost", "pressure-vs-soft-washing"],
   },
+
+  {
+    slug: "best-time-power-wash",
+    title: "Best Time of Year to Power Wash Your Home (By Service & Region) | WashPro",
+    headline: "Best Time of Year to Power Wash Your Home",
+    metaDescription:
+      "Not all exterior cleaning follows the same schedule. This guide breaks down the ideal timing by service type — siding, roof, driveway, deck — and by U.S. region.",
+    publishDate: "2026-04-15",
+    updatedDate: "2026-06-15",
+    readTime: "5 min read",
+    intro:
+      "Timing your exterior cleaning correctly isn't just a matter of convenience — it directly affects the quality and longevity of the results. The ideal window differs by service type, by climate region, and by what you're trying to accomplish. This guide breaks down the best scheduling approach for every major exterior cleaning service.",
+    sections: [
+      {
+        heading: "House Soft Washing: Spring After Pollen, or Early Fall",
+        content: [
+          "The best window for soft washing house siding is late spring (May–June) after pollen season peaks, or early fall (September–October) before leaves drop. Soft-wash chemistry needs 24–48 hours of dry weather to cure after application — back-to-back rainy stretches reduce effectiveness.",
+          "Avoid washing during extreme heat (above 90°F in direct sun) — cleaning solution dries on hot surfaces before it can work. Also avoid late fall in cold climates: surfaces that are frequently wet and below 40°F make the chemistry work inefficiently.",
+        ],
+        bullets: [
+          "Northeast & Midwest: May–June or September–October",
+          "Southeast: March–May or October–November",
+          "Southwest & California: nearly year-round; avoid monsoon season in AZ/NM (July–August)",
+          "Pacific Northwest: June–August (dry window)",
+        ],
+      },
+      {
+        heading: "Roof Cleaning: Spring or Fall, Before Rain Season",
+        content: [
+          "Roof cleaning follows similar rules to house washing — soft-wash chemistry applied to shingles needs a dry period to fully kill algae and moss. Schedule at least 48 hours before rain is forecast.",
+          "Spring cleaning removes the winter's accumulation before algae enters its active growth season. Fall cleaning addresses summer growth and prepares the roof for freeze-thaw cycles in cold climates. Either timing works well; what matters most is avoiding washing immediately before rain.",
+        ],
+      },
+      {
+        heading: "Driveway & Concrete: Nearly Any Season (Above Freezing)",
+        content: [
+          "Concrete pressure washing is the least weather-sensitive exterior cleaning service. As long as it's above 32°F and not actively raining, concrete can be cleaned effectively year-round.",
+          "Spring is the most popular time — homeowners clear winter salt, sand, and tire marks before the outdoor season. Summer works equally well. Avoid scheduling in the few days after heavy snow in cold climates when melt water is still running off surfaces.",
+        ],
+      },
+      {
+        heading: "Deck Washing: Spring for Maintenance, Fall Before Winter",
+        content: [
+          "Spring deck cleaning removes the previous year's mold and algae growth and prepares the surface for staining or sealing before summer use. This is the most common and most practical timing — decks are at peak use in summer, so cleaning in April or May sets them up well.",
+          "Fall cleaning is ideal for prep-before-winter: removing the summer's accumulation and applying a fresh seal coat before frost. If you only clean once a year, spring typically has the better ROI.",
+        ],
+      },
+      {
+        heading: "Quick Reference: Timing by Service",
+        content: ["Use this summary to plan your annual exterior maintenance schedule:"],
+        bullets: [
+          "House soft washing — Spring (May–June) or early fall (Sep–Oct); 48h dry weather after wash",
+          "Roof soft washing — Spring or fall; schedule 48h before forecast rain",
+          "Driveway / concrete — Year-round above 32°F; spring is most popular",
+          "Deck washing — Spring before use season; fall if resealing before winter",
+          "Gutter cleaning — Late spring (after pollen) and late fall (after leaves)",
+          "Fence washing — Spring or fall; before staining or painting in either season",
+          "Solar panels — Before and after peak pollen season; avoid midday heat",
+        ],
+      },
+    ],
+    relatedServices: ["house-soft-washing", "driveway", "deck-restoration", "roof-cleaning"],
+    relatedGuides: ["power-washing-cost", "pressure-vs-soft-washing"],
+  },
 ];
 
 export function getGuideContent(slug: string): GuideContent | undefined {

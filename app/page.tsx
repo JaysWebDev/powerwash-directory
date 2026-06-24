@@ -1,10 +1,13 @@
 import Image from "next/image";
-import { Star, ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { Star, ChevronDown, MapPin, BookOpen, Wrench } from "lucide-react";
 import ServicesAndQuote from "@/components/ServicesAndQuote";
 import HeroZipInput from "@/components/HeroZipInput";
 import CompanyCard from "@/components/CompanyCard";
 import { siteConfig } from "@/config/site";
-import { getFeaturedCompanies } from "@/lib/directory";
+import { getFeaturedCompanies, cityToSlug } from "@/lib/directory";
+import { guidesContent } from "@/config/guides-content";
+import { servicesContent } from "@/config/services-content";
 
 const { hero, stats, faqs, colors: c } = siteConfig;
 const Icon = siteConfig.icon;
@@ -372,6 +375,119 @@ export default async function Home() {
                 </div>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── POPULAR CITIES ──────────────────────────────────── */}
+      <section className="section-py" style={{ background: "var(--cl)" }}>
+        <div className="max-w-6xl mx-auto page-px">
+          <div className="flex items-center justify-between heading-mb">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <MapPin className="w-5 h-5 flex-shrink-0" style={{ color: "var(--cp)" }} />
+                <h2 style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "var(--fs-display)" }} className="font-bold">
+                  Popular Cities
+                </h2>
+              </div>
+              <p className="text-[#64748b]" style={{ fontSize: "var(--fs-body)" }}>
+                Find top-rated {siteConfig.verticalProNoun} in your city
+              </p>
+            </div>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(160px, 100%), 1fr))", gap: "clamp(0.5rem, 1.5vw, 0.75rem)" }}>
+            {[
+              { city: "Boston",       stateAbbr: "MA", state: "MA" },
+              { city: "New York",     stateAbbr: "NY", state: "NY" },
+              { city: "Chicago",      stateAbbr: "IL", state: "IL" },
+              { city: "Houston",      stateAbbr: "TX", state: "TX" },
+              { city: "Philadelphia", stateAbbr: "PA", state: "PA" },
+              { city: "Atlanta",      stateAbbr: "GA", state: "GA" },
+              { city: "Seattle",      stateAbbr: "WA", state: "WA" },
+              { city: "Charlotte",    stateAbbr: "NC", state: "NC" },
+              { city: "Denver",       stateAbbr: "CO", state: "CO" },
+              { city: "Nashville",    stateAbbr: "TN", state: "TN" },
+            ].map(({ city, stateAbbr }) => (
+              <Link
+                key={`${city}-${stateAbbr}`}
+                href={`/${cityToSlug(city, stateAbbr)}`}
+                className="group flex items-center justify-between bg-white rounded-xl border border-[#e2e8f0] px-4 py-3 hover:shadow-md transition-all"
+              >
+                <div>
+                  <span className="font-semibold text-sm group-hover:underline block" style={{ color: "var(--cd)" }}>{city}</span>
+                  <span className="text-xs text-[#94a3b8]">{stateAbbr}</span>
+                </div>
+                <MapPin className="w-3.5 h-3.5 flex-shrink-0 text-[#cbd5e1] group-hover:text-[var(--cp)] transition-colors" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── OUR SERVICES ────────────────────────────────────── */}
+      <section className="section-py bg-white border-t border-[#e2e8f0]">
+        <div className="max-w-6xl mx-auto page-px">
+          <div className="flex items-center gap-2 mb-2">
+            <Wrench className="w-5 h-5 flex-shrink-0" style={{ color: "var(--cp)" }} />
+            <h2 style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "var(--fs-display)" }} className="font-bold">
+              Our Services
+            </h2>
+          </div>
+          <p className="text-[#64748b] mb-8" style={{ fontSize: "var(--fs-body)" }}>
+            Detailed guides on every major exterior cleaning service
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(220px, 100%), 1fr))", gap: "clamp(0.5rem, 1.5vw, 0.75rem)" }}>
+            {servicesContent.map((svc) => (
+              <Link
+                key={svc.slug}
+                href={`/services/${svc.slug}`}
+                className="group flex flex-col gap-1 bg-[#f8fafc] hover:bg-[#f0f9ff] border border-[#e2e8f0] hover:border-[#0ea5e9]/30 rounded-xl px-4 py-3 transition-all"
+              >
+                <span className="font-semibold text-sm group-hover:text-[#0ea5e9] transition-colors" style={{ color: "var(--cd)" }}>
+                  {svc.name}
+                </span>
+                <span className="text-xs text-[#94a3b8]">{svc.quickStats.costRange}</span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-5">
+            <Link href="/services" className="text-sm font-semibold hover:underline" style={{ color: "var(--cp)" }}>
+              View all services →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── GUIDES & RESOURCES ──────────────────────────────── */}
+      <section className="section-py border-t border-[#e2e8f0]" style={{ background: "var(--cl)" }}>
+        <div className="max-w-6xl mx-auto page-px">
+          <div className="flex items-center gap-2 mb-2">
+            <BookOpen className="w-5 h-5 flex-shrink-0" style={{ color: "var(--cp)" }} />
+            <h2 style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "var(--fs-display)" }} className="font-bold">
+              Learning Center
+            </h2>
+          </div>
+          <p className="text-[#64748b] mb-8" style={{ fontSize: "var(--fs-body)" }}>
+            Free guides to help you hire smarter and get better results
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(280px, 100%), 1fr))", gap: "clamp(0.875rem, 2.5vw, 1.5rem)" }}>
+            {guidesContent.map((guide) => (
+              <Link
+                key={guide.slug}
+                href={`/guides/${guide.slug}`}
+                className="group flex flex-col bg-white rounded-2xl border border-[#e2e8f0] p-5 hover:shadow-md hover:border-[#0ea5e9]/30 transition-all"
+              >
+                <p className="font-semibold text-sm group-hover:text-[#0ea5e9] transition-colors mb-1" style={{ color: "var(--cd)" }}>
+                  {guide.headline}
+                </p>
+                <p className="text-xs text-[#94a3b8] mt-auto pt-2">{guide.readTime}</p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-5">
+            <Link href="/guides" className="text-sm font-semibold hover:underline" style={{ color: "var(--cp)" }}>
+              View all guides →
+            </Link>
           </div>
         </div>
       </section>
