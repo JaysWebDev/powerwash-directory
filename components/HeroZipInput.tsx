@@ -7,8 +7,16 @@ import { siteConfig } from "@/config/site";
 export default function HeroZipInput() {
   const [zip, setZip] = useState("");
 
+  const affiliateUrl = process.env.NEXT_PUBLIC_AFFILIATE_URL;
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (affiliateUrl) {
+      const dest = new URL(affiliateUrl);
+      if (zip.length === 5) dest.searchParams.set("zip", zip);
+      window.open(dest.toString(), "_blank", "noopener");
+      return;
+    }
     if (zip.length === 5) {
       const url = new URL(window.location.href);
       url.searchParams.set("zip", zip);
