@@ -64,9 +64,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { city, state } = parsed;
   const cp = siteConfig.cityPage;
 
+  const counts = await getCityCompanyCounts([{ city, stateAbbr: state }]);
+  const count = counts[`${city}-${state}`] ?? 0;
+
+  const title = count > 0
+    ? `${count} ${siteConfig.verticalName} Companies in ${city}, ${state} — Free Quotes`
+    : cityTemplate(cp.metaTitleTemplate, city, state);
+
+  const description = count > 0
+    ? `Compare ${count} top-rated ${siteConfig.verticalProNoun} in ${city}, ${state}. See verified reviews and get free quotes from licensed & insured local pros.`
+    : cityTemplate(cp.metaDescTemplate, city, state);
+
   return {
-    title: cityTemplate(cp.metaTitleTemplate, city, state),
-    description: cityTemplate(cp.metaDescTemplate, city, state),
+    title,
+    description,
     alternates: { canonical: `${siteUrl}/${location}` },
     openGraph: {
       title: cityTemplate(cp.ogTitleTemplate, city, state),
@@ -142,7 +153,7 @@ export default async function CityPage({ params }: Props) {
     })),
   };
 
-  const cityContext = getCityContext(state);
+  const cityContext = getCityContext(state, city);
 
   return (
     <main className="flex flex-col flex-1">
@@ -241,6 +252,9 @@ export default async function CityPage({ params }: Props) {
           </h2>
           <p className="text-[#475569] text-sm leading-relaxed max-w-3xl">
             {cityContext.climate} {cityContext.timing} {cityContext.tip}
+          </p>
+          <p className="text-[#475569] text-sm leading-relaxed max-w-3xl mt-2">
+            {cityContext.pricing}
           </p>
         </div>
       </section>

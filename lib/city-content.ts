@@ -2,9 +2,10 @@ type StateProfile = {
   climate: string;
   timing: string;
   tip: string;
+  pricing: string;
 };
 
-const STATE_PROFILES: Record<string, StateProfile> = {
+const STATE_PROFILES: Record<string, Omit<StateProfile, "pricing">> = {
   AK: {
     climate: "Alaska's short outdoor season and damp conditions allow moss, lichen, and algae to take hold quickly on driveways, decks, and siding.",
     timing: "Late spring through early fall — May through September — is the only practical window for exterior washing given the short frost-free season.",
@@ -232,12 +233,77 @@ const STATE_PROFILES: Record<string, StateProfile> = {
   },
 };
 
-const DEFAULT_PROFILE: StateProfile = {
+const DEFAULT_PROFILE: Omit<StateProfile, "pricing"> = {
   climate: "Local climate conditions can accelerate mold, algae, and general grime buildup on home exteriors — making periodic professional washing a worthwhile investment.",
   timing: "Spring and fall are typically the most popular scheduling windows, when temperatures are moderate and demand is steady.",
   tip: "Getting multiple quotes before committing ensures competitive pricing; most reputable contractors provide free estimates.",
 };
 
-export function getCityContext(stateAbbr: string): StateProfile {
-  return STATE_PROFILES[stateAbbr] ?? DEFAULT_PROFILE;
+// Typical price range for a standard house wash, by state cost-of-living tier
+const STATE_PRICING: Record<string, string> = {
+  // Premium markets
+  CA: "Typical house washing prices in California run $175–$400, with Bay Area and LA contractors on the higher end. Getting 2–3 quotes is especially worthwhile here.",
+  NY: "Power washing in New York ranges from $150–$375 for a standard house wash; NYC metro pricing is among the highest in the country.",
+  MA: "Expect to pay $150–$325 for house washing in Massachusetts, with Boston-area contractors typically at the top of that range.",
+  NJ: "New Jersey house washing typically runs $150–$325; shore-town contractors often charge more due to high seasonal demand.",
+  WA: "House washing in Washington typically costs $150–$325, with Seattle-area contractors on the higher end due to demand for moss and algae treatment.",
+  OR: "Oregon house washing ranges from $140–$300, reflecting strong demand for moss treatment services across the wet western part of the state.",
+  CT: "Connecticut house washing typically runs $140–$300, with Fairfield County and coastal communities on the higher end.",
+  MD: "Maryland house washing costs $135–$280 for most homes; Bay-area and DC-suburb contractors tend to price at the upper end.",
+  CO: "Colorado house washing typically runs $130–$275, with Denver metro contractors toward the top of the range.",
+  VA: "Virginia house washing ranges from $125–$275; Northern Virginia and DC-suburb contractors are among the priciest in the state.",
+  // Mid-tier markets
+  IL: "House washing in Illinois typically costs $125–$260, with Chicago-area contractors running 15–25% higher than downstate.",
+  FL: "Florida house washing ranges from $120–$250 for most homes; year-round demand and competition keep prices relatively competitive.",
+  TX: "Texas house washing typically costs $110–$240, varying significantly between major metros and smaller cities.",
+  NC: "North Carolina house washing runs $110–$230 for most homes; Charlotte and Raleigh contractors tend toward the higher end.",
+  PA: "Pennsylvania house washing typically costs $115–$240, with Philadelphia and Pittsburgh metro contractors above the state average.",
+  GA: "Georgia house washing ranges from $110–$225; Atlanta-area contractors are typically 10–20% higher than smaller cities statewide.",
+  TN: "Tennessee house washing typically runs $105–$220; Nashville contractors are priced above the state average due to market growth.",
+  MN: "Minnesota house washing costs $115–$235 for most homes; spring demand is high and early booking often secures better rates.",
+  WI: "Wisconsin house washing typically runs $110–$225; Milwaukee-area contractors price above the state average.",
+  OH: "Ohio house washing ranges from $110–$225; Columbus, Cleveland, and Cincinnati are comparably priced, with smaller cities often more affordable.",
+  MI: "Michigan house washing typically costs $110–$220; Detroit metro contractors are priced above mid-state averages.",
+  NV: "Nevada house washing runs $120–$245 for most homes; Las Vegas area pricing reflects the year-round demand for desert dust and hard water removal.",
+  // Value markets
+  IN: "Indiana house washing typically costs $95–$200, making it one of the more affordable markets in the Midwest.",
+  IA: "Iowa house washing ranges from $90–$195; post-winter driveway cleaning is often the highest-demand and most competitively priced service.",
+  MO: "Missouri house washing typically runs $95–$200; Kansas City and St. Louis contractors price 10–15% above the state average.",
+  KY: "Kentucky house washing costs $90–$195 for most homes; Louisville and Lexington are the priciest markets in the state.",
+  KS: "Kansas house washing typically ranges from $90–$190; Wichita and Kansas City suburbs are the primary markets.",
+  NE: "Nebraska house washing runs $90–$190 for most homes; Omaha contractors are typically priced above Lincoln and smaller cities.",
+  OK: "Oklahoma house washing typically costs $90–$185; both OKC and Tulsa offer competitive markets with multiple established contractors.",
+  AR: "Arkansas house washing ranges from $85–$180; a competitive contractor market keeps pricing relatively affordable statewide.",
+  AL: "Alabama house washing typically runs $90–$185; Birmingham contractors price above smaller markets, but the state remains affordable overall.",
+  MS: "Mississippi house washing costs $85–$175 for most homes, reflecting the state's generally affordable contractor market.",
+  LA: "Louisiana house washing typically runs $90–$190; New Orleans and Baton Rouge are the most active and competitively priced markets.",
+  SC: "South Carolina house washing ranges from $100–$210; Charleston and Myrtle Beach coastal markets command a premium.",
+  // Other states
+  AZ: "Arizona house washing typically costs $110–$230; Phoenix-area pricing reflects the demand for dust, stucco, and hard water cleaning.",
+  UT: "Utah house washing runs $110–$225 for most homes; Salt Lake City area contractors are the most active and competitively priced.",
+  ID: "Idaho house washing typically costs $100–$210; Boise-area contractors are the most established and price competitively.",
+  NM: "New Mexico house washing ranges from $95–$200; Albuquerque and Santa Fe are the primary markets with the most contractor options.",
+  SD: "South Dakota house washing typically runs $90–$185; Sioux Falls is the most active market in the state.",
+  ND: "North Dakota house washing costs $90–$185 for most homes; Fargo and Bismarck have the most established contractor options.",
+  MT: "Montana house washing typically ranges from $100–$210; Billings, Missoula, and Bozeman are the most active markets.",
+  WY: "Wyoming house washing costs $95–$200 for most homes; contractor availability is more limited than in larger states, making early booking important.",
+  AK: "Alaska house washing is among the priciest in the country at $175–$400+, reflecting the short outdoor season, logistics costs, and high contractor overhead.",
+  RI: "Rhode Island house washing typically runs $130–$270; Providence-area contractors dominate the market and coastal properties command a premium.",
+  DE: "Delaware house washing typically costs $120–$250; the small state has a competitive contractor market, particularly in the Wilmington area.",
+  NH: "New Hampshire house washing ranges from $130–$270; Manchester and Concord are the most active markets.",
+  VT: "Vermont house washing typically runs $130–$265; Burlington-area contractors are most established and shorter seasons push pricing slightly higher.",
+  ME: "Maine house washing typically costs $125–$260; Portland and southern Maine have the most contractor options and competitive pricing.",
+  WV: "West Virginia house washing ranges from $85–$180; Charleston and Morgantown have the most established contractor markets.",
+  HI: "Hawaii house washing is among the highest in the country at $200–$450+, reflecting high contractor overhead, import costs, and year-round demand.",
+};
+
+export function getCityContext(stateAbbr: string, city: string): StateProfile {
+  const base = STATE_PROFILES[stateAbbr] ?? DEFAULT_PROFILE;
+  const pricing = STATE_PRICING[stateAbbr]
+    ?? `House washing in ${city} typically costs $100–$225 for a standard home. Getting 2–3 quotes ensures you find the best rate for your specific job.`;
+
+  // Prepend the city name to the climate sentence for city-level uniqueness
+  const climate = base.climate.replace(/^([A-Z][^'s]+'s|[A-Z][a-z]+'s)/, `In ${city}, $1`);
+
+  return { ...base, climate, pricing };
 }
