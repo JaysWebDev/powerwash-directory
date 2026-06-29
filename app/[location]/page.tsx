@@ -159,6 +159,7 @@ export default async function CityPage({ params }: Props) {
     <main className="flex flex-col flex-1">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ── NAV ───────────────────────────────────── */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#e2e8f0] shadow-sm">
@@ -307,6 +308,23 @@ export default async function CityPage({ params }: Props) {
       {/* ── QUOTE FORM ────────────────────────────── */}
       <ServicesAndQuote />
 
+      {/* ── FAQ ───────────────────────────────────── */}
+      <section className="section-py bg-white border-t border-[#e2e8f0]">
+        <div className="max-w-3xl mx-auto page-px">
+          <h2 className="text-2xl font-bold mb-8" style={{ color: "var(--cd)" }}>
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-5">
+            {siteConfig.faqs.map((faq) => (
+              <div key={faq.q} className="border border-[#e2e8f0] rounded-xl p-6">
+                <h3 className="font-semibold mb-2" style={{ color: "var(--cd)" }}>{faq.q}</h3>
+                <p className="text-[#64748b] text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── NEARBY CITIES ─────────────────────────── */}
       {nearbyCities.length > 0 && (
         <section className="section-py border-t border-[#e2e8f0]" style={{ background: "var(--cl)" }}>
@@ -413,6 +431,7 @@ async function StatePage({
     <main className="flex flex-col flex-1">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(stateBreadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ── NAV ───────────────────────────────────── */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#e2e8f0] shadow-sm">
