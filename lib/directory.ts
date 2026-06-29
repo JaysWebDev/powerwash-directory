@@ -85,7 +85,7 @@ export const DIRECTORY_CITIES: { city: string; state: string; stateAbbr: string 
   { city: "Anchorage",      state: "Alaska",         stateAbbr: "AK" },
   { city: "Stockton",       state: "California",     stateAbbr: "CA" },
   { city: "Cincinnati",     state: "Ohio",           stateAbbr: "OH" },
-  { city: "St. Paul",       state: "Minnesota",      stateAbbr: "MN" },
+  { city: "Saint Paul",     state: "Minnesota",      stateAbbr: "MN" },
   { city: "Greensboro",     state: "North Carolina", stateAbbr: "NC" },
   { city: "Toledo",         state: "Ohio",           stateAbbr: "OH" },
   { city: "Newark",         state: "New Jersey",     stateAbbr: "NJ" },
@@ -349,6 +349,65 @@ export const DIRECTORY_CITIES: { city: string; state: string; stateAbbr: string 
   { city: "Albany",           state: "New York",          stateAbbr: "NY" },
   { city: "Burlington",       state: "Vermont",           stateAbbr: "VT" },
   { city: "Washington",       state: "District of Columbia", stateAbbr: "DC" },
+  // ── Data-driven expansion — Jun 2026 (25+ companies in Supabase) ─────────
+  // California
+  { city: "San Francisco",  state: "California",     stateAbbr: "CA" },
+  { city: "Oakland",        state: "California",     stateAbbr: "CA" },
+  { city: "Clovis",         state: "California",     stateAbbr: "CA" },
+  { city: "Roseville",      state: "California",     stateAbbr: "CA" },
+  // Florida
+  { city: "Ocala",          state: "Florida",        stateAbbr: "FL" },
+  { city: "Naples",         state: "Florida",        stateAbbr: "FL" },
+  { city: "Pompano Beach",  state: "Florida",        stateAbbr: "FL" },
+  { city: "Bradenton",      state: "Florida",        stateAbbr: "FL" },
+  { city: "Boca Raton",     state: "Florida",        stateAbbr: "FL" },
+  // South Carolina
+  { city: "Summerville",    state: "South Carolina", stateAbbr: "SC" },
+  { city: "North Charleston", state: "South Carolina", stateAbbr: "SC" },
+  { city: "Greer",          state: "South Carolina", stateAbbr: "SC" },
+  { city: "Simpsonville",   state: "South Carolina", stateAbbr: "SC" },
+  { city: "Conway",         state: "South Carolina", stateAbbr: "SC" },
+  { city: "Mount Pleasant", state: "South Carolina", stateAbbr: "SC" },
+  // Arkansas
+  { city: "Springdale",     state: "Arkansas",       stateAbbr: "AR" },
+  { city: "North Little Rock", state: "Arkansas",    stateAbbr: "AR" },
+  { city: "Rogers",         state: "Arkansas",       stateAbbr: "AR" },
+  { city: "Bentonville",    state: "Arkansas",       stateAbbr: "AR" },
+  // Oregon / Washington
+  { city: "Springfield",    state: "Oregon",         stateAbbr: "OR" },
+  { city: "Beaverton",      state: "Oregon",         stateAbbr: "OR" },
+  { city: "Spokane Valley", state: "Washington",     stateAbbr: "WA" },
+  { city: "Kirkland",       state: "Washington",     stateAbbr: "WA" },
+  { city: "Everett",        state: "Washington",     stateAbbr: "WA" },
+  // Oklahoma
+  { city: "Broken Arrow",   state: "Oklahoma",       stateAbbr: "OK" },
+  { city: "Edmond",         state: "Oklahoma",       stateAbbr: "OK" },
+  // Louisiana
+  { city: "Metairie",       state: "Louisiana",      stateAbbr: "LA" },
+  // Mississippi
+  { city: "Brandon",        state: "Mississippi",    stateAbbr: "MS" },
+  { city: "Madison",        state: "Mississippi",    stateAbbr: "MS" },
+  // Idaho
+  { city: "Nampa",          state: "Idaho",          stateAbbr: "ID" },
+  // Massachusetts
+  { city: "Hyannis",        state: "Massachusetts",  stateAbbr: "MA" },
+  { city: "Everett",        state: "Massachusetts",  stateAbbr: "MA" },
+  // Alabama
+  { city: "Madison",        state: "Alabama",        stateAbbr: "AL" },
+  // Virginia
+  { city: "Midlothian",     state: "Virginia",       stateAbbr: "VA" },
+  { city: "Arlington",      state: "Virginia",       stateAbbr: "VA" },
+  // Colorado
+  { city: "Littleton",      state: "Colorado",       stateAbbr: "CO" },
+  // Iowa
+  { city: "West Des Moines", state: "Iowa",          stateAbbr: "IA" },
+  // Utah
+  { city: "Orem",           state: "Utah",           stateAbbr: "UT" },
+  { city: "West Jordan",    state: "Utah",           stateAbbr: "UT" },
+  // New Mexico
+  { city: "Rio Rancho",     state: "New Mexico",     stateAbbr: "NM" },
+  // Arizona
+  { city: "Surprise",       state: "Arizona",        stateAbbr: "AZ" },
 ];
 
 export function cityToSlug(city: string, stateAbbr: string): string {
