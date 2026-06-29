@@ -54,6 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `${siteConfig.verticalName} in ${stateMatch.state} — Top Rated Local Pros`,
         description: `Compare the best ${siteConfig.verticalProNoun} across ${stateMatch.state}. Free quotes, verified reviews.`,
         url: `${siteUrl}/${location}`,
+        images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `${siteConfig.verticalName} in ${stateMatch.state}` }],
       },
     };
   }
@@ -83,6 +84,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: cityTemplate(cp.ogTitleTemplate, city, state),
       description: cityTemplate(cp.ogDescTemplate, city, state),
       url: `${siteUrl}/${location}`,
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `${siteConfig.verticalName} in ${city}, ${state}` }],
     },
   };
 }

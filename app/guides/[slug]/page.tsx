@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: g.metaDescription,
       url: `${BASE_URL}/guides/${g.slug}`,
       type: "article",
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: g.headline }],
     },
   };
 }
