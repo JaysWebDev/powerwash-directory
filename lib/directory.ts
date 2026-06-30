@@ -408,6 +408,105 @@ export const DIRECTORY_CITIES: { city: string; state: string; stateAbbr: string 
   { city: "Rio Rancho",     state: "New Mexico",     stateAbbr: "NM" },
   // Arizona
   { city: "Surprise",       state: "Arizona",        stateAbbr: "AZ" },
+  // ── ~400-City Expansion — Jun 2026 ───────────────────────────────────────
+  // Florida (major metros still missing)
+  { city: "Tallahassee",      state: "Florida",        stateAbbr: "FL" },
+  { city: "West Palm Beach",  state: "Florida",        stateAbbr: "FL" },
+  { city: "Lakeland",         state: "Florida",        stateAbbr: "FL" },
+  { city: "Pembroke Pines",   state: "Florida",        stateAbbr: "FL" },
+  { city: "Hollywood",        state: "Florida",        stateAbbr: "FL" },
+  { city: "Miramar",          state: "Florida",        stateAbbr: "FL" },
+  { city: "Sunrise",          state: "Florida",        stateAbbr: "FL" },
+  { city: "Deltona",          state: "Florida",        stateAbbr: "FL" },
+  // Texas
+  { city: "Frisco",           state: "Texas",          stateAbbr: "TX" },
+  { city: "McKinney",         state: "Texas",          stateAbbr: "TX" },
+  { city: "Amarillo",         state: "Texas",          stateAbbr: "TX" },
+  { city: "McAllen",          state: "Texas",          stateAbbr: "TX" },
+  { city: "Brownsville",      state: "Texas",          stateAbbr: "TX" },
+  { city: "Killeen",          state: "Texas",          stateAbbr: "TX" },
+  { city: "Mesquite",         state: "Texas",          stateAbbr: "TX" },
+  { city: "Midland",          state: "Texas",          stateAbbr: "TX" },
+  { city: "Pasadena",         state: "Texas",          stateAbbr: "TX" },
+  // California
+  { city: "Sunnyvale",        state: "California",     stateAbbr: "CA" },
+  { city: "Santa Rosa",       state: "California",     stateAbbr: "CA" },
+  { city: "Rancho Cucamonga", state: "California",     stateAbbr: "CA" },
+  { city: "Fontana",          state: "California",     stateAbbr: "CA" },
+  { city: "Moreno Valley",    state: "California",     stateAbbr: "CA" },
+  { city: "Ontario",          state: "California",     stateAbbr: "CA" },
+  { city: "Oxnard",           state: "California",     stateAbbr: "CA" },
+  { city: "Salinas",          state: "California",     stateAbbr: "CA" },
+  { city: "Escondido",        state: "California",     stateAbbr: "CA" },
+  { city: "Pomona",           state: "California",     stateAbbr: "CA" },
+  { city: "Hayward",          state: "California",     stateAbbr: "CA" },
+  { city: "Torrance",         state: "California",     stateAbbr: "CA" },
+  { city: "Pasadena",         state: "California",     stateAbbr: "CA" },
+  // Georgia
+  { city: "Sandy Springs",    state: "Georgia",        stateAbbr: "GA" },
+  { city: "Roswell",          state: "Georgia",        stateAbbr: "GA" },
+  { city: "Macon",            state: "Georgia",        stateAbbr: "GA" },
+  { city: "Warner Robins",    state: "Georgia",        stateAbbr: "GA" },
+  // Tennessee
+  { city: "Clarksville",      state: "Tennessee",      stateAbbr: "TN" },
+  { city: "Jackson",          state: "Tennessee",      stateAbbr: "TN" },
+  // North Carolina
+  { city: "Asheville",        state: "North Carolina", stateAbbr: "NC" },
+  { city: "Gastonia",         state: "North Carolina", stateAbbr: "NC" },
+  { city: "Chapel Hill",      state: "North Carolina", stateAbbr: "NC" },
+  // Virginia
+  { city: "Roanoke",          state: "Virginia",       stateAbbr: "VA" },
+  { city: "Suffolk",          state: "Virginia",       stateAbbr: "VA" },
+  // Maryland
+  { city: "Frederick",        state: "Maryland",       stateAbbr: "MD" },
+  { city: "Columbia",         state: "Maryland",       stateAbbr: "MD" },
+  // Connecticut
+  { city: "Stamford",         state: "Connecticut",    stateAbbr: "CT" },
+  { city: "Norwalk",          state: "Connecticut",    stateAbbr: "CT" },
+  // New Jersey
+  { city: "Trenton",          state: "New Jersey",     stateAbbr: "NJ" },
+  { city: "Edison",           state: "New Jersey",     stateAbbr: "NJ" },
+  { city: "Woodbridge",       state: "New Jersey",     stateAbbr: "NJ" },
+  // Pennsylvania
+  { city: "Scranton",         state: "Pennsylvania",   stateAbbr: "PA" },
+  { city: "Lancaster",        state: "Pennsylvania",   stateAbbr: "PA" },
+  { city: "Reading",          state: "Pennsylvania",   stateAbbr: "PA" },
+  // Arizona
+  { city: "Tempe",            state: "Arizona",        stateAbbr: "AZ" },
+  { city: "Peoria",           state: "Arizona",        stateAbbr: "AZ" },
+  // Ohio
+  { city: "Canton",           state: "Ohio",           stateAbbr: "OH" },
+  { city: "Lorain",           state: "Ohio",           stateAbbr: "OH" },
+  // Michigan
+  { city: "Flint",            state: "Michigan",       stateAbbr: "MI" },
+  { city: "Clinton Township", state: "Michigan",       stateAbbr: "MI" },
+  { city: "Westland",         state: "Michigan",       stateAbbr: "MI" },
+  // Illinois
+  { city: "Peoria",           state: "Illinois",       stateAbbr: "IL" },
+  { city: "Elgin",            state: "Illinois",       stateAbbr: "IL" },
+  // South Carolina
+  { city: "Rock Hill",        state: "South Carolina", stateAbbr: "SC" },
+  // Missouri
+  { city: "Columbia",         state: "Missouri",       stateAbbr: "MO" },
+  { city: "Lee's Summit",     state: "Missouri",       stateAbbr: "MO" },
+  // Iowa
+  { city: "Cedar Rapids",     state: "Iowa",           stateAbbr: "IA" },
+  { city: "Davenport",        state: "Iowa",           stateAbbr: "IA" },
+  // Nebraska
+  { city: "Bellevue",         state: "Nebraska",       stateAbbr: "NE" },
+  // Hawaii
+  { city: "Honolulu",         state: "Hawaii",         stateAbbr: "HI" },
+  // Montana
+  { city: "Missoula",         state: "Montana",        stateAbbr: "MT" },
+  // North Dakota
+  { city: "Bismarck",         state: "North Dakota",   stateAbbr: "ND" },
+  // South Dakota
+  { city: "Rapid City",       state: "South Dakota",   stateAbbr: "SD" },
+  // New Mexico
+  { city: "Las Cruces",       state: "New Mexico",     stateAbbr: "NM" },
+  // Delaware
+  { city: "Wilmington",       state: "Delaware",       stateAbbr: "DE" },
+  { city: "Dover",            state: "Delaware",       stateAbbr: "DE" },
 ];
 
 export function cityToSlug(city: string, stateAbbr: string): string {
