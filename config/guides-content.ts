@@ -436,6 +436,430 @@ export const guidesContent: GuideContent[] = [
     relatedServices: ["house-soft-washing", "driveway", "deck-restoration", "roof-cleaning"],
     relatedGuides: ["power-washing-cost", "pressure-vs-soft-washing"],
   },
+  {
+    slug: "how-often-pressure-wash",
+    title: "How Often Should You Pressure Wash Your House? (By Surface) | WashPro",
+    headline: "How Often Should You Pressure Wash Your House? (By Surface)",
+    metaDescription:
+      "Wondering how often to pressure wash? This guide covers recommended frequency for your house exterior, driveway, deck, roof, and gutters — plus signs you're overdue.",
+    publishDate: "2026-07-01",
+    updatedDate: "2026-07-01",
+    readTime: "5 min read",
+    intro:
+      "There's no single answer to how often you should pressure wash — it depends on what surface you're cleaning, your climate, the amount of tree cover over your property, and how much dirt and biological growth your home accumulates year to year. This guide gives surface-specific recommendations and the warning signs that tell you you're overdue.",
+    sections: [
+      {
+        heading: "House Exterior: Once a Year in Most Climates",
+        content: [
+          "For most homeowners, washing the house exterior once per year is the right baseline. The exception is humid climates — the Southeast, Gulf Coast, Pacific Northwest, and anywhere with heavy tree cover — where algae and mildew grow quickly. In those regions, twice a year (spring and fall) keeps the exterior cleaner and prevents the kind of deep biological staining that requires stronger treatments to remove.",
+          "If you're in a dry climate with little tree cover (Arizona, Nevada, parts of Colorado), you can often go 18–24 months between washes without visible buildup. The risk there is dust and oxidation on paint rather than biological growth.",
+        ],
+      },
+      {
+        heading: "Driveway and Walkways: Once a Year, or After Winter",
+        content: [
+          "Concrete driveways typically need cleaning once a year. In cold climates, the right time is spring — after the last freeze — to remove winter road salt, sand, and the dark tire marks that accumulate over the season. In warm climates without a winter road treatment season, once a year in spring works well for most properties.",
+          "If you park oil-leaking vehicles, have heavy vehicle traffic, or live near a road with significant runoff, every 6–9 months may be more appropriate. Oil stains are far easier to remove when fresh.",
+        ],
+      },
+      {
+        heading: "Decks and Patios: Once a Year Before Staining Season",
+        content: [
+          "Wood and composite decks benefit from annual cleaning, ideally in spring before peak use season. The reason is practical: spring cleaning removes the previous year's algae and mold growth and prepares the surface for any staining, sealing, or refinishing you plan to do. If you seal or stain your deck, the cleaning should always come first.",
+          "If your deck goes untreated (no stain or sealer), plan on cleaning at least once a year. Mold and mildew growth accelerates on bare wood and becomes harder to remove the longer it sits.",
+        ],
+      },
+      {
+        heading: "Roof: Every 1–3 Years Depending on Climate and Shade",
+        content: [
+          "Roof cleaning frequency depends heavily on how much shade your roof gets. Shaded roofs — especially those under large trees — accumulate algae, moss, and lichen much faster than sunny ones. In the Pacific Northwest and Southeast, roofs under heavy canopy may need soft washing annually. Fully exposed roofs in dry climates can go 3–5 years without visible growth.",
+          "A useful rule of thumb: if you can see black streaks or green patches from the ground, you're overdue. Black streaks (Gloeocapsa magma algae) don't just look bad — they accelerate shingle deterioration. Moss and lichen are worse; their root systems physically lift shingle granules over time.",
+        ],
+      },
+      {
+        heading: "Gutters: Twice a Year, Every Year",
+        content: [
+          "Gutters are the one surface where twice-a-year cleaning is the near-universal recommendation: late spring (after pollen and seed fall) and late fall (after leaves finish dropping). This prevents the clogs and overflow that cause fascia rot, foundation issues, and water intrusion.",
+          "If you have heavy deciduous tree cover directly over your roofline, you may need three cleanings — adding a mid-fall pass as leaves start coming down. Guards help but don't eliminate the need for cleaning entirely.",
+        ],
+      },
+      {
+        heading: "Warning Signs You're Overdue on Any Surface",
+        content: ["You don't always need a calendar to know it's time. These are the signs that tell you cleaning is overdue:"],
+        bullets: [
+          "Black or green streaks on siding, roof, or concrete — biological growth actively spreading",
+          "Slippery driveway, deck, or walkway surface — algae film that's a fall hazard",
+          "Paint that looks chalky or dull rather than the original color — oxidation and dirt buildup",
+          "Dark ring at the base of your siding just above the foundation — splash-back dirt and algae",
+          "Gutters visibly sagging or overflowing during rain — debris load causing blockage",
+          "Moss clumps visible on the roof from street level — root systems already digging in",
+        ],
+      },
+      {
+        heading: "Quick Reference: Recommended Frequency by Surface",
+        content: [],
+        bullets: [
+          "House exterior (soft wash) — 1x/year (humid climates: 2x/year)",
+          "Driveway / concrete — 1x/year, spring preferred in cold climates",
+          "Deck / patio — 1x/year, spring before use season",
+          "Roof (soft wash) — 1–3 years depending on shade and climate",
+          "Gutters — 2x/year (late spring + late fall); 3x if heavy tree cover",
+          "Fences — 1x/year or before staining/painting",
+          "Solar panels — 2x/year (before and after pollen season)",
+        ],
+      },
+    ],
+    relatedServices: ["house-soft-washing", "roof-cleaning", "gutter-cleaning", "driveway"],
+    relatedGuides: ["best-time-power-wash", "power-washing-cost", "pressure-vs-soft-washing"],
+  },
+  {
+    slug: "diy-vs-hire",
+    title: "DIY Pressure Washing vs. Hiring a Pro: The Real Comparison | WashPro",
+    headline: "DIY Pressure Washing vs. Hiring a Pro: The Real Comparison",
+    metaDescription:
+      "Is it worth renting a pressure washer and doing it yourself, or hiring a pro? This guide breaks down the real costs, risks, and when each option actually makes sense.",
+    publishDate: "2026-07-01",
+    updatedDate: "2026-07-01",
+    readTime: "6 min read",
+    intro:
+      "Pressure washing looks deceptively simple — point and spray, right? The reality is more nuanced. The right choice between DIY and hiring a professional depends on what you're cleaning, what equipment you actually need, and whether you can afford the downside risk if something goes wrong. This guide gives you an honest comparison so you can decide without the sales pitch.",
+    sections: [
+      {
+        heading: "The Real Cost of DIY",
+        content: [
+          "Renting a consumer-grade gas pressure washer runs $60–$100 per day. That sounds cheap compared to a $300 professional house wash — until you account for the time, the learning curve, and the fact that consumer rental units typically top out at 2,000–2,500 PSI with modest GPM (gallons per minute). Professional equipment runs 3,000–4,000 PSI with 4+ GPM, cleaning 2–3x faster and more thoroughly.",
+          "If you factor in your time (4–6 hours for a full house wash for a first-timer vs. 1.5–2.5 hours for a professional crew), plus the cost of cleaning chemicals you'll need to buy separately, the cost gap narrows significantly. For a one-time driveway cleaning, DIY often makes sense. For a full house wash with a two-story home, it rarely does.",
+        ],
+        bullets: [
+          "Rental cost: $60–$100/day for a consumer gas unit",
+          "Chemical cost: $20–$50 for house washing detergent (not included in rental)",
+          "Your time: 4–6 hours for a full house exterior on a first attempt",
+          "Professional cost: $200–$500 for the same job, done in 1.5–2.5 hours",
+        ],
+      },
+      {
+        heading: "What Pros Have That Rentals Don't",
+        content: [
+          "The equipment gap is real. Professional soft washing systems use low-pressure pumps with high chemical concentration — completely different from a consumer pressure washer. For roofs, vinyl siding, and painted surfaces, soft washing is the correct method. Hitting these surfaces with high-pressure rental equipment can strip paint, crack siding panels, force water behind trim, and void your roofing warranty.",
+          "Beyond equipment, professional crews have surfactants and biocides that are not available at retail, experience reading surfaces to know what pressure is safe, and insurance if something goes wrong. Consumer equipment has no biocide capability — you can blast algae off a surface, but without a proper treatment it typically returns within months.",
+        ],
+      },
+      {
+        heading: "Where DIY Actually Makes Sense",
+        content: [
+          "There are real DIY use cases. Concrete driveways and sidewalks tolerate high pressure well and are forgiving surfaces for beginners. A driveway, patio slab, or brick walkway is one of the best DIY pressure washing projects.",
+        ],
+        bullets: [
+          "Concrete driveway or patio — high-pressure tolerant, low damage risk, good DIY project",
+          "Garden furniture or outdoor equipment — low stakes, no height, easy to manage",
+          "Small fences with treated wood — manageable if you keep pressure moderate and distance consistent",
+          "Vehicles — use a low-pressure attachment and car wash soap, not a standard nozzle",
+        ],
+      },
+      {
+        heading: "Where DIY Is a Bad Idea",
+        content: ["These jobs are best left to professionals — the risk of damage or injury significantly outweighs any cost savings:"],
+        bullets: [
+          "Roof cleaning — high falls risk; incorrect pressure or chemicals void shingle warranties",
+          "Second-story or higher siding — working at height with a high-pressure wand is dangerous",
+          "Vinyl or fiber cement siding — consumer pressure easily cracks panels or forces water behind them",
+          "Painted surfaces — wrong pressure or nozzle strips paint, leaving a worse mess than before",
+          "Wood decks without experience — improper technique raises grain and ruins the surface for staining",
+          "Any surface where water intrusion is a concern — windows, door frames, vented soffits",
+        ],
+      },
+      {
+        heading: "The Hidden Risk: Property Damage",
+        content: [
+          "The single biggest argument for hiring a pro isn't the price — it's the liability. A licensed, insured pressure washing company carries general liability insurance. If they damage your siding, break a window, or cause a water intrusion issue, their insurance covers it. If you damage your own home with a rental unit, you cover it out of pocket.",
+          "Replacing a section of vinyl siding because of pressure damage runs $500–$2,000 depending on the area. A cracked window from a mis-aimed wand is $150–$500 per pane. These are real scenarios that happen to first-time users regularly.",
+        ],
+      },
+      {
+        heading: "The Bottom Line",
+        content: [
+          "Use DIY for: flat concrete surfaces you can reach from the ground, outdoor furniture, or small fenced areas where the pressure is low and the stakes are lower.",
+          "Hire a pro for: your house exterior (especially siding or second-story), roof, deck, anything painted, anything requiring soft wash chemistry, and any job that puts you at height.",
+        ],
+      },
+    ],
+    relatedServices: ["house-soft-washing", "driveway", "deck-restoration", "roof-cleaning"],
+    relatedGuides: ["power-washing-cost", "vet-power-washing-contractor", "pressure-vs-soft-washing"],
+  },
+  {
+    slug: "power-washing-before-painting",
+    title: "Power Washing Before Painting: What You Need to Know | WashPro",
+    headline: "Power Washing Before Painting: What You Need to Know",
+    metaDescription:
+      "Planning to paint your home exterior? Learn why power washing first is essential, how long to wait before painting after washing, and what pros do differently.",
+    publishDate: "2026-07-01",
+    updatedDate: "2026-07-01",
+    readTime: "5 min read",
+    intro:
+      "If you're planning to paint your home's exterior, power washing first isn't optional — it's the most important prep step. Paint applied over dirty, chalky, or contaminated surfaces fails faster, bubbles, and peels. This guide covers what washing before painting actually involves, how to do it right, and the one timing mistake that ruins a lot of paint jobs.",
+    sections: [
+      {
+        heading: "Why Washing Before Painting Is Non-Negotiable",
+        content: [
+          "Paint needs a clean, dry, sound surface to bond properly. Dirt, algae, mildew, chalk from old paint, and any grease or oil contamination all act as bond-breakers. Even a visually clean surface can have enough surface contamination to cause adhesion failure within a season.",
+          "Chalk — the powdery residue left by aged exterior paint — is particularly common and particularly damaging if not removed. Running your hand across old exterior paint and seeing a white residue on your palm means you have chalk. Paint over that chalk and you're essentially painting on talcum powder. It peels, often within 6–12 months.",
+        ],
+      },
+      {
+        heading: "What 'Washing Before Painting' Actually Means",
+        content: [
+          "The washing step before painting is different from a standard annual exterior wash. It's more thorough and often involves a specific sequence:",
+        ],
+        numbered: [
+          "Chemical pre-treatment: A cleaning solution (typically a diluted bleach-based surfactant mix) is applied first to kill any mold, mildew, or algae. This prevents the biological growth from returning through the new paint layer.",
+          "Dwell time: The chemical sits for 10–20 minutes to kill the growth and loosen contamination — not just move it around.",
+          "Low-to-moderate pressure rinse: The surface is rinsed thoroughly. For siding being prepped for painting, pressure is kept moderate to avoid damaging the substrate.",
+          "Chalk removal: If chalking is present, a slightly higher-pressure pass or a chalk-fighting cleaner is used to strip it off before the surface dries.",
+          "Full dry: The surface must be completely dry before any primer or paint is applied.",
+        ],
+      },
+      {
+        heading: "How Long to Wait After Washing Before Painting",
+        content: [
+          "This is where most DIY paint jobs go wrong. The rule is simple but often ignored: the surface must be fully dry before painting — not just surface-dry to the touch, but dry through.",
+          "In warm, sunny weather with low humidity, wood siding typically needs 24–48 hours. Masonry (stucco, brick, concrete block) holds moisture longer and may need 48–72 hours. In cooler, humid weather or after heavy washing, 72 hours is the safer minimum for any substrate.",
+          "Painting too soon traps moisture under the film. This causes blistering almost immediately — small bubbles form as the trapped water tries to escape. Once blistering starts, you need to scrape, sand, and repaint. Waiting the extra day is almost always worth it.",
+        ],
+      },
+      {
+        heading: "Soft Wash vs. Pressure Wash for Pre-Paint Prep",
+        content: [
+          "For most siding types being prepped for paint, soft washing (low pressure + chemical treatment) is the preferred approach. Here's why: high-pressure washing can force water into gaps around trim, windows, and joints — exactly the places where moisture intrusion causes paint failure. It can also raise wood grain on hardboard or older wood siding, creating an uneven surface the paint can't bridge.",
+          "Soft washing gets the surface just as clean chemically while minimizing the risk of substrate damage and water intrusion. For concrete foundations, masonry, or block walls being prepped for masonry paint or elastomeric coatings, higher pressure is appropriate and helpful for opening the pores of the surface.",
+        ],
+      },
+      {
+        heading: "Hiring a Pro for Pre-Paint Washing",
+        content: [
+          "If you're hiring a painting contractor, ask whether washing is included in the quote and what their process is. Some painting contractors subcontract the washing step; others do it themselves. Either way, confirm the following:",
+        ],
+        bullets: [
+          "Will they chemically treat for mold and mildew, or just pressure wash?",
+          "How long will they wait after washing before applying primer?",
+          "Do they treat chalk if present, or just wash over it?",
+          "Is the washing scoped to the full surface being painted, including trim, soffits, and foundation?",
+        ],
+      },
+    ],
+    relatedServices: ["house-soft-washing", "deck-restoration", "fence-washing"],
+    relatedGuides: ["pressure-vs-soft-washing", "how-often-pressure-wash", "power-washing-cost"],
+  },
+  {
+    slug: "mold-mildew-siding",
+    title: "How to Remove Mold and Mildew from Siding | WashPro",
+    headline: "How to Remove Mold and Mildew from House Siding",
+    metaDescription:
+      "Black or green growth on your siding? Learn what it actually is, whether it's dangerous, and how pros remove mold and mildew from vinyl, wood, and fiber cement siding.",
+    publishDate: "2026-07-01",
+    updatedDate: "2026-07-01",
+    readTime: "5 min read",
+    intro:
+      "That dark streaking or green fuzz on your home's siding is one of the most common exterior maintenance issues homeowners deal with — and one of the most misunderstood. This guide explains what it actually is, whether it poses a health risk, and how it's properly removed from different siding types.",
+    sections: [
+      {
+        heading: "What You're Actually Looking At",
+        content: [
+          "What homeowners call 'mold' on siding is usually one of three things, each requiring slightly different treatment:",
+        ],
+        bullets: [
+          "Mildew (most common): A surface fungal growth that appears as gray, white, or light green patches. It grows on the outside of siding and rarely penetrates the substrate. Most 'mold' complaints are actually mildew.",
+          "Algae: Green, slimy growth that appears on north-facing or shaded surfaces. More common in humid climates and areas with frequent rainfall. Not toxic but creates a slippery surface.",
+          "Gloeocapsa magma (black algae): The black streaks running down siding and roofs. A type of algae that produces a dark pigment as a UV shield. Spreads via spores and is extremely common in most of the US.",
+          "True mold: Less common on exterior surfaces exposed to sun and rain, but possible on constantly shaded or perpetually damp areas. Requires full chemical treatment to kill, not just remove.",
+        ],
+      },
+      {
+        heading: "Is It a Health Hazard?",
+        content: [
+          "Exterior surface mildew and algae on siding is generally not a health hazard — it's an outdoor surface exposed to UV, rain, and air circulation, not an enclosed environment where mold concentrations build up. The health concerns associated with mold (Stachybotrys, etc.) are almost exclusively indoor issues where mold colonizes drywall, insulation, and other porous materials in enclosed, humid spaces.",
+          "That said, exterior mold or mildew near windows, doors, or any penetration that could allow water intrusion into the wall cavity is worth addressing promptly — not because of the surface growth itself, but because it may indicate a moisture pathway into the wall structure.",
+        ],
+      },
+      {
+        heading: "Why Pressure Washing Alone Isn't Enough",
+        content: [
+          "You can blast mildew and algae off siding with a pressure washer — but without a biocidal treatment, it comes back. The spores that cause the regrowth are embedded in microscopic pores on the siding surface. Physical removal with water moves the visible growth but doesn't kill the underlying organism. In humid climates, untreated surfaces can show regrowth within 4–8 weeks.",
+          "The correct approach is soft washing: a low-pressure application of a diluted bleach-based surfactant mix (sodium hypochlorite + surfactant) that kills the organism at the root, followed by a thorough rinse. This is the same process used by professional exterior cleaning companies and is the industry standard for biological growth on siding.",
+        ],
+      },
+      {
+        heading: "Treatment by Siding Type",
+        content: ["Different siding materials have different tolerances for pressure and chemical concentration:"],
+        bullets: [
+          "Vinyl siding: Handles bleach-based treatments well. Low-to-moderate pressure safe. Most forgiving substrate for DIY — but avoid high pressure near seams and overlaps.",
+          "Fiber cement (HardiePlank): Bleach-safe; use lower pressure than vinyl. Check manufacturer guidelines if under warranty — some specify maximum PSI for warranty coverage.",
+          "Wood siding (painted): Bleach-based treatment at lower concentration. Avoid high pressure — it can raise grain, force water behind joints, and damage older paint. Soft washing strongly preferred.",
+          "Stucco: Bleach-safe at normal concentrations. Medium pressure acceptable. Check for cracks before washing — high pressure forces water into cracks and worsens moisture issues.",
+          "Brick: Bleach-safe. Medium pressure on solid brick. Avoid high pressure on mortar joints older than 20–30 years — it can erode old mortar.",
+        ],
+      },
+      {
+        heading: "After Treatment: Preventing Regrowth",
+        content: [
+          "The single best thing you can do to slow regrowth is address the conditions that favor it: shade and moisture. Trim back trees and shrubs that keep siding in constant shade. Ensure gutters route water away from the foundation and siding base. Improve drainage around foundation plantings that stay wet after rain.",
+          "Some soft washing companies apply a post-wash biocide rinse agent that continues killing spores for weeks after the cleaning. Ask if this is included — it's worth it in humid climates and can extend time between cleanings by 30–50%.",
+        ],
+      },
+    ],
+    relatedServices: ["house-soft-washing", "roof-cleaning", "fence-washing"],
+    relatedGuides: ["pressure-vs-soft-washing", "how-often-pressure-wash", "remove-roof-algae"],
+  },
+  {
+    slug: "pressure-washing-safety",
+    title: "Pressure Washing Safety: What Every Homeowner Needs to Know | WashPro",
+    headline: "Pressure Washing Safety: What Every Homeowner Needs to Know",
+    metaDescription:
+      "Pressure washers cause thousands of injuries every year. Learn the real risks, what protective gear you actually need, and which jobs are too dangerous for DIY.",
+    publishDate: "2026-07-01",
+    updatedDate: "2026-07-01",
+    readTime: "4 min read",
+    intro:
+      "Pressure washers look like hoses — but a 2,500 PSI stream can cut through skin in a fraction of a second. According to the Consumer Product Safety Commission, pressure washers send roughly 6,000 people to emergency rooms annually in the United States. Most injuries are preventable with the right gear and a clear understanding of what these machines can and can't do safely.",
+    sections: [
+      {
+        heading: "The Core Risk: Injection Injuries",
+        content: [
+          "The most serious pressure washer injury isn't a slip or a spray in the face — it's an injection injury. At 2,000+ PSI, a pressure stream can penetrate skin, introduce water, bacteria, and debris into tissue, and cause serious infections requiring surgical treatment. These injuries often look minor at first (like a small cut or puncture) but can become life-threatening if not treated immediately as an emergency.",
+          "Never put your hand in front of the nozzle. Never point the wand at another person. Keep the wand pointed away from yourself when squeezing the trigger. These aren't suggestions — they're the line between a normal project and an ER visit.",
+        ],
+      },
+      {
+        heading: "Protective Gear You Actually Need",
+        content: ["Minimum personal protective equipment for any pressure washing project:"],
+        bullets: [
+          "Safety glasses or goggles: Debris can ricochet at high speed. Standard eyeglasses aren't sufficient — get wraparound safety glasses.",
+          "Closed-toe shoes with grip: Never use sandals or open-toe shoes. Wet surfaces are slippery; the wand can sweep toward your feet.",
+          "Long pants: Protects legs from ricocheting debris and reduces injection injury risk if the wand sweeps near your legs.",
+          "Hearing protection: Gas pressure washers run 85–100 dB. Prolonged exposure without hearing protection causes cumulative hearing damage.",
+          "Chemical-resistant gloves: Required if mixing or applying cleaning solutions (especially bleach-based). Nitrile or rubber.",
+        ],
+      },
+      {
+        heading: "Height and Ladder Safety",
+        content: [
+          "Ladder use with a pressure washer is one of the most dangerous combinations in home maintenance. The recoil force from a high-pressure wand at full trigger can shift your balance — especially dangerous when you're 8–12 feet off the ground on a ladder.",
+          "Professional crews use extension wands and telescoping lances to reach second-story surfaces from the ground. If you're renting equipment for a DIY project, rent an extension wand rather than climbing a ladder with the wand. If ladder use is unavoidable, have a second person stabilizing the base, and never lean out from the ladder while spraying.",
+        ],
+      },
+      {
+        heading: "Chemical Safety for Cleaning Solutions",
+        content: [
+          "Most pressure washing cleaning solutions are bleach-based (sodium hypochlorite at various concentrations). These work extremely well but require careful handling:",
+        ],
+        bullets: [
+          "Never mix bleach with ammonia-based cleaners — produces toxic chloramine gas",
+          "Rinse or cover plants and shrubs before applying any bleach-based solution — bleach will damage or kill vegetation",
+          "Avoid spraying near open windows or HVAC intakes — chemical mist can enter the home",
+          "Wear eye protection and gloves when mixing or applying concentrated solutions",
+          "Rinse treated surfaces thoroughly — bleach residue left on metal fixtures or trim causes corrosion",
+        ],
+      },
+      {
+        heading: "Electrical Hazards",
+        content: [
+          "Pressure washing near electrical components — outdoor outlets, meter bases, light fixtures, HVAC units — carries electrocution risk. Water and electricity are obviously incompatible, but high-pressure spray can force water into places a garden hose can't reach: behind outlet covers, into fixture gaps, around conduit fittings.",
+          "Turn off power to any exterior outlets or fixtures in the wash area before starting. Cover electrical components you can't avoid spraying near. Never direct a spray stream at a utility meter, electrical panel, or HVAC unit.",
+        ],
+      },
+      {
+        heading: "When to Hire a Pro Instead",
+        content: ["Some jobs carry enough inherent risk that hiring a professional is the right call regardless of skill level:"],
+        bullets: [
+          "Anything requiring ladder work at second-story height or higher",
+          "Roof cleaning — fall risk is severe; incorrect technique voids warranties",
+          "Surfaces near electrical panels, meters, or service entrance equipment",
+          "Commercial or multi-story buildings",
+          "Any surface where you're uncertain about the safe maximum PSI",
+        ],
+      },
+    ],
+    relatedServices: ["house-soft-washing", "roof-cleaning", "driveway"],
+    relatedGuides: ["diy-vs-hire", "pressure-vs-soft-washing", "vet-power-washing-contractor"],
+  },
+  {
+    slug: "pressure-washing-concrete",
+    title: "How to Clean Concrete: Driveways, Patios & Sidewalks | WashPro",
+    headline: "How to Clean Concrete: Driveways, Patios & Sidewalks",
+    metaDescription:
+      "Concrete is the most forgiving surface to pressure wash — but there are still wrong ways to do it. Learn the right PSI, nozzles, and techniques for driveways, patios, and sidewalks.",
+    publishDate: "2026-07-01",
+    updatedDate: "2026-07-01",
+    readTime: "5 min read",
+    intro:
+      "Concrete driveways, patios, and sidewalks are the most forgiving surfaces to pressure wash — they tolerate high pressure, they're at ground level, and there's little risk of damaging the substrate if you use reasonable technique. That said, there are still ways to do it wrong. This guide covers the right approach for common concrete cleaning jobs.",
+    sections: [
+      {
+        heading: "What Equipment You Actually Need",
+        content: [
+          "Concrete cleaning is one of the few jobs where consumer rental equipment can perform reasonably well. A gas pressure washer in the 2,500–3,500 PSI range with 2.5+ GPM will handle most driveways and patios.",
+          "The single biggest equipment upgrade you can make for concrete: a surface cleaner attachment. This is a spinning disc attachment that replaces the wand for flat surfaces. It cleans 2–3x faster than a wand, produces even, stripe-free results, and keeps the spray contained so you're not getting soaked by spray-back. For a driveway or large patio, it's worth renting separately or requesting that your contractor uses one.",
+        ],
+      },
+      {
+        heading: "The Right Nozzle for Concrete",
+        content: [
+          "Pressure washer nozzles are color-coded by spray angle. For concrete:",
+        ],
+        bullets: [
+          "25-degree (green): The standard choice for concrete. Wide enough to cover area quickly, narrow enough for real cleaning power.",
+          "15-degree (yellow): More aggressive — useful for heavy staining, tire marks, or neglected concrete. Keep moving and don't dwell in one spot.",
+          "0-degree (red): Never use on concrete. Too concentrated — can etch and pit the surface.",
+          "Surface cleaner attachment: The best tool for large flat areas. Worth the upgrade.",
+        ],
+      },
+      {
+        heading: "Dealing with Common Concrete Stains",
+        content: [
+          "Plain pressure washing removes general dirt, algae, and most surface grime well. But certain stains need pre-treatment:",
+        ],
+        bullets: [
+          "Oil and grease: Apply a degreaser or dish soap directly to the stain, let sit 5–10 minutes, then agitate with a stiff brush before pressure washing. Old, set oil stains may need a dedicated concrete degreaser and multiple treatments.",
+          "Algae and moss: Apply a diluted bleach solution (1 part bleach to 3–4 parts water) before washing. Let dwell 5–10 minutes, then rinse thoroughly. This kills the organism rather than just moving it.",
+          "Rust stains: Require an oxalic acid-based concrete cleaner — bleach and pressure alone don't affect rust. Apply per product directions, then rinse.",
+          "Paint spills: Fresh paint is much easier — immediate washing with high pressure. Dried paint typically requires a chemical paint stripper first, then pressure washing.",
+        ],
+      },
+      {
+        heading: "Technique: Preventing Stripes and Uneven Cleaning",
+        content: [
+          "The most common beginner mistake is inconsistent distance and overlap, which leaves visible stripe marks in the cleaned concrete. Technique tips:",
+        ],
+        bullets: [
+          "Keep the nozzle or surface cleaner at a consistent height — 6–12 inches for a wand, per instructions for a surface cleaner",
+          "Overlap each pass by 30–40% to avoid leaving uncleaned strips",
+          "Work in the same direction (don't change angles mid-section)",
+          "Keep moving at a consistent pace — dwelling too long in one spot lightens that area more than the rest",
+          "Rinse the full surface after cleaning to remove loosened debris and residue",
+        ],
+      },
+      {
+        heading: "After Cleaning: Sealing Concrete",
+        content: [
+          "Freshly cleaned concrete is the ideal time to apply a concrete sealer if you've been considering it. Sealers protect against oil staining, moisture penetration, and the freeze-thaw cycle that causes surface spalling in cold climates. They also make future cleaning significantly easier — dirt and algae don't bond as well to sealed surfaces.",
+          "Wait at least 24 hours (48 hours in cooler weather) after washing before applying any sealer to ensure the concrete is fully dry. Sealing damp concrete traps moisture and causes the sealer to fail prematurely — typically showing up as white hazing or peeling within weeks.",
+        ],
+      },
+      {
+        heading: "When to Hire a Pro for Concrete Cleaning",
+        content: [
+          "Most concrete jobs are reasonable DIY candidates. Hire a professional when:",
+        ],
+        bullets: [
+          "The concrete area is very large (over 2,000 sq ft) — a pro with commercial equipment will finish in a fraction of the time",
+          "Significant oil or chemical staining is present — pros have access to stronger commercial degreasers",
+          "The concrete is stamped, colored, or decorative — wrong pressure or chemicals can damage finish coatings",
+          "You need consistent results for a real estate sale or commercial property",
+        ],
+      },
+    ],
+    relatedServices: ["driveway", "house-soft-washing", "commercial"],
+    relatedGuides: ["diy-vs-hire", "power-washing-cost", "how-often-pressure-wash"],
+  },
 ];
 
 export function getGuideContent(slug: string): GuideContent | undefined {
