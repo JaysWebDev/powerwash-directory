@@ -780,6 +780,78 @@ export const DIRECTORY_CITIES: { city: string; state: string; stateAbbr: string 
   { city: "Murray",           state: "Utah",           stateAbbr: "UT" },
   { city: "Taylorsville",     state: "Utah",           stateAbbr: "UT" },
   { city: "Millcreek",        state: "Utah",           stateAbbr: "UT" },
+  // Michigan — Detroit suburbs
+  { city: "Troy",             state: "Michigan",       stateAbbr: "MI" },
+  { city: "Novi",             state: "Michigan",       stateAbbr: "MI" },
+  { city: "Farmington Hills", state: "Michigan",       stateAbbr: "MI" },
+  { city: "Southfield",       state: "Michigan",       stateAbbr: "MI" },
+  { city: "Royal Oak",        state: "Michigan",       stateAbbr: "MI" },
+  { city: "Dearborn Heights", state: "Michigan",       stateAbbr: "MI" },
+  { city: "Taylor",           state: "Michigan",       stateAbbr: "MI" },
+  { city: "St. Clair Shores", state: "Michigan",       stateAbbr: "MI" },
+  { city: "Rochester Hills",  state: "Michigan",       stateAbbr: "MI" },
+  // Kansas — regional cities
+  { city: "Topeka",           state: "Kansas",         stateAbbr: "KS" },
+  { city: "Lawrence",         state: "Kansas",         stateAbbr: "KS" },
+  { city: "Salina",           state: "Kansas",         stateAbbr: "KS" },
+  { city: "Manhattan",        state: "Kansas",         stateAbbr: "KS" },
+  // Iowa — regional cities
+  { city: "Sioux City",       state: "Iowa",           stateAbbr: "IA" },
+  { city: "Waterloo",         state: "Iowa",           stateAbbr: "IA" },
+  { city: "Iowa City",        state: "Iowa",           stateAbbr: "IA" },
+  { city: "Ames",             state: "Iowa",           stateAbbr: "IA" },
+  // Mississippi — regional cities
+  { city: "Gulfport",         state: "Mississippi",    stateAbbr: "MS" },
+  { city: "Hattiesburg",      state: "Mississippi",    stateAbbr: "MS" },
+  { city: "Biloxi",           state: "Mississippi",    stateAbbr: "MS" },
+  { city: "Tupelo",           state: "Mississippi",    stateAbbr: "MS" },
+  // Nebraska — regional cities
+  { city: "Grand Island",     state: "Nebraska",       stateAbbr: "NE" },
+  { city: "Kearney",          state: "Nebraska",       stateAbbr: "NE" },
+  { city: "Hastings",         state: "Nebraska",       stateAbbr: "NE" },
+  // New Mexico — regional cities
+  { city: "Santa Fe",         state: "New Mexico",     stateAbbr: "NM" },
+  { city: "Roswell",          state: "New Mexico",     stateAbbr: "NM" },
+  // New Hampshire — regional cities
+  { city: "Nashua",           state: "New Hampshire",  stateAbbr: "NH" },
+  { city: "Dover",            state: "New Hampshire",  stateAbbr: "NH" },
+  { city: "Rochester",        state: "New Hampshire",  stateAbbr: "NH" },
+  { city: "Derry",            state: "New Hampshire",  stateAbbr: "NH" },
+  // Maine — regional cities
+  { city: "Lewiston",         state: "Maine",          stateAbbr: "ME" },
+  { city: "Bangor",           state: "Maine",          stateAbbr: "ME" },
+  { city: "South Portland",   state: "Maine",          stateAbbr: "ME" },
+  // Vermont — regional cities
+  { city: "Rutland",          state: "Vermont",        stateAbbr: "VT" },
+  { city: "South Burlington", state: "Vermont",        stateAbbr: "VT" },
+  // West Virginia — regional cities
+  { city: "Huntington",       state: "West Virginia",  stateAbbr: "WV" },
+  { city: "Morgantown",       state: "West Virginia",  stateAbbr: "WV" },
+  { city: "Parkersburg",      state: "West Virginia",  stateAbbr: "WV" },
+  // Wyoming — regional cities
+  { city: "Casper",           state: "Wyoming",        stateAbbr: "WY" },
+  { city: "Laramie",          state: "Wyoming",        stateAbbr: "WY" },
+  // Montana — regional cities
+  { city: "Great Falls",      state: "Montana",        stateAbbr: "MT" },
+  { city: "Helena",           state: "Montana",        stateAbbr: "MT" },
+  // North Dakota — regional cities
+  { city: "Grand Forks",      state: "North Dakota",   stateAbbr: "ND" },
+  { city: "Minot",            state: "North Dakota",   stateAbbr: "ND" },
+  // South Dakota — regional cities
+  { city: "Aberdeen",         state: "South Dakota",   stateAbbr: "SD" },
+  // Arkansas — regional cities
+  { city: "Jonesboro",        state: "Arkansas",       stateAbbr: "AR" },
+  { city: "Pine Bluff",       state: "Arkansas",       stateAbbr: "AR" },
+  { city: "Hot Springs",      state: "Arkansas",       stateAbbr: "AR" },
+  // Alabama — regional cities
+  { city: "Auburn",           state: "Alabama",        stateAbbr: "AL" },
+  { city: "Tuscaloosa",       state: "Alabama",        stateAbbr: "AL" },
+  { city: "Decatur",          state: "Alabama",        stateAbbr: "AL" },
+  { city: "Dothan",           state: "Alabama",        stateAbbr: "AL" },
+  // Idaho — regional cities
+  { city: "Twin Falls",       state: "Idaho",          stateAbbr: "ID" },
+  { city: "Pocatello",        state: "Idaho",          stateAbbr: "ID" },
+  { city: "Idaho Falls",      state: "Idaho",          stateAbbr: "ID" },
 ];
 
 export function cityToSlug(city: string, stateAbbr: string): string {
