@@ -6,6 +6,7 @@ import { guidesContent, getGuideContent } from "@/config/guides-content";
 import { servicesContent } from "@/config/services-content";
 import { siteConfig } from "@/config/site";
 import ServiceQuoteForm from "@/components/ServiceQuoteForm";
+import AdUnit from "@/components/AdUnit";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
 const BRAND = `${siteConfig.brand} ${siteConfig.brandSuffix}`;
@@ -122,8 +123,11 @@ export default async function GuidePage({ params }: Props) {
                 {/* Intro */}
                 <p className="text-[#475569] leading-relaxed text-lg">{g.intro}</p>
 
-                {g.sections.map((section) => (
+                {g.sections.map((section, si) => (
                   <div key={section.heading}>
+                    {(si === 1 || si === 3) && (
+                      <AdUnit slot="9977465932" format="fluid" layout="in-article" className="mb-8" />
+                    )}
                     <h2
                       className="font-bold text-[#1e3a5f] mb-3"
                       style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-title)" }}

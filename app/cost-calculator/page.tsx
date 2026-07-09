@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { CheckCircle, Calculator, ChevronRight } from "lucide-react";
+import AdUnit from "@/components/AdUnit";
 import { siteConfig } from "@/config/site";
 
 const BrandIcon = siteConfig.icon;
@@ -260,6 +261,8 @@ export default function CostCalculatorPage() {
               </div>
             )}
           </div>
+
+          <AdUnit slot="5303723755" className="mt-8" />
 
           {/* Disclaimer */}
           <div className="mt-6 bg-white border border-[#e2e8f0] rounded-2xl p-5">

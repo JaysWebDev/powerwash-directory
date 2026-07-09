@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Star, ChevronDown, MapPin, BookOpen, Wrench } from "lucide-react";
 import ServicesAndQuote from "@/components/ServicesAndQuote";
+import AdUnit from "@/components/AdUnit";
 import HeroZipInput from "@/components/HeroZipInput";
 import CompanyCard from "@/components/CompanyCard";
 import { siteConfig } from "@/config/site";
@@ -317,6 +318,7 @@ export default async function Home() {
       {featuredCompanies.length > 0 && (
         <section id="featured" className="section-py" style={{ backgroundColor: "var(--cl)" }}>
           <div className="max-w-6xl mx-auto page-px">
+            <AdUnit slot="5303723755" className="mb-10" />
             <div className="text-center heading-mb">
               <h2
                 style={{ fontFamily: "var(--font-display)", color: "var(--cd)", fontSize: "var(--fs-display)" }}

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Clock, ChevronRight } from "lucide-react";
 import { guidesContent } from "@/config/guides-content";
 import { siteConfig } from "@/config/site";
+import AdUnit from "@/components/AdUnit";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
 
@@ -44,6 +45,7 @@ export default function GuidesIndexPage() {
 
       <section className="section-py bg-[#f8fafc]">
         <div className="max-w-4xl mx-auto page-px">
+          <AdUnit slot="5303723755" className="mb-8" />
           <div className="space-y-4">
             {guidesContent.map((guide) => (
               <Link

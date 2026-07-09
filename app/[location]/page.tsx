@@ -287,7 +287,17 @@ export default async function CityPage({ params }: Props) {
                 <>
                   <AdUnit slot="9977465932" format="fluid" layout="in-article" className="my-8" />
                   <div className="grid-fluid-card">
-                    {companies.slice(6).map((company) => (
+                    {companies.slice(6, 18).map((company) => (
+                      <CompanyCard key={company.id} company={company} />
+                    ))}
+                  </div>
+                </>
+              )}
+              {companies.length > 18 && (
+                <>
+                  <AdUnit slot="9977465932" format="fluid" layout="in-article" className="my-8" />
+                  <div className="grid-fluid-card">
+                    {companies.slice(18).map((company) => (
                       <CompanyCard key={company.id} company={company} />
                     ))}
                   </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { servicesContent } from "@/config/services-content";
 import { siteConfig } from "@/config/site";
+import AdUnit from "@/components/AdUnit";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
 
@@ -45,6 +46,7 @@ export default function ServicesIndexPage() {
       {/* Service grid */}
       <section className="section-py bg-[#f8fafc]">
         <div className="max-w-4xl mx-auto page-px">
+          <AdUnit slot="5303723755" className="mb-8" />
           <div className="grid sm:grid-cols-2 gap-4">
             {servicesContent.map((s) => {
               const service = siteConfig.services.find((sv) => sv.id === s.id);

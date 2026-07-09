@@ -6,6 +6,7 @@ import { servicesContent, getServiceContent } from "@/config/services-content";
 import { guidesContent } from "@/config/guides-content";
 import { siteConfig } from "@/config/site";
 import ServiceQuoteForm from "@/components/ServiceQuoteForm";
+import AdUnit from "@/components/AdUnit";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
 
@@ -151,8 +152,11 @@ export default async function ServicePage({ params }: Props) {
                 <p className="text-[#475569] leading-relaxed text-lg">{s.intro}</p>
 
                 {/* Sections */}
-                {s.sections.map((section) => (
+                {s.sections.map((section, si) => (
                   <div key={section.heading}>
+                    {si === 1 && (
+                      <AdUnit slot="9977465932" format="fluid" layout="in-article" className="mb-8" />
+                    )}
                     <h2
                       className="font-bold text-[#1e3a5f] mb-3"
                       style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-title)" }}
@@ -176,6 +180,8 @@ export default async function ServicePage({ params }: Props) {
                     )}
                   </div>
                 ))}
+
+                <AdUnit slot="9977465932" format="fluid" layout="in-article" />
 
                 {/* FAQs */}
                 {s.faqs.length > 0 && (
