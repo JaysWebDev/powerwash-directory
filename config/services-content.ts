@@ -92,7 +92,7 @@ export const servicesContent: ServiceContent[] = [
       },
     ],
     relatedGuides: ["pressure-vs-soft-washing", "best-time-to-power-wash", "power-washing-home-value"],
-    relatedServices: ["driveway", "deck-restoration", "roof-cleaning"],
+    relatedServices: ["driveway", "stucco-cleaning", "roof-cleaning"],
   },
 
   {
@@ -166,8 +166,8 @@ export const servicesContent: ServiceContent[] = [
         a: "Hot-water pressure washing machines work significantly better on petroleum stains than cold-water units — the heat breaks down the oil. Combined with a dedicated concrete degreaser pre-treatment, old stains are often reduced 70–90%. Ask when booking whether the company runs hot water.",
       },
     ],
-    relatedGuides: ["power-washing-cost", "best-time-to-power-wash"],
-    relatedServices: ["house-soft-washing", "deck-restoration", "commercial"],
+    relatedGuides: ["power-washing-cost", "remove-rust-stains"],
+    relatedServices: ["house-soft-washing", "patio-paver-cleaning", "commercial"],
   },
 
   {
@@ -336,7 +336,7 @@ export const servicesContent: ServiceContent[] = [
         a: "Fall cleaning removes the summer's mold and algae growth and leaves the fence in better condition for winter. For wood fences, fall cleaning followed by a fresh coat of sealant before temps drop is ideal — it protects the wood through the freeze-thaw cycles that cause the most damage.",
       },
     ],
-    relatedGuides: ["power-washing-cost", "best-time-to-power-wash"],
+    relatedGuides: ["power-washing-cost", "winter-prep-power-washing"],
     relatedServices: ["deck-restoration", "house-soft-washing"],
   },
 
@@ -515,7 +515,312 @@ export const servicesContent: ServiceContent[] = [
       },
     ],
     relatedGuides: ["vet-power-washing-contractor", "power-washing-cost"],
-    relatedServices: ["driveway", "house-soft-washing"],
+    relatedServices: ["driveway", "graffiti-removal"],
+  },
+
+  {
+    id: "patio-paver-cleaning",
+    slug: "patio-paver-cleaning",
+    name: "Patio & Paver Cleaning",
+    title: "Patio & Paver Cleaning Near Me | Free Quotes | WashPro Directory",
+    metaDescription:
+      "Find local pros for patio and paver cleaning. What paver washing and re-sanding costs, why joint sand matters, and how to restore stained pavers without damaging them.",
+    headline: "Patio & Paver Cleaning",
+    subheadline: "Restore pavers, flagstone, and stamped patios — without blowing out the joint sand",
+    intro:
+      "Paver patios and walkways are among the most satisfying surfaces to have professionally cleaned — years of gray grime rinse away to reveal the original color underneath. But pavers are also one of the easiest surfaces to damage with a rented pressure washer: too much pressure blasts out joint sand, dislodges pavers, and etches the surface. Professional paver cleaning combines controlled pressure, the right chemistry, and re-sanding to leave the patio both clean and structurally sound.",
+    quickStats: { costRange: "$150–$450", duration: "2–5 hours", frequency: "Every 1–2 years" },
+    sections: [
+      {
+        heading: "Why Pavers Need a Different Approach Than Concrete",
+        content: [
+          "A concrete slab is one continuous surface. A paver patio is hundreds of individual units held in alignment by compacted joint sand — and that sand is the weak point. High pressure aimed into the joints excavates the sand in seconds, which lets pavers shift, rock, and grow weeds through the newly opened gaps.",
+          "Professionals clean pavers with a surface cleaner (a spinning-bar attachment that keeps pressure angled down rather than into joints) at moderate PSI, after a chemical pre-treatment has already loosened organic growth. The pressure rinses; it doesn't excavate. Efflorescence — the white chalky haze common on newer pavers — needs a dedicated acidic cleaner, not more pressure.",
+        ],
+      },
+      {
+        heading: "Re-Sanding and Sealing: The Other Half of the Job",
+        content: [
+          "Even careful washing removes some joint sand, so a complete paver job includes re-sanding. Ask specifically whether the quote includes it:",
+        ],
+        bullets: [
+          "Standard joint sand: swept into joints after the surface fully dries — the minimum acceptable finish",
+          "Polymeric sand: sand with a binding polymer that hardens after wetting — resists washout, blocks weeds and ants, lasts years longer; adds $1–$2 per sq ft",
+          "Sealing (optional): enhances color, slows staining and organic regrowth; applied 24–48 hours after cleaning once pavers are bone dry",
+          "A wash-only quote that skips re-sanding isn't complete — joints left low invite weeds, ants, and paver movement",
+        ],
+      },
+      {
+        heading: "Common Paver Stains and What Removes Them",
+        content: [
+          "Pavers collect a wider variety of stains than most surfaces because of how they're used. Each has a specific fix:",
+        ],
+        bullets: [
+          "Black/gray organic film and green algae: sodium hypochlorite pre-treatment, then surface cleaning — the standard job",
+          "Grill grease and food oils: degreaser with dwell time before the main wash",
+          "Rust from furniture and fire pits: oxalic-acid-based rust remover applied to specific spots",
+          "Efflorescence (white haze): dedicated efflorescence cleaner — bleach does nothing to it",
+          "Leaf tannin and mulch dye stains: usually lighten dramatically with pre-treatment and often fade fully with sun exposure after cleaning",
+          "Polymeric sand haze from a bad install: requires a specialty haze remover — point it out when getting quotes",
+        ],
+      },
+      {
+        heading: "What a Professional Paver Cleaning Costs",
+        content: [
+          "Expect $0.50–$1.50 per square foot for cleaning alone, depending on condition and region. A typical 300 sq ft patio runs $150–$300 to clean. Add re-sanding with polymeric sand and sealing, and the full restoration package for the same patio typically lands between $450 and $900 — still a fraction of the $15–$30 per sq ft cost of replacing a failed patio.",
+          "Flagstone, travertine, and natural stone command the higher end of cleaning rates because they're softer and more chemical-sensitive than concrete pavers. Confirm the company has cleaned your specific stone type before booking — travertine in particular is damaged by acidic cleaners that are routine on concrete pavers.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Will pressure washing ruin the sand between my pavers?",
+        a: "Careless pressure washing will — a zero-degree tip aimed into joints excavates them in seconds. Professional cleaning uses a surface cleaner at controlled pressure that removes far less sand, and a complete job includes re-sanding the joints afterward. Always confirm re-sanding is in the quote.",
+      },
+      {
+        q: "What is the white chalky film on my pavers?",
+        a: "That's efflorescence — mineral salts migrating out of the concrete as moisture moves through it. It's harmless and common on pavers under 2 years old, but bleach and pressure won't remove it. It needs a dedicated efflorescence cleaner, which most paver-experienced companies carry.",
+      },
+      {
+        q: "Should I seal my pavers after cleaning?",
+        a: "It's optional but worthwhile if you like the look — sealers deepen color, slow organic regrowth, and make future cleaning easier. If you seal, it must happen 24–48 hours after washing on completely dry pavers, so it naturally bundles with a cleaning job. Expect resealing every 3–5 years.",
+      },
+      {
+        q: "How long after cleaning until I can use the patio?",
+        a: "Walk on it as soon as it's rinsed. If joints were re-sanded with polymeric sand, keep furniture off for 24 hours and avoid watering for 48 hours while the polymer sets. If sealed, follow the sealer's cure time — typically 24–72 hours before heavy use.",
+      },
+    ],
+    relatedGuides: ["pressure-washing-concrete", "remove-rust-stains", "power-washing-cost"],
+    relatedServices: ["driveway", "deck-restoration", "brick-cleaning"],
+  },
+
+  {
+    id: "brick-cleaning",
+    slug: "brick-cleaning",
+    name: "Brick & Masonry Cleaning",
+    title: "Brick & Masonry Cleaning Near Me | Free Quotes | WashPro Directory",
+    metaDescription:
+      "Find pros who clean brick homes, walls, and chimneys the right way. Why old brick and high pressure don't mix, what brick washing costs, and how mortar condition changes the job.",
+    headline: "Brick & Masonry Cleaning",
+    subheadline: "Deep-clean brick homes, walkways, and chimneys without eroding mortar or spalling faces",
+    intro:
+      "Brick looks indestructible, which is exactly why so much of it gets damaged by aggressive cleaning. Brick and mortar are porous, and older masonry in particular can be surprisingly soft. The right cleaning approach depends on the age of the brick, the condition of the mortar joints, and what's actually growing on it. Done correctly, a professional brick wash removes decades of grime and biological growth while leaving the masonry structurally untouched.",
+    quickStats: { costRange: "$250–$600", duration: "3–6 hours", frequency: "Every 2–4 years" },
+    sections: [
+      {
+        heading: "Why Brick Age Changes Everything",
+        content: [
+          "Modern brick (roughly post-1950) is kiln-fired hard and tolerates moderate pressure — 1,000–1,500 PSI with a wide tip is generally safe on the brick faces themselves. The mortar between them is always the weaker material and erodes first if pressure is misused.",
+          "Pre-war and historic brick is a different material entirely. Older bricks have a hard fired outer skin over a softer core; blast through that skin with high pressure and the brick begins spalling — flaking apart — with every freeze-thaw cycle afterward. Historic masonry should only ever be cleaned with low pressure and appropriate chemistry, and any company that quotes a historic home without asking its age is a red flag.",
+          "This is why professional brick cleaning leads with chemistry: a sodium hypochlorite solution for organic growth, or a masonry detergent for general grime, applied at soft-wash pressure, dwelled, and rinsed at the lowest pressure that gets the job done.",
+        ],
+      },
+      {
+        heading: "What Brick Cleaning Removes (and What It Won't)",
+        content: [
+          "Set expectations before booking — some brick discoloration is dirt, and some is the brick itself:",
+        ],
+        bullets: [
+          "Removes: green algae, black gloeocapsa streaking, mildew, dirt film, cobwebs, wasp nests, and most atmospheric grime",
+          "Removes with targeted treatment: rust stains (oxalic acid), efflorescence (acidic efflorescence cleaner), smoke staining around chimneys (degreaser)",
+          "Usually improves but may not eliminate: decades-old carbon staining on historic brick, deep mortar staining",
+          "Won't fix: vanadium staining (green/yellow salts on new brick), paint ghosting from removed paint, spalled or damaged brick faces — those are repair jobs, not cleaning jobs",
+        ],
+      },
+      {
+        heading: "Mortar Condition: Check Before You Wash",
+        content: [
+          "Water is brick's long-term enemy, and failing mortar joints are how it gets in. Before any wash, inspect the joints: crumbling, cracked, or recessed mortar means water from even gentle washing enters the wall cavity. If a screwdriver scrapes mortar out easily, the wall needs repointing before it needs washing.",
+          "A good masonry cleaning company checks this on their walkthrough and will tell you if washing should wait. Washing first and repointing after is backwards — fresh mortar needs 28 days of cure time before it can be washed, so the correct order is repoint, cure, then clean.",
+        ],
+      },
+      {
+        heading: "Pricing and What Affects It",
+        content: [
+          "Whole-house brick washing typically runs $250–$600 for an average single-story home, with two-story homes adding 30–50%. Brick patios and walkways price similarly to pavers at $0.50–$1.50 per square foot. Chimney exterior cleaning as a standalone runs $150–$350 depending on height and access.",
+        ],
+        bullets: [
+          "Heavy organic growth (north walls, shaded sides) adds dwell time and product",
+          "Historic or soft brick requires gentler methods and more time — expect a premium, and be glad to pay it",
+          "Efflorescence or rust treatment is typically a per-area add-on of $50–$150",
+          "Post-clean water repellent (siloxane-based breathable sealer) is an optional add-on that slows re-soiling; never accept a non-breathable film-forming sealer on brick",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can you pressure wash a brick house?",
+        a: "Modern brick tolerates moderate, properly angled pressure, but the professional standard is soft washing — chemistry at low pressure — because mortar joints and older brick faces are easily damaged. If a company's plan is simply \"high pressure, no chemicals,\" keep looking.",
+      },
+      {
+        q: "What are the white deposits on my brick?",
+        a: "Efflorescence — soluble salts carried to the surface as moisture moves through the masonry. It brushes off dry sometimes, but pressure washing alone won't remove it and can worsen it by adding water. It needs a dedicated acidic efflorescence cleaner, applied carefully and neutralized.",
+      },
+      {
+        q: "Will cleaning damage my mortar joints?",
+        a: "Sound mortar handles professional soft washing without issue. Deteriorated mortar is the risk — washing forces water into failing joints and accelerates damage. Have joints inspected first; if they're crumbling, repoint first, let it cure 28 days, then wash.",
+      },
+      {
+        q: "Can smoke stains be removed from a brick fireplace or chimney?",
+        a: "Exterior chimney smoke staining usually responds well to degreaser and hot-water washing. Interior firebox soot is a different job requiring specialty masonry cleaners and hand work. Expect improvement rather than perfection on carbon staining that has had years to soak into porous brick.",
+      },
+    ],
+    relatedGuides: ["pressure-vs-soft-washing", "remove-rust-stains", "vet-power-washing-contractor"],
+    relatedServices: ["house-soft-washing", "patio-paver-cleaning", "stucco-cleaning"],
+  },
+
+  {
+    id: "stucco-cleaning",
+    slug: "stucco-cleaning",
+    name: "Stucco & EIFS Cleaning",
+    title: "Stucco & EIFS Cleaning Near Me | Free Quotes | WashPro Directory",
+    metaDescription:
+      "Find pros who safely clean stucco and EIFS (Dryvit) exteriors. Why stucco can never be pressure washed, what soft washing costs, and how to spot the difference between dirt and damage.",
+    headline: "Stucco & EIFS Cleaning",
+    subheadline: "Soft-wash-only cleaning for traditional stucco and synthetic EIFS — pressure is never the answer here",
+    intro:
+      "Stucco is the single most pressure-sensitive siding in common use. High-pressure water gouges traditional stucco, punches holes in EIFS (synthetic stucco), and drives water into the wall assembly where it causes rot and mold you won't see for years. Yet stucco's textured, porous surface collects algae and grime faster than almost any other siding. The answer is soft washing — and on stucco, it's not a preference, it's the only correct method.",
+    quickStats: { costRange: "$300–$650", duration: "3–5 hours", frequency: "Every 2–3 years" },
+    sections: [
+      {
+        heading: "Stucco vs. EIFS: Know Which One You Have",
+        content: [
+          "Traditional (hardcoat) stucco is cement-based, applied in multiple coats over lath, and is hard to the touch — knock on it and it feels like concrete. It's durable but porous and brittle: pressure washing erodes the finish coat, opens hairline cracks, and forces water through them into the wall.",
+          "EIFS (Exterior Insulation and Finish System, often called Dryvit) is a synthetic system: a thin acrylic finish over foam insulation board. Knock on it and it sounds hollow. EIFS is far more fragile — a pressure washer can physically puncture it, and any water that gets behind the finish is trapped against the sheathing. Many EIFS moisture-damage claims trace back to a pressure washing.",
+          "The good news: both clean beautifully with soft washing. A diluted sodium hypochlorite solution with surfactant, applied at garden-hose pressure, kills the algae and mildew feeding on the textured surface, and a low-pressure rinse carries it away without stressing the finish.",
+        ],
+      },
+      {
+        heading: "Why Stucco Gets So Dirty, So Fast",
+        content: [
+          "Stucco's texture is the problem — all those peaks and valleys trap airborne dust, hold moisture after rain and dew, and give algae spores a perfect foothold. Common stucco staining patterns and what they mean:",
+        ],
+        bullets: [
+          "Green or black blotching, worst on north and shaded walls: algae and mildew — the standard soft-wash job",
+          "Dark vertical streaks under windows, sills, and light fixtures: dirt-laden runoff — cleans well, but recurring streaks suggest missing drip edges or failed sealant",
+          "Orange or rust-colored tint in irrigation zones: iron staining from sprinkler water — needs targeted rust treatment, not bleach",
+          "White chalky wash-down (heaviest under rough texture): natural weathering of the finish releasing lime — cleaning helps, but heavy chalking means the finish is aging and may need recoating",
+          "Dark banding that maps to the stud or board pattern behind the wall: thermal tracking or, on EIFS, possible moisture in the assembly — have it inspected before cleaning",
+        ],
+      },
+      {
+        heading: "What a Professional Stucco Wash Involves",
+        content: [
+          "A proper stucco job starts with a walkaround to find cracks, failed sealant joints, and unsealed penetrations — anywhere solution or rinse water could enter the wall. Meaningful cracks get flagged (and ideally sealed) before washing, not discovered after.",
+          "The wash itself is chemistry-forward: pre-wet landscaping, apply the soft-wash solution from the bottom up to prevent streaking, let it dwell 10–15 minutes without drying, then rinse top-down at low pressure. Heavily textured finishes may need a second application. The finish should never be scrubbed aggressively — stiff brushes and rotary tools burnish the texture and leave visible shiny patches.",
+          "Expect stucco washing to price 20–40% above vinyl siding for the same house size: more chemical (the porous surface drinks solution), more dwell management, and more care around openings.",
+        ],
+      },
+      {
+        heading: "After the Wash: Keeping Stucco Clean Longer",
+        content: [
+          "Because stucco re-soils faster than smooth siding, a little prevention meaningfully stretches the interval between washes:",
+        ],
+        bullets: [
+          "Trim vegetation back 2–3 feet from walls — shade and trapped humidity are what algae wants",
+          "Adjust sprinklers so no head hits the stucco; irrigation water is the source of most rust tinting and localized algae blooms",
+          "Fix gutter overflows promptly — a single overflowing corner will paint a permanent-looking streak down a stucco wall in one season",
+          "Re-seal cracks and joints as they appear; sealed stucco sheds water instead of drinking it",
+          "In humid climates, ask about a post-wash algaecide treatment — it can add a year or more before regrowth appears",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can stucco ever be pressure washed?",
+        a: "No. Traditional stucco erodes and cracks under high pressure, and EIFS can be physically punctured by it. Both are cleaned exclusively by soft washing — low pressure with a cleaning solution. Any contractor proposing high pressure on stucco is telling you they don't know the material.",
+      },
+      {
+        q: "How do I know if I have real stucco or EIFS?",
+        a: "Knock on it. Traditional hardcoat stucco feels and sounds like concrete — solid and cold. EIFS sounds hollow and may flex slightly, because there's foam board underneath. Press gently on an inconspicuous spot: EIFS gives a little. The distinction matters because EIFS requires even gentler handling.",
+      },
+      {
+        q: "Will the bleach solution discolor my stucco?",
+        a: "Properly diluted sodium hypochlorite doesn't harm cured, integrally-colored, or painted stucco — it's the industry-standard cleaner. Freshly painted or recently recoated stucco should wait 30 days before washing. A reputable company tests an inconspicuous area first on strongly colored finishes.",
+      },
+      {
+        q: "The dark streaks came back a few months after cleaning. Why?",
+        a: "Fast-returning streaks in the same spots are a drainage signature, not a cleaning failure — usually an overflowing gutter, a missing kick-out flashing, or a window without a drip edge concentrating runoff on that spot. Fix the water path and the next wash will last years instead of months.",
+      },
+    ],
+    relatedGuides: ["pressure-vs-soft-washing", "mold-mildew-siding", "how-often-pressure-wash"],
+    relatedServices: ["house-soft-washing", "brick-cleaning", "gutter-cleaning"],
+  },
+
+  {
+    id: "graffiti-removal",
+    slug: "graffiti-removal",
+    name: "Graffiti Removal",
+    title: "Graffiti Removal Near Me | Free Quotes | WashPro Directory",
+    metaDescription:
+      "Find local graffiti removal pros. Why speed matters, what removal costs on brick, concrete, and metal, and when anti-graffiti coatings pay for themselves.",
+    headline: "Graffiti Removal",
+    subheadline: "Fast, surface-safe paint removal for storefronts, walls, fences, and signage",
+    intro:
+      "Graffiti removal is a race against absorption. Spray paint on a porous surface like brick or concrete penetrates deeper every day it sits — what wipes off with solvent in the first 48 hours can require hot-water chemical extraction after a month. Professional graffiti removal matches the removal method to both the paint and the surface underneath, because the goal isn't just removing the tag — it's removing it without leaving a ghost, an etched patch, or a clean square that advertises where it was.",
+    quickStats: { costRange: "$150–$700", duration: "1–4 hours", frequency: "As needed" },
+    sections: [
+      {
+        heading: "Why the First 48 Hours Matter",
+        content: [
+          "On sealed or non-porous surfaces (metal doors, glass, signage, painted flat walls), fresh spray paint sits on top and comes off nearly completely with the right solvent. On porous masonry, paint begins wicking into the pore structure immediately — after weeks of sun and rain, it's not on the wall, it's in it.",
+          "Speed matters for a second reason: rapid removal is the most proven graffiti deterrent. Taggers want visibility time. Properties that consistently remove graffiti within a day or two get hit dramatically less often than walls where tags stay up for weeks. Many commercial property managers keep a removal company on call for exactly this reason.",
+        ],
+      },
+      {
+        heading: "Removal Methods by Surface",
+        content: [
+          "There is no universal graffiti remover — the method that saves one surface destroys another:",
+        ],
+        bullets: [
+          "Brick and block: alkaline or solvent-gel graffiti remover with dwell time, then hot-water pressure rinse; multiple applications for older tags — never aggressive pressure alone, which drives pigment deeper and etches mortar",
+          "Smooth concrete: chemical stripper plus hot-water washing; stubborn shadows may need a light soda blast",
+          "Painted surfaces (walls, doors, dumpsters): solvent testing first — if the tag comes off without lifting the underlying paint, chemical removal; otherwise repainting is faster and cleaner",
+          "Metal (roll-up doors, poles, utility boxes): solvent wipe-down — usually the easiest full removal",
+          "Glass and windows: razor and solvent for paint; note that scratched-in tags (etch graffiti) are permanent and need glass replacement or polishing",
+          "Murals and decorative finishes: specialist work only — standard strippers take the artwork off with the tag",
+        ],
+      },
+      {
+        heading: "The Ghost Problem (and the Clean-Spot Problem)",
+        content: [
+          "Two outcomes separate professional graffiti removal from a rental-pressure-washer attempt. The first is ghosting: a faint shadow of the tag left in porous masonry after the surface paint is gone. Pros minimize it with proper chemistry and dwell, but on old, unsealed brick a faint ghost sometimes remains — honest companies tell you this upfront rather than blasting the wall until the brick itself is damaged.",
+          "The second is the clean-spot problem: removing a tag from one patch of a grimy wall leaves a bright clean rectangle that's nearly as visible as the graffiti was. On weathered walls, the professional fix is either cleaning the entire wall face (often worth it) or feathering the cleaned area so it blends. Get this addressed in the quote — a per-tag price on a dirty wall usually means a checkerboard result.",
+        ],
+      },
+      {
+        heading: "Anti-Graffiti Coatings: When Prevention Pays",
+        content: [
+          "For walls that get hit repeatedly, an anti-graffiti coating changes the economics. Sacrificial coatings (wax-based) sit on the surface; when tagged, hot water removes the coating and the paint together, and the wall is re-coated — removal drops to a fast, chemical-free rinse. Permanent (polyurethane or siloxane) coatings resist paint penetration for many removal cycles.",
+        ],
+        bullets: [
+          "Coatings make sense after the second hit on the same wall — most commercial repeat-target walls pay back the coating in 1–2 avoided removals",
+          "Sacrificial coatings cost roughly $1–$2 per sq ft applied; permanent coatings $2–$4 per sq ft but survive multiple removals",
+          "On historic or unsealed masonry, breathable coatings only — trapping moisture in old brick causes spalling",
+          "Many cities offer free or subsidized graffiti abatement for street-facing walls — check your city's program before paying retail; response time is the tradeoff",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can graffiti be completely removed from brick?",
+        a: "Fresh tags on sealed or dense brick: usually yes, completely. Older tags on porous, unsealed brick: expect 90–95% removal with a faint ghost possible in strong light. A reputable company assesses the brick and tells you the realistic outcome before starting rather than over-promising.",
+      },
+      {
+        q: "Why not just paint over it?",
+        a: "Paint-over is legitimate on already-painted walls when the color can be matched — it's often the cheapest fix. On bare brick, block, or concrete, paint-over creates a permanent maintenance obligation (that patch must be repainted forever) and usually looks worse than proper removal. Mismatched touch-up rectangles also signal an easy target.",
+      },
+      {
+        q: "How fast should graffiti be removed?",
+        a: "Within 24–48 hours if possible. Fresh paint comes off easier and cheaper, and quick removal is the strongest deterrent against repeat tagging. Many removal companies offer priority response for commercial clients precisely because speed changes both the cost and the recurrence rate.",
+      },
+      {
+        q: "Does insurance or the city cover graffiti removal?",
+        a: "Commercial property policies often cover vandalism including graffiti, subject to your deductible — document with photos and a police report number. Separately, many municipalities run free abatement programs for visible-from-street graffiti. For small tags, a local pro is often faster than either process.",
+      },
+    ],
+    relatedGuides: ["vet-power-washing-contractor", "power-washing-cost", "pressure-washing-concrete"],
+    relatedServices: ["commercial", "brick-cleaning", "driveway"],
   },
 ];
 

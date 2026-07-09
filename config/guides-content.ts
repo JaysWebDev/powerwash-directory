@@ -149,7 +149,7 @@ export const guidesContent: GuideContent[] = [
         ],
       },
     ],
-    relatedServices: ["house-soft-washing", "roof-cleaning", "driveway"],
+    relatedServices: ["house-soft-washing", "roof-cleaning", "stucco-cleaning"],
     relatedGuides: ["power-washing-cost", "remove-roof-algae"],
   },
 
@@ -259,7 +259,7 @@ export const guidesContent: GuideContent[] = [
       },
     ],
     relatedServices: ["house-soft-washing", "driveway", "deck-restoration"],
-    relatedGuides: ["pressure-vs-soft-washing", "power-washing-cost"],
+    relatedGuides: ["pressure-vs-soft-washing", "power-washing-cost", "winter-prep-power-washing"],
   },
 
   {
@@ -706,7 +706,7 @@ export const guidesContent: GuideContent[] = [
         ],
       },
     ],
-    relatedServices: ["house-soft-washing", "roof-cleaning", "fence-washing"],
+    relatedServices: ["house-soft-washing", "roof-cleaning", "stucco-cleaning"],
     relatedGuides: ["pressure-vs-soft-washing", "how-often-pressure-wash", "remove-roof-algae"],
   },
   {
@@ -779,7 +779,7 @@ export const guidesContent: GuideContent[] = [
       },
     ],
     relatedServices: ["house-soft-washing", "roof-cleaning", "driveway"],
-    relatedGuides: ["diy-vs-hire", "pressure-vs-soft-washing", "vet-power-washing-contractor"],
+    relatedGuides: ["diy-vs-hire", "pressure-washing-windows", "vet-power-washing-contractor"],
   },
   {
     slug: "pressure-washing-concrete",
@@ -857,8 +857,198 @@ export const guidesContent: GuideContent[] = [
         ],
       },
     ],
-    relatedServices: ["driveway", "house-soft-washing", "commercial"],
-    relatedGuides: ["diy-vs-hire", "power-washing-cost", "how-often-pressure-wash"],
+    relatedServices: ["driveway", "patio-paver-cleaning", "commercial"],
+    relatedGuides: ["diy-vs-hire", "remove-rust-stains", "how-often-pressure-wash"],
+  },
+
+  {
+    slug: "pressure-washing-windows",
+    title: "Can You Pressure Wash Windows? What's Safe and What Isn't | WashPro",
+    headline: "Can You Pressure Wash Windows? What's Safe and What Isn't",
+    metaDescription:
+      "Pressure washing near windows can crack glass, blow out seals, and flood window tracks. Learn what's safe, what professional washers actually do, and how to get streak-free exterior glass.",
+    publishDate: "2026-07-09",
+    updatedDate: "2026-07-09",
+    readTime: "5 min read",
+    intro:
+      "It's one of the most common questions homeowners ask when booking a house wash: \"Will you do the windows too?\" The honest answer is nuanced. High-pressure water and residential windows are a bad combination, but that doesn't mean your glass has to stay dirty. Here's what can go wrong, what professionals actually do around windows, and the right way to get exterior glass clean.",
+    sections: [
+      {
+        heading: "Why High Pressure and Windows Don't Mix",
+        content: [
+          "Residential window glass is tempered for impact resistance, not for a concentrated 2,000+ PSI water stream at close range. Direct pressure washing of windows risks several failure modes, most of which don't show up until days or weeks later:",
+        ],
+        bullets: [
+          "Cracked or shattered glass — especially older single-pane windows and any glass with existing chips or stress fractures",
+          "Blown seals on double-pane (insulated) units — pressure forces water past the perimeter seal, causing permanent fogging between panes that can't be cleaned",
+          "Flooded window tracks and weep holes — water driven into the frame drains into wall cavities instead of back outside",
+          "Stripped glazing and caulk — the flexible seals around window frames deteriorate quickly under direct pressure",
+          "Damaged screens — even moderate pressure stretches and tears fiberglass screen material",
+        ],
+      },
+      {
+        heading: "What Professional Washers Actually Do Around Windows",
+        content: [
+          "A competent house-washing crew doesn't avoid windows — they change technique. During a soft wash, the cleaning solution is applied to siding and windows alike at garden-hose pressure, allowed to dwell, then rinsed top-down. The detergent that cleans your siding also breaks down the film on your glass.",
+          "The result: windows come out noticeably cleaner than they started, because the same organic film, pollen, and oxidation on your siding is also on your glass. What a soft wash won't deliver is squeegee-finished, streak-free glass — rinse water dries with mineral spotting, especially in hard-water areas.",
+          "If you want truly spotless glass, ask whether the company offers a window cleaning add-on. Many washing companies carry water-fed pole systems with deionized (DI) water — purified water dries without spots, no squeegee needed. Expect to pay $4–$12 per pane as an add-on, which is typically 20–40% cheaper than hiring a separate window cleaner for a standalone visit.",
+        ],
+      },
+      {
+        heading: "DIY: Getting Exterior Glass Clean Safely",
+        content: [
+          "If you're washing your own house exterior, treat windows as a rinse-only zone. Keep the wand at least 4–5 feet back, use a wide fan tip (40°), and never linger on the glass. Then finish windows separately with the right tools:",
+        ],
+        bullets: [
+          "Wash with a soft-bristle brush or strip applicator and a squirt of dish soap in a bucket of water",
+          "Squeegee top to bottom, wiping the blade between passes — this is what eliminates streaks, not the soap",
+          "For second-story windows, a water-fed pole with a DI filter beats ladder work on both safety and results",
+          "Avoid cleaning glass in direct midday sun — solution dries before you can squeegee it, guaranteeing streaks",
+          "Never use razor blades on tempered glass or any glass with a tint film or low-E coating",
+        ],
+      },
+      {
+        heading: "When Windows Signal a Bigger Problem",
+        content: [
+          "Sometimes dirty-looking windows aren't dirty at all. Permanent haze or fog between double panes means the insulated seal has already failed — no amount of washing fixes it, and the unit needs replacement. Etched or rainbow-hued staining near sprinkler zones is hard-water mineral etching, which requires polishing compounds or professional restoration rather than washing.",
+          "If your windows fog between panes shortly after any washing (pressure or soft), the seals were already marginal — washing exposed the failure rather than caused it. It's worth photographing window condition before any exterior cleaning job so there's a clear before/after record.",
+        ],
+      },
+    ],
+    relatedServices: ["house-soft-washing", "solar-panels", "gutter-cleaning"],
+    relatedGuides: ["pressure-vs-soft-washing", "pressure-washing-safety", "power-washing-cost"],
+  },
+
+  {
+    slug: "remove-rust-stains",
+    title: "How to Remove Rust Stains from Concrete, Siding & Driveways | WashPro",
+    headline: "How to Remove Rust Stains from Concrete, Siding & Driveways",
+    metaDescription:
+      "Rust stains laugh at bleach and pressure washers. Learn what actually removes rust from concrete, vinyl siding, and pavers — oxalic acid, specialty removers, and when to call a pro.",
+    publishDate: "2026-07-09",
+    updatedDate: "2026-07-09",
+    readTime: "6 min read",
+    intro:
+      "Rust stains are the stain most likely to survive a standard pressure washing. Bleach-based house wash solutions do nothing to them — in fact, chlorine bleach can set rust stains and make them darker. Pressure alone just polishes the stained surface. Removing rust is a chemistry problem, and the right chemical depends on the surface. Here's what actually works.",
+    sections: [
+      {
+        heading: "Where Rust Stains Come From",
+        content: [
+          "Identifying the source matters, because rust returns within months if you remove the stain but not the cause:",
+        ],
+        bullets: [
+          "Irrigation water — well water high in dissolved iron leaves orange arcs on concrete, siding, and fences wherever sprinklers hit",
+          "Fertilizer — many lawn fertilizers contain iron sulfate; granules that land on concrete and get wet leave hundreds of small dot stains",
+          "Metal furniture and equipment — chair legs, grills, fire pits, and planters rust where they meet the surface",
+          "Battery acid and vehicle drips — cars leak more than oil; rusty subframe runoff stains driveways below",
+          "Rebar and aggregate bleed — some concrete contains iron-bearing aggregate that oxidizes from within, showing up as scattered orange specks",
+          "Downspouts and railings — rusting metal above a wall or walkway streaks everything below it",
+        ],
+      },
+      {
+        heading: "What Works on Concrete and Pavers",
+        content: [
+          "Concrete is the most forgiving surface for rust removal because it tolerates acids that would damage other materials. Work from mildest to strongest:",
+          "For light, fresh stains: undiluted white vinegar or lemon juice, 10–15 minutes of dwell, scrub with a stiff nylon brush, rinse. Cheap and surprisingly effective on surface-level staining.",
+          "For established stains: oxalic acid is the workhorse — sold as \"wood bleach\" or in commercial rust removers like Singerman F9 BARC. Mix per label, apply to a dry surface, keep it wet for 5–15 minutes, agitate, then rinse thoroughly. Most orange irrigation staining dissolves visibly within minutes.",
+          "For severe or deep stains: repeat applications beat one aggressive one. Avoid muriatic (hydrochloric) acid unless you're experienced — it removes rust but also etches the concrete surface, leaving a lighter, rougher patch that's as visible as the stain was.",
+        ],
+        bullets: [
+          "Always wet surrounding grass and plants before and after — rust removers are toxic to landscaping",
+          "Wear chemical-resistant gloves and eye protection; oxalic acid is a genuine irritant",
+          "Test in an inconspicuous spot first on colored, stamped, or sealed concrete",
+          "Neutralize acid-cleaned areas with a baking soda rinse if you plan to seal afterward",
+        ],
+      },
+      {
+        heading: "What Works on Vinyl Siding and Painted Surfaces",
+        content: [
+          "Siding can't take acid concentrations that concrete shrugs off. Use a rust remover explicitly labeled for siding — typically oxalic or citric acid based at gentler concentrations. Apply from the bottom of the wall upward to avoid clean streaks running through dirty areas, keep dwell times short (3–5 minutes), and rinse generously.",
+          "Never use chlorine bleach on rust — it oxidizes the iron further and can permanently set the stain. This is why rust stains often look worse after a standard house wash: the bleach-based solution brightened everything around the stain and darkened the stain itself.",
+          "On painted surfaces, test any remover on a hidden area first. Some aggressive removers dull gloss finishes. If the rust is bleeding from a metal fixture (railing, light, vent), the permanent fix is priming and painting the fixture with a rust-inhibiting coating — otherwise you'll be removing the same stain every season.",
+        ],
+      },
+      {
+        heading: "DIY or Call a Pro?",
+        content: [
+          "A single small stain is a $15 bottle of remover and 20 minutes. Consider a professional when the staining is widespread or the surface is unforgiving:",
+        ],
+        bullets: [
+          "Whole-driveway irrigation staining — pros apply commercial-strength removers evenly with proper dwell control, avoiding the patchy \"clean spots\" look",
+          "Stamped, colored, or sealed concrete — wrong chemistry strips sealer and color; restoration costs far more than professional cleaning",
+          "Rust on stucco, EIFS, or natural stone — porous and chemical-sensitive; these need surface-specific products",
+          "Stains that return within weeks — a pro can usually identify the source (irrigation iron, fixture bleed) and recommend the permanent fix",
+          "Expect $75–$250 for targeted rust treatment as an add-on to a wash job, more for full-driveway treatment",
+        ],
+      },
+    ],
+    relatedServices: ["driveway", "house-soft-washing", "patio-paver-cleaning"],
+    relatedGuides: ["pressure-washing-concrete", "mold-mildew-siding", "power-washing-cost"],
+  },
+
+  {
+    slug: "winter-prep-power-washing",
+    title: "Fall Power Washing: Prep Your Home's Exterior for Winter | WashPro",
+    headline: "Fall Power Washing: Prep Your Home's Exterior for Winter",
+    metaDescription:
+      "Why late fall is a smart time to power wash — algae, gutter debris, and grime do their worst damage over winter. What to clean before the freeze, and what to skip until spring.",
+    publishDate: "2026-07-09",
+    updatedDate: "2026-07-09",
+    readTime: "5 min read",
+    intro:
+      "Most homeowners think of power washing as a spring chore, and spring is indeed the industry's busy season. But the case for a late-fall wash is stronger than most people realize: the contaminants sitting on your home in November don't hibernate — they work on your surfaces all winter. Here's what's worth cleaning before the freeze, what to leave until spring, and how winter prep washing saves money on both ends.",
+    sections: [
+      {
+        heading: "Why Grime Does Its Worst Damage in Winter",
+        content: [
+          "Organic growth and trapped debris are more destructive in winter than in any other season, because they hold moisture against surfaces through repeated freeze-thaw cycles:",
+        ],
+        bullets: [
+          "Algae and mildew on siding retain moisture that freezes, expands, and stresses paint, caulk joints, and siding seams",
+          "Leaves and debris packed in gutters freeze into ice dams that force meltwater under shingles and behind fascia",
+          "Moss on roofs holds water like a sponge; freeze cycles lift shingle edges and shorten roof life",
+          "Oil and organic film on concrete traps water in surface pores — the freeze-thaw cycle that causes spalling and pitting starts with a dirty, unsealed surface",
+          "Mud and leaf tannin stains left on decks and patios all winter bond deeper and are harder to remove in spring",
+        ],
+      },
+      {
+        heading: "The Fall Cleaning Checklist (In Priority Order)",
+        content: [
+          "If you do only some of this list, do it from the top down — the top items prevent actual damage, the bottom items are mostly cosmetic:",
+        ],
+        numbered: [
+          "Gutters and downspouts — the single highest-value fall task; clean after the last leaf drop, before the first hard freeze",
+          "Roof moss treatment — moss removal or a soft-wash treatment before winter prevents freeze-lift damage to shingles",
+          "House siding soft wash — kill algae and mildew before they spend four months holding ice against your paint and caulk",
+          "Concrete driveways and walkways — clean and seal before the freeze; sealed concrete sheds water instead of absorbing it",
+          "Deck cleaning — remove leaf stains and mildew; a clean, dry deck weathers winter far better than one under wet leaf litter",
+          "Fences — lowest priority, but fall cleaning prevents the deep green algae bloom that shows up by March",
+        ],
+      },
+      {
+        heading: "When It's Too Late (or Too Cold) to Wash",
+        content: [
+          "The practical cutoff for washing is sustained daytime temperatures above 40°F with no freeze within 24 hours. Water driven into cracks, joints, and porous surfaces needs time to dry before freezing, or the wash itself becomes the freeze-thaw problem.",
+          "Professional companies in cold climates typically run their washing season through late November and pause exterior work until March. Some continue gutter cleaning year-round since it doesn't saturate surfaces. If you've missed the window, don't wash siding or concrete during a January thaw — book the first available spring slot instead and prioritize gutter clearing, which is safe in any above-freezing window.",
+          "In the Sun Belt and coastal South, there is no real cutoff — winter is actually the ideal season to wash, with mild temperatures, lower humidity, and contractors offering their best pricing of the year.",
+        ],
+      },
+      {
+        heading: "The Off-Season Price Advantage",
+        content: [
+          "Fall and early-winter washing isn't just about protection — it's the cheapest time of year to buy the service. Demand drops sharply after summer, and companies discount to keep crews busy:",
+        ],
+        bullets: [
+          "Late-season discounts of 10–20% are common in cold-climate markets — ask directly, since not all companies advertise them",
+          "Scheduling is faster: same-week appointments instead of the 2–4 week spring backlog",
+          "Bundling gutter cleaning with a house or roof wash in one fall visit saves a second trip charge",
+          "Annual contracts booked in fall (fall gutter + spring wash) typically run 10–15% below one-off pricing",
+          "A fall wash also means you skip the spring rush entirely — your home starts the season already clean",
+        ],
+      },
+    ],
+    relatedServices: ["gutter-cleaning", "roof-cleaning", "house-soft-washing"],
+    relatedGuides: ["best-time-to-power-wash", "how-often-pressure-wash", "power-washing-cost"],
   },
 ];
 
