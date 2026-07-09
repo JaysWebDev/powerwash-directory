@@ -297,6 +297,13 @@ const STATE_PRICING: Record<string, string> = {
   HI: "Hawaii house washing is among the highest in the country at $200–$450+, reflecting high contractor overhead, import costs, and year-round demand.",
 };
 
+export function getStateContent(stateAbbr: string, state: string): StateProfile {
+  const base = STATE_PROFILES[stateAbbr] ?? DEFAULT_PROFILE;
+  const pricing = STATE_PRICING[stateAbbr]
+    ?? `House washing in ${state} typically costs $100–$225 for a standard home. Getting 2–3 quotes ensures you find the best rate for your specific job.`;
+  return { ...base, pricing };
+}
+
 export function getCityContext(stateAbbr: string, city: string): StateProfile {
   const base = STATE_PROFILES[stateAbbr] ?? DEFAULT_PROFILE;
   const pricing = STATE_PRICING[stateAbbr]

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, CheckCircle, Shield, Clock, ChevronRight, MapPin } from "lucide-react";
+import { Star, CheckCircle, Shield, Clock, ChevronRight, MapPin, CloudSun, CalendarDays, Lightbulb, DollarSign } from "lucide-react";
 import {
   parseLocationSlug,
   parseStateSlug,
@@ -15,7 +15,7 @@ import {
   DIRECTORY_CITIES,
   DIRECTORY_STATES,
 } from "@/lib/directory";
-import { getCityContext } from "@/lib/city-content";
+import { getCityContext, getStateContent } from "@/lib/city-content";
 import CompanyCard from "@/components/CompanyCard";
 import AdUnit from "@/components/AdUnit";
 import HeroZipInput from "@/components/HeroZipInput";
@@ -383,6 +383,7 @@ async function StatePage({
 }) {
   const { state, stateAbbr } = stateMatch;
   const cities = getCitiesInState(stateAbbr);
+  const stateContent = getStateContent(stateAbbr, state);
   const counts = await getCityCompanyCounts(cities.map((c) => ({ city: c.city, stateAbbr: c.stateAbbr })));
   const totalPros = Object.values(counts).reduce((s, n) => s + n, 0);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${siteConfig.domain}`;
@@ -536,6 +537,34 @@ async function StatePage({
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATE GUIDE ───────────────────────────── */}
+      <section className="py-16 bg-white border-t border-[#e2e8f0]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl font-bold mb-2" style={{ color: "var(--cd)" }}>
+            {siteConfig.verticalName} in {state}: What to Know
+          </h2>
+          <p className="text-[#64748b] mb-8 max-w-2xl">
+            Local climate, timing, and pricing guidance for {state} homeowners.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { icon: CloudSun, title: `${state} Climate & Buildup`, body: stateContent.climate },
+              { icon: CalendarDays, title: "Best Time to Schedule", body: stateContent.timing },
+              { icon: DollarSign, title: `Typical Pricing in ${state}`, body: stateContent.pricing },
+              { icon: Lightbulb, title: "Local Pro Tip", body: stateContent.tip },
+            ].map(({ icon: GuideIcon, title, body }) => (
+              <div key={title} className="border border-[#e2e8f0] rounded-xl p-6 bg-[#f8fafc]">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <GuideIcon className="w-5 h-5 flex-shrink-0" style={{ color: "var(--cp)" }} />
+                  <h3 className="font-semibold" style={{ color: "var(--cd)" }}>{title}</h3>
+                </div>
+                <p className="text-[#475569] text-sm leading-relaxed">{body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
