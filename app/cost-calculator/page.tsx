@@ -20,7 +20,9 @@ type ServiceKey =
   | "patio-paver-cleaning"
   | "brick-cleaning"
   | "stucco-cleaning"
-  | "graffiti-removal";
+  | "graffiti-removal"
+  | "pool-deck-cleaning"
+  | "sidewalk-walkway-cleaning";
 
 const BASE_PRICES: Record<ServiceKey, [number, number]> = {
   "house-soft-washing": [200, 500],
@@ -35,6 +37,8 @@ const BASE_PRICES: Record<ServiceKey, [number, number]> = {
   "brick-cleaning": [250, 600],
   "stucco-cleaning": [300, 650],
   "graffiti-removal": [150, 700],
+  "pool-deck-cleaning": [150, 450],
+  "sidewalk-walkway-cleaning": [75, 250],
 };
 
 const SIZE_MULT: Record<string, number> = { small: 0.75, medium: 1.0, large: 1.35 };
