@@ -16,7 +16,11 @@ type ServiceKey =
   | "fence-washing"
   | "gutter-cleaning"
   | "solar-panels"
-  | "commercial";
+  | "commercial"
+  | "patio-paver-cleaning"
+  | "brick-cleaning"
+  | "stucco-cleaning"
+  | "graffiti-removal";
 
 const BASE_PRICES: Record<ServiceKey, [number, number]> = {
   "house-soft-washing": [200, 500],
@@ -27,6 +31,10 @@ const BASE_PRICES: Record<ServiceKey, [number, number]> = {
   "gutter-cleaning": [75, 250],
   "solar-panels": [100, 350],
   "commercial": [300, 2000],
+  "patio-paver-cleaning": [150, 450],
+  "brick-cleaning": [250, 600],
+  "stucco-cleaning": [300, 650],
+  "graffiti-removal": [150, 700],
 };
 
 const SIZE_MULT: Record<string, number> = { small: 0.75, medium: 1.0, large: 1.35 };
@@ -37,6 +45,7 @@ const SHOW_STORIES = new Set<ServiceKey>([
   "house-soft-washing",
   "roof-cleaning",
   "gutter-cleaning",
+  "stucco-cleaning",
 ]);
 
 const SERVICE_OPTIONS: { id: ServiceKey; label: string; icon: typeof siteConfig.services[0]["icon"] }[] =
