@@ -9,6 +9,16 @@ const nextConfig: NextConfig = {
   compress: true,
   reactStrictMode: true,
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        // consolidated duplicate guide (kept the by-service-and-region version)
+        source: "/guides/best-time-to-power-wash",
+        destination: "/guides/best-time-power-wash",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

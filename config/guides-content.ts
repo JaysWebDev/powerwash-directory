@@ -206,63 +206,6 @@ export const guidesContent: GuideContent[] = [
   },
 
   {
-    slug: "best-time-to-power-wash",
-    title: "Best Time of Year to Power Wash Your House | WashPro Directory",
-    headline: "Best Time of Year to Power Wash Your House",
-    metaDescription:
-      "Timing a house wash correctly means better results and longer-lasting clean. Learn the best window by region and what conditions to avoid for soft washing.",
-    publishDate: "2026-03-01",
-    updatedDate: "2026-06-01",
-    readTime: "4 min read",
-    intro:
-      "The best time to power wash your home isn't just about convenience — it directly affects how long the results last. For soft washing especially, there are weather conditions that let the chemistry work properly and conditions that waste your money. Here's what to look for in your region.",
-    sections: [
-      {
-        heading: "What You're Actually Waiting For",
-        content: [
-          "Three conditions make for an ideal wash window. All three together give the best results:",
-        ],
-        bullets: [
-          "Temperatures above 50°F: cleaning solutions become less effective below 50°F and surfaces can freeze at 32°F — this is the hardest constraint in cold climates",
-          "A dry stretch of 24–48 hours after the wash: soft-wash chemistry needs time to cure before rain dilutes it. A wash followed immediately by a downpour undoes a significant portion of the benefit",
-          "Not during intense direct sunlight on hot surfaces: cleaning solutions can dry and streak before they have time to work if applied to sun-heated siding in peak summer heat",
-        ],
-      },
-      {
-        heading: "Best Windows by Region",
-        content: ["Regional climate dictates when these conditions align most reliably:"],
-        bullets: [
-          "Southeast (FL, GA, SC, NC, AL, MS): spring (March–May) after peak pollen; fall (October–November) is equally good. Avoid July–August peak heat and humidity for soft washing",
-          "Mid-Atlantic and Northeast (VA, MD, PA, NJ, NY, New England): late spring (May–June) or early fall (September–October). Avoid late fall when falling leaves immediately re-contaminate clean surfaces",
-          "Midwest (OH, IN, IL, MI, WI, MN): late spring through early fall (May–September). Avoid late fall in hard-freeze zones",
-          "Pacific Northwest (WA, OR): target a dry summer window (July–August); nearly any mild, dry day is suitable year-round for pressure work on concrete",
-          "Southwest and California: nearly any time of year. Post-rainy season is ideal for removing whatever accumulated during wetter months",
-        ],
-      },
-      {
-        heading: "When to Avoid Washing",
-        content: [
-          "These conditions produce poor results or can actively cause damage:",
-        ],
-        bullets: [
-          "Immediately before forecast rain: wait at least 24 hours after soft washing before rain hits the surface",
-          "During frost season: water in crevices and masonry joints freezes, expands, and can crack grout, caulk, and painted surfaces",
-          "Drought or burn-ban periods: some jurisdictions restrict outdoor water use during extreme conditions",
-          "Late fall in cold climates: surfaces have minimal drying time and you may be cleaning under trees that are still dropping leaves",
-        ],
-      },
-      {
-        heading: "A Note on Concrete and Hard Surfaces",
-        content: [
-          "The timing rules above apply primarily to soft washing (house, roof, siding). Pressure washing concrete and driveways is less weather-sensitive — as long as it's above freezing and not raining at the moment of washing, concrete cleaning can be done year-round in most climates.",
-        ],
-      },
-    ],
-    relatedServices: ["house-soft-washing", "driveway", "deck-restoration"],
-    relatedGuides: ["pressure-vs-soft-washing", "power-washing-cost", "winter-prep-power-washing"],
-  },
-
-  {
     slug: "power-washing-home-value",
     title: "Does Power Washing Increase Home Value Before Selling? | WashPro",
     headline: "Does Power Washing Increase Home Value Before Selling?",
@@ -309,7 +252,7 @@ export const guidesContent: GuideContent[] = [
       },
     ],
     relatedServices: ["house-soft-washing", "driveway", "deck-restoration"],
-    relatedGuides: ["power-washing-cost", "best-time-to-power-wash"],
+    relatedGuides: ["power-washing-cost", "best-time-power-wash"],
   },
 
   {
@@ -1048,7 +991,190 @@ export const guidesContent: GuideContent[] = [
       },
     ],
     relatedServices: ["gutter-cleaning", "roof-cleaning", "house-soft-washing"],
-    relatedGuides: ["best-time-to-power-wash", "how-often-pressure-wash", "power-washing-cost"],
+    relatedGuides: ["best-time-power-wash", "how-often-pressure-wash", "power-washing-cost"],
+  },
+
+  {
+    slug: "remove-oil-stains-driveway",
+    title: "How to Remove Oil Stains from a Driveway (What Actually Works) | WashPro",
+    headline: "How to Remove Oil Stains from a Driveway",
+    metaDescription:
+      "Fresh vs. set-in oil stains need different treatments. What actually removes oil from concrete — degreasers, poultices, hot water — and when pressure washing alone won't cut it.",
+    publishDate: "2026-07-11",
+    updatedDate: "2026-07-11",
+    readTime: "5 min read",
+    intro:
+      "Oil stains are the most stubborn thing you'll ever try to get off a driveway. Concrete is porous — motor oil soaks in and keeps wicking back to the surface long after it looks dry. Pressure washing alone rarely removes a set-in oil stain; it takes the right chemistry, applied in the right order. Here's what actually works, from fresh drips to stains that have been there for years.",
+    sections: [
+      {
+        heading: "Fresh Spills: The First Hour Matters Most",
+        content: [
+          "Oil that hasn't penetrated yet is dramatically easier to remove. If the spill just happened, don't rinse it — water spreads oil across more surface area. Absorb it first:",
+        ],
+        numbered: [
+          "Cover the spill generously with an absorbent: cat litter (the cheap clay kind), sawdust, or a commercial oil-dry product",
+          "Grind it in lightly with your shoe or a brick so it contacts the oil, then leave it for 1–4 hours (overnight for larger spills)",
+          "Sweep up and dispose of the absorbent — check local rules; oil-soaked litter often can't go in regular trash",
+          "Scrub the remaining shadow with a stiff brush and a strong degreasing dish soap or laundry detergent paste, then rinse hot if possible",
+        ],
+      },
+      {
+        heading: "Set-In Stains: Degreasers and Dwell Time",
+        content: [
+          "Once oil has cured into the concrete, surface scrubbing won't reach it. You need a purpose-made concrete degreaser (alkaline cleaners that break the oil's bond) applied with real dwell time — 10 to 15 minutes minimum, without letting it dry out.",
+          "Apply the degreaser to a dry surface, not a wet one. Water fills the pores you need the cleaner to penetrate. Scrub with a stiff nylon brush (never wire — it leaves rust flecks), keep the area damp with more product as it dwells, then rinse with the hottest water available. Expect to repeat 2–3 times for older stains, with each pass pulling more oil out.",
+        ],
+      },
+      {
+        heading: "The Poultice Method for Deep, Old Stains",
+        content: [
+          "For stains that have been in the slab for months or years, professionals use a poultice: a paste that dissolves the oil and then absorbs it as it dries. You can make one by mixing an absorbent (diatomaceous earth, baby powder, or powdered clay) with a strong solvent like acetone or xylene into a peanut-butter consistency.",
+          "Spread it half an inch thick over the stain, cover with plastic sheeting taped at the edges, and leave it 24–48 hours. As the solvent evaporates, it pulls dissolved oil up into the absorbent. Scrape up the dried paste and rinse. One poultice cycle removes what a dozen scrub-and-rinse rounds can't — it's slower but it works from inside the pores.",
+        ],
+      },
+      {
+        heading: "When to Call a Pro Instead",
+        content: [
+          "A professional pressure washing company brings two things you can't rent easily: commercial hot-water units (surface temperatures of 180–250°F liquefy oil that cold water can't touch) and stronger degreasers with surface machines that apply even pressure without wand striping.",
+        ],
+        bullets: [
+          "Large or numerous stains: a driveway with widespread oil shadowing across multiple parking spots is a half-day DIY job — pros do it in an hour or two",
+          "Stains under 6 months old on sealed concrete: high success rate, often near-complete removal",
+          "Years-old stains on unsealed concrete: even pros may only achieve 70–90% improvement — deep oil leaves a permanent shadow. Ask for honest expectations up front",
+          "After removal, consider having the driveway sealed: sealed concrete keeps the next leak on the surface where it wipes up easily",
+        ],
+      },
+      {
+        heading: "What Not to Do",
+        content: ["A few common mistakes make oil stains worse or damage the slab:"],
+        bullets: [
+          "Don't use gasoline or brake cleaner as a solvent — fire hazard, and both can carry oil deeper into the pores",
+          "Don't blast a fresh spill with a pressure washer — you'll spread a small stain into a large one",
+          "Don't use muriatic acid for oil — acid etches concrete and does nothing to petroleum; it's for mineral stains, not organic ones",
+          "Don't expect sealer to hide an existing stain — sealing over oil locks the shadow in permanently. Clean first, then seal",
+        ],
+      },
+    ],
+    relatedServices: ["driveway", "patio-paver-cleaning", "commercial"],
+    relatedGuides: ["pressure-washing-concrete", "remove-rust-stains", "power-washing-cost"],
+  },
+
+  {
+    slug: "clean-vinyl-siding",
+    title: "How to Clean Vinyl Siding Without Damaging It (2026 Guide) | WashPro",
+    headline: "How to Clean Vinyl Siding Without Damaging It",
+    metaDescription:
+      "Vinyl siding cleans up beautifully — if you avoid high pressure. The safe DIY method, the right cleaning mix, when green stains mean algae, and when to hire a soft-wash pro.",
+    publishDate: "2026-07-11",
+    updatedDate: "2026-07-11",
+    readTime: "5 min read",
+    intro:
+      "Vinyl is the most common siding in America, and the most commonly damaged by well-meaning cleaning. High-pressure water cracks panels, forces water behind the wall, and voids manufacturer warranties. The good news: vinyl responds better to chemistry than to pressure, which means the safe method is also the effective one. Here's how to clean it yourself, and when the job calls for a professional soft wash.",
+    sections: [
+      {
+        heading: "Why High Pressure and Vinyl Don't Mix",
+        content: [
+          "Vinyl siding is designed to shed rain falling downward — not water driven upward at 2,000+ PSI. Pressure washing at an upward angle forces water behind the panels, where it soaks sheathing and insulation and can start mold inside the wall. Direct high pressure also cracks brittle older vinyl, blows out J-channel trim, and etches permanent wand marks into the finish.",
+          "Most vinyl siding manufacturers specifically limit or prohibit pressure washing in their warranty terms. If your siding is under warranty, check before pointing any machine at it.",
+        ],
+      },
+      {
+        heading: "The Safe DIY Method",
+        content: [
+          "For a single-story home or the reachable portions of a two-story, you can get professional-adjacent results with a garden hose and the right mix:",
+        ],
+        numbered: [
+          "Mix your cleaner: 1 part oxygen bleach or household bleach to 4 parts water, plus a squirt of dish soap as a surfactant. For light dirt only, a dedicated vinyl siding cleaner or even car-wash soap works",
+          "Water down plants and grass below the work area before you start, and again after — bleach mix that dries on leaves burns them",
+          "Apply the mix bottom-to-top with a pump sprayer or a soft-bristle brush on a pole. Working upward prevents streaking on dry siding",
+          "Let it dwell 5–10 minutes without drying out — re-mist if the sun is baking it",
+          "Rinse top-to-bottom with a garden hose, spraying level or slightly downward — never up under the panel laps",
+        ],
+      },
+      {
+        heading: "Green, Black, and Chalky: Reading the Stains",
+        content: ["What's on your siding determines what removes it:"],
+        bullets: [
+          "Green film or streaks: algae. Grows on shaded, north-facing walls. Bleach-based mix kills it; plain soap just smears it and it returns within weeks",
+          "Black spots or patches: mildew or mold, common near gutters and ground level. Same bleach treatment, but it signals a moisture source worth finding — often a leaking gutter above",
+          "Chalky white powder that rubs off on your hand: oxidation of the vinyl itself, common on older or sun-baked siding. This needs a dedicated oxidation remover — bleach won't touch it, and aggressive scrubbing makes the finish blotchy",
+          "Rust-colored streaks below fixtures: metal corrosion running from screws, railings, or window ACs. Needs an oxalic-acid rust remover applied to that spot only",
+        ],
+      },
+      {
+        heading: "When to Hire a Soft-Wash Pro",
+        content: [
+          "A professional soft wash uses the same chemistry principle — low pressure, bleach-based solution, dwell time — but with commercial equipment that reaches second and third stories from the ground, metered chemical ratios, and full-house coverage in 2–4 hours. Typical cost is $200–$500 for an average home.",
+        ],
+        bullets: [
+          "Two-story or taller homes: ladder work with a sprayer is where most DIY siding-cleaning injuries happen — this alone justifies hiring out",
+          "Heavy, established algae or mold across large areas: pros carry stronger mixes and know how to protect landscaping while using them",
+          "Oxidized siding: removing oxidation evenly across a whole wall is genuinely difficult — patchy DIY attempts are visible from the street",
+          "If you're prepping to sell: a professional wash of siding, walks, and driveway is one of the highest-ROI items on a pre-listing checklist",
+        ],
+      },
+    ],
+    relatedServices: ["house-soft-washing", "gutter-cleaning", "stucco-cleaning"],
+    relatedGuides: ["pressure-vs-soft-washing", "mold-mildew-siding", "diy-vs-hire"],
+  },
+
+  {
+    slug: "pressure-washer-psi-guide",
+    title: "What PSI to Pressure Wash Every Surface (Settings Chart) | WashPro",
+    headline: "What PSI to Pressure Wash Every Surface",
+    metaDescription:
+      "The right pressure washer PSI for concrete, wood, vinyl, brick, vehicles, and more. What the numbers mean, which nozzle to use, and the surfaces that should never see high pressure.",
+    publishDate: "2026-07-11",
+    updatedDate: "2026-07-11",
+    readTime: "6 min read",
+    intro:
+      "Most pressure washing damage comes from one mistake: using the machine's maximum pressure on a surface that can't take it. PSI ratings on the box are marketing numbers — what matters is matching pressure and nozzle to each surface. This guide gives working ranges for every common surface around a home, plus the ones that should never be pressure washed at all.",
+    sections: [
+      {
+        heading: "PSI, GPM, and Nozzles — What Actually Matters",
+        content: [
+          "PSI (pounds per square inch) is striking force; GPM (gallons per minute) is rinsing power. Cleaning speed comes from both together, but damage comes from PSI concentrated by a narrow nozzle. The same 3,000 PSI machine is safe or destructive depending entirely on the tip you install and your distance from the surface.",
+          "Nozzle color code: red (0°) cuts like a blade and has almost no legitimate residential use; yellow (15°) strips and etches; green (25°) is the general-purpose sweet spot; white (40°) is for rinsing and delicate work; black is a low-pressure soap applicator. When in doubt, start two nozzles wider than you think you need and 18 inches back, then work closer.",
+        ],
+      },
+      {
+        heading: "Working PSI by Surface",
+        content: [
+          "Ranges assume the right nozzle (green or white) held 8–18 inches off the surface:",
+        ],
+        bullets: [
+          "Concrete driveways and sidewalks: 2,500–3,500 PSI — concrete is the one residential surface that rewards real pressure",
+          "Brick and mortar (in good condition): 800–1,500 PSI — higher pressure blows out aging mortar joints; pre-1930 brick should be soft washed only",
+          "Pavers: 1,000–1,500 PSI — high pressure strips the sand from joints; plan to re-sand after any real cleaning",
+          "Wood decks and fences (softwoods like pine and cedar): 500–800 PSI with a 40° tip, moving with the grain — anything more furs the fibers",
+          "Composite decking (Trex and similar): under 1,500 PSI and check the manufacturer's spec — some warranties cap allowed pressure explicitly",
+          "Vinyl siding: don't pressure wash it — soft wash at garden-hose pressure with cleaning solution does the actual work",
+          "Stucco and Dryvit/EIFS: soft wash only — pressure gouges stucco and can puncture EIFS foam systems",
+          "Cars, boats, RVs: 1,200–1,900 PSI with a 40° tip — more strips wax and can chip paint edges",
+          "Outdoor furniture and grills: 500–1,200 PSI depending on material — plastic and cushion fabric want the low end",
+        ],
+      },
+      {
+        heading: "Surfaces That Should Never See High Pressure",
+        content: ["Some surfaces are damaged by any concentrated pressure, regardless of technique:"],
+        bullets: [
+          "Asphalt shingle roofs: pressure strips the granules that give shingles their lifespan — roof cleaning is a soft-wash-only job, full stop",
+          "Windows and glass door panels: pressure can crack glass and destroy seals; window washing is its own low-pressure process",
+          "Electrical fixtures, panels, and outdoor outlets: water intrusion hazard — hand-clean around them",
+          "Air conditioner condenser fins: bend at a fraction of pressure-washer force; use a garden hose and fin comb",
+          "Old mortar, sandstone, and soft historic masonry: pressure permanently erodes the surface — these need specialty restoration cleaning",
+        ],
+      },
+      {
+        heading: "Renting vs. Hiring for One Job",
+        content: [
+          "A weekend rental (typically $40–$100/day for a 3,000 PSI gas unit) makes sense for a driveway, patio, or fence you're comfortable working on. But by the time you rent the machine, buy the right nozzles and detergent, and spend the day on it, a $150–$250 professional driveway cleaning is often the better trade — pros bring surface cleaners that finish the slab evenly with no wand stripes, and hot water for oil and grease that rental units can't touch.",
+          "The stronger argument for hiring is anything involving ladders, roofs, or full-house washing: falls are the dominant pressure-washing injury, and second-story soft washing requires equipment rentals don't include.",
+        ],
+      },
+    ],
+    relatedServices: ["driveway", "deck-restoration", "house-soft-washing"],
+    relatedGuides: ["pressure-washing-safety", "pressure-washing-concrete", "diy-vs-hire"],
   },
 ];
 

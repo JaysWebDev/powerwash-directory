@@ -23,6 +23,8 @@ import {
   BrickWall,
   Layers,
   SprayCan,
+  Waves,
+  Footprints,
   MapPin,
   Zap,
   BadgeCheck,
@@ -299,6 +301,18 @@ export const siteConfig: SiteConfig = {
       label: "Graffiti Removal",
       icon: SprayCan,
       description: "Remove spray paint from brick, concrete, and metal",
+    },
+    {
+      id: "pool-deck-cleaning",
+      label: "Pool Deck Cleaning",
+      icon: Waves,
+      description: "Slip-free pool surrounds without harsh runoff in the water",
+    },
+    {
+      id: "sidewalk-walkway-cleaning",
+      label: "Sidewalk & Walkway",
+      icon: Footprints,
+      description: "Bright, even walks — remove algae, gum, and gray buildup",
     },
   ],
 

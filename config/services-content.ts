@@ -91,7 +91,7 @@ export const servicesContent: ServiceContent[] = [
         a: "Not necessarily. Someone should be available to grant access to an outdoor hose bib (spigot) if the company uses your water. Many companies bring their own water tanks, in which case you don't need to be home at all — just leave gates unlocked if needed.",
       },
     ],
-    relatedGuides: ["pressure-vs-soft-washing", "best-time-to-power-wash", "power-washing-home-value"],
+    relatedGuides: ["pressure-vs-soft-washing", "best-time-power-wash", "power-washing-home-value"],
     relatedServices: ["driveway", "stucco-cleaning", "roof-cleaning"],
   },
 
@@ -228,7 +228,7 @@ export const servicesContent: ServiceContent[] = [
         a: "A cleaned and freshly stained deck typically looks good for 2–3 years before stain begins to fade and cleaning is needed again. Unfinished or unsealed wood after cleaning will show weathering faster — within a season in humid climates. Staining after cleaning is strongly recommended.",
       },
     ],
-    relatedGuides: ["best-time-to-power-wash", "power-washing-cost", "power-washing-home-value"],
+    relatedGuides: ["best-time-power-wash", "power-washing-cost", "power-washing-home-value"],
     relatedServices: ["house-soft-washing", "fence-washing", "driveway"],
   },
 
@@ -821,6 +821,146 @@ export const servicesContent: ServiceContent[] = [
     ],
     relatedGuides: ["vet-power-washing-contractor", "power-washing-cost", "pressure-washing-concrete"],
     relatedServices: ["commercial", "brick-cleaning", "driveway"],
+  },
+
+  {
+    id: "pool-deck-cleaning",
+    slug: "pool-deck-cleaning",
+    name: "Pool Deck Cleaning",
+    title: "Pool Deck Cleaning Near Me | Free Quotes | WashPro Directory",
+    metaDescription:
+      "Find pool deck cleaning pros near you. Slippery algae, black mold spots, and calcium buildup on concrete, pavers, and travertine — what it costs and how pros do it safely.",
+    headline: "Pool Deck Cleaning",
+    subheadline: "Remove the algae and grime that make pool surrounds slippery — without harsh runoff into the water",
+    intro:
+      "A pool deck lives in the wettest, most chemically complex environment on your property: constant splash-out, sunscreen and body oils, mineral-heavy water, and shade lines that grow algae fast. That combination makes decks slippery and dingy well before the rest of the hardscape. Professional pool deck cleaning removes organic growth and buildup with methods matched to the deck material — and keeps cleaning chemicals out of your pool water.",
+    quickStats: { costRange: "$150–$450", duration: "2–4 hours", frequency: "1–2x per year" },
+    sections: [
+      {
+        heading: "Why Pool Decks Get Slippery",
+        content: [
+          "The dark film that forms around pools is mostly algae and mildew feeding on a steady supply of moisture and organic material — sunscreen, body oils, leaf debris. It thrives in splash zones and shaded strips along walls and furniture, and it's genuinely dangerous: wet algae on smooth concrete is as slick as ice.",
+          "Pressure washing alone knocks the visible film off but leaves spores in the surface pores, which is why blasted decks turn green again in a matter of weeks. Professional cleaning pairs low-to-moderate pressure with an algaecidal wash that kills growth at the root, so the deck stays clean and grippy for a full season or more.",
+        ],
+      },
+      {
+        heading: "Different Deck Materials, Different Methods",
+        content: ["The right approach depends on what your deck is made of — this is where experience matters most:"],
+        bullets: [
+          "Broom-finished or stamped concrete: the most forgiving — moderate pressure with a surface cleaner plus a soft-wash pre-treatment",
+          "Kool deck / textured acrylic coatings: low pressure only — high PSI strips the coating and leaves bald patches that must be resurfaced",
+          "Pavers: gentle pressure to preserve joint sand, with re-sanding afterward if joints wash out",
+          "Travertine and natural stone: soft wash with stone-safe cleaners — acidic products and high pressure both etch and pit the surface",
+          "Wood pool decks: low pressure with the grain, same as any deck, plus faster re-sealing cycles due to constant moisture",
+        ],
+      },
+      {
+        heading: "Protecting the Pool During Cleaning",
+        content: [
+          "The main thing separating a pool-experienced company from a general pressure washer is runoff management. Cleaning solutions — even standard sodium hypochlorite mixes — change pool chemistry if significant amounts wash in, and degreasers or rust removers are worse.",
+          "A good crew works away from the pool edge, controls rinse direction, and keeps solution application light near coping. Expect them to ask about your pool's edge type and to plan the rinse path before starting. After the job, test and rebalance your water; minor adjustment is normal, a green or cloudy pool the next day is not.",
+        ],
+      },
+      {
+        heading: "Timing and Maintenance",
+        content: [
+          "The natural windows are pool opening (clean off the winter's accumulation before the season starts) and closing (remove the summer's oils and algae so they don't cure in place all winter). In year-round swim climates, an annual or twice-annual wash keeps the deck safe.",
+          "Between professional cleanings, rinsing the splash zone weekly and keeping deck furniture shifted occasionally (so shade lines move) meaningfully slows regrowth.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Will deck cleaning chemicals hurt my pool water?",
+        a: "Handled properly, no. Experienced companies control application and rinse direction so cleaning solution doesn't reach the water in meaningful amounts. Expect to test and slightly rebalance chemistry afterward — that's routine. If a company plans to spray degreaser right up to the waterline, keep looking.",
+      },
+      {
+        q: "Can you pressure wash a Kool deck?",
+        a: "Only at low pressure. Kool deck and similar acrylic textured coatings are thin — high PSI strips them to the concrete underneath, and patch repairs rarely match. This surface is the most common pool-deck damage claim, so confirm the company has cleaned coated decks before.",
+      },
+      {
+        q: "How much does pool deck cleaning cost?",
+        a: "Typically $150–$450 depending on square footage and material. Simple concrete surrounds land at the low end; large travertine or paver decks needing stone-safe soft washing and re-sanding run higher. Bundling with a driveway or patio cleaning usually earns a 10–20% discount since the crew is already on site.",
+      },
+      {
+        q: "How do I keep the deck from getting slippery again?",
+        a: "Ask about a penetrating sealer with a grip additive after cleaning. Sealed decks shed water and oils instead of absorbing them, which slows algae regrowth substantially. Beyond that, a weekly rinse of the splash zone during swim season goes a long way.",
+      },
+    ],
+    relatedGuides: ["pressure-washing-concrete", "pressure-washer-psi-guide", "power-washing-cost"],
+    relatedServices: ["patio-paver-cleaning", "driveway", "house-soft-washing"],
+  },
+
+  {
+    id: "sidewalk-walkway-cleaning",
+    slug: "sidewalk-walkway-cleaning",
+    name: "Sidewalk & Walkway Cleaning",
+    title: "Sidewalk & Walkway Cleaning Near Me | Free Quotes | WashPro Directory",
+    metaDescription:
+      "Find sidewalk and walkway pressure washing pros near you. Remove algae, gum, and years of gray buildup from concrete walks — costs, methods, and liability reasons to keep walks clean.",
+    headline: "Sidewalk & Walkway Cleaning",
+    subheadline: "Bright, even, slip-free walks — the fastest curb appeal win on the property",
+    intro:
+      "Walkways gray out so gradually that most owners don't notice until one section gets cleaned and the contrast is startling. Beyond looks, dirty walks are a genuine liability: algae film on shaded concrete causes slip-and-falls, and for businesses and rental properties that's an insurance exposure with your name on it. Sidewalk cleaning is quick, inexpensive, and delivers the most visible before-and-after of any pressure washing service.",
+    quickStats: { costRange: "$75–$250", duration: "1–2 hours", frequency: "1x per year" },
+    sections: [
+      {
+        heading: "What Professional Walkway Cleaning Includes",
+        content: [
+          "Pros clean walks with a surface cleaner — a spinning-bar attachment that looks like a floor buffer — rather than a bare wand. It cleans a wide path at consistent height and pressure, which is why professional results have no zebra striping or etched wand marks. A degreaser or house-wash mix pre-treatment breaks down algae and organic film before the surface cleaner passes, and edges and corners get detailed with a wand afterward.",
+          "For gum, rust streaks, fertilizer stains, or leaf tannin marks, spot treatments come first: hot water or steam for gum, oxalic acid for rust, and targeted cleaners for organic staining. Mention specific stains when getting quotes so they're included in the price.",
+        ],
+      },
+      {
+        heading: "The Liability Angle",
+        content: [
+          "For commercial storefronts, HOAs, and rental properties, walkway cleaning is less about appearance than risk management. Algae on shaded concrete is a documented slip hazard, and 'failure to maintain' appears in premises liability claims constantly. An annual cleaning with a dated invoice is cheap evidence of reasonable maintenance.",
+        ],
+        bullets: [
+          "Many municipalities make adjacent property owners responsible for sidewalk condition — including slip hazards, not just snow",
+          "HOAs commonly cite dirty or algae-streaked walks in violation letters; a yearly wash keeps you off that list",
+          "For storefronts, gum removal and entrance-area cleaning is often available as a monthly or quarterly service at a lower recurring rate",
+        ],
+      },
+      {
+        heading: "Concrete, Pavers, Flagstone: What Changes",
+        content: ["Most walks are broom-finished concrete, which takes standard surface cleaning well. Other materials need adjustments:"],
+        bullets: [
+          "Concrete: 2,500–3,500 PSI with a surface cleaner — the standard, durable case",
+          "Pavers: moderate pressure to preserve joint sand; expect re-sanding of any joints that wash out",
+          "Flagstone and natural stone: lower pressure and stone-safe cleaners — soft or layered stone can flake under high PSI",
+          "Exposed aggregate: moderate pressure — aggressive cleaning pops stones loose from the matrix",
+          "Painted or coated walks: low pressure only, and expect the cleaning to reveal any coating that was already failing",
+        ],
+      },
+      {
+        heading: "Bundling: The Economics of Walk Cleaning",
+        content: [
+          "As a standalone job, walkway cleaning carries a trip-fee premium — the crew's mobilization costs the same whether they clean 200 or 2,000 square feet. Most homeowners get walks cleaned as an add-on to a driveway or house wash, where the incremental cost is often $50–$100 instead of a standalone $75–$250.",
+          "If your walks need it, your driveway almost certainly does too — they age at the same rate. Asking any driveway quote to include walks, steps, and the porch pad is the standard move.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does sidewalk cleaning cost?",
+        a: "Standalone, most residential walkway jobs run $75–$250 depending on length and condition. As an add-on to a driveway or house wash, walks typically add $50–$100. Commercial storefront cleaning with gum removal is usually priced per square foot or as a recurring monthly rate.",
+      },
+      {
+        q: "Can pressure washing damage my sidewalk?",
+        a: "Sound concrete handles professional cleaning easily. Damage risk comes from bare-wand work at close range on already-spalling or freeze-damaged concrete, which can flake the surface further. A pro will flag weak spots before cleaning; surface cleaners distribute pressure and are much gentler than a wand held too close.",
+      },
+      {
+        q: "Will cleaning remove the gray color entirely?",
+        a: "Cleaning removes the biological film and dirt, which restores most of the original lightness — the before-and-after is usually dramatic. What it can't undo is decades of surface wear or embedded mineral staining. A pro can tell you which is which during the quote: if a test patch brightens, the rest will too.",
+      },
+      {
+        q: "How long does it stay clean?",
+        a: "A year or more in most climates. Shaded, tree-covered, or north-facing sections regrow algae fastest — often in 6–12 months — while sunny stretches can stay bright for several years. A post-cleaning sealer slows regrowth and makes future cleanings easier.",
+      },
+    ],
+    relatedGuides: ["pressure-washing-concrete", "remove-oil-stains-driveway", "power-washing-cost"],
+    relatedServices: ["driveway", "patio-paver-cleaning", "commercial"],
   },
 ];
 
