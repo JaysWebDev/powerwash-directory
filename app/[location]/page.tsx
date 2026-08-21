@@ -16,6 +16,7 @@ import {
   DIRECTORY_STATES,
 } from "@/lib/directory";
 import { getCityContext, getStateContent } from "@/lib/city-content";
+import { getCityEditorial, hasCityEditorial } from "@/lib/city-editorial";
 import CompanyCard from "@/components/CompanyCard";
 import AdUnit from "@/components/AdUnit";
 import HeroZipInput from "@/components/HeroZipInput";
@@ -76,10 +77,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `Compare ${count} top-rated ${siteConfig.verticalProNoun} in ${city}, ${state}. See verified reviews and get free quotes from licensed & insured local pros.`
     : cityTemplate(cp.metaDescTemplate, city, state);
 
+  // Only city pages with authored, unique editorial content stay indexable.
+  // The long tail of listing-only pages is set to noindex (follow) so Google
+  // judges the site on its differentiated, high-value pages rather than as a
+  // large set of near-duplicate templated pages.
+  const indexable = hasCityEditorial(city, state);
+
   return {
     title,
     description,
     alternates: { canonical: `${siteUrl}/${location}` },
+    robots: indexable ? undefined : { index: false, follow: true },
     openGraph: {
       title: cityTemplate(cp.ogTitleTemplate, city, state),
       description: cityTemplate(cp.ogDescTemplate, city, state),
@@ -156,6 +164,7 @@ export default async function CityPage({ params }: Props) {
   };
 
   const cityContext = getCityContext(state, city);
+  const editorial = getCityEditorial(city, state);
 
   return (
     <main className="flex flex-col flex-1">
@@ -247,20 +256,45 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
-      {/* ── CITY CONTEXT ──────────────────────────── */}
-      <section className="bg-white border-b border-[#e2e8f0] py-6">
-        <div className="max-w-6xl mx-auto page-px">
-          <h2 className="font-bold mb-2 text-base" style={{ color: "var(--cd)" }}>
-            Power Washing in {city}, {state}
-          </h2>
-          <p className="text-[#475569] text-sm leading-relaxed max-w-3xl">
-            {cityContext.climate} {cityContext.timing} {cityContext.tip}
-          </p>
-          <p className="text-[#475569] text-sm leading-relaxed max-w-3xl mt-2">
-            {cityContext.pricing}
-          </p>
-        </div>
-      </section>
+      {/* ── CITY CONTEXT / LOCAL GUIDE ────────────── */}
+      {editorial ? (
+        <section className="bg-white border-b border-[#e2e8f0] py-10">
+          <div className="max-w-6xl mx-auto page-px">
+            <h2 className="font-bold mb-3" style={{ color: "var(--cd)", fontSize: "var(--fs-title)" }}>
+              {siteConfig.verticalName} in {city}, {state}: A Local Guide
+            </h2>
+            <p className="text-[#475569] leading-relaxed max-w-3xl mb-8">
+              {editorial.intro}
+            </p>
+            <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
+              {editorial.sections.map((sec) => (
+                <div key={sec.heading}>
+                  <h3 className="font-semibold mb-2" style={{ color: "var(--cd)" }}>{sec.heading}</h3>
+                  <p className="text-[#475569] text-sm leading-relaxed">{sec.body}</p>
+                </div>
+              ))}
+              <div>
+                <h3 className="font-semibold mb-2" style={{ color: "var(--cd)" }}>Typical pricing</h3>
+                <p className="text-[#475569] text-sm leading-relaxed">{cityContext.pricing}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section className="bg-white border-b border-[#e2e8f0] py-6">
+          <div className="max-w-6xl mx-auto page-px">
+            <h2 className="font-bold mb-2 text-base" style={{ color: "var(--cd)" }}>
+              Power Washing in {city}, {state}
+            </h2>
+            <p className="text-[#475569] text-sm leading-relaxed max-w-3xl">
+              {cityContext.climate} {cityContext.timing} {cityContext.tip}
+            </p>
+            <p className="text-[#475569] text-sm leading-relaxed max-w-3xl mt-2">
+              {cityContext.pricing}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* ── LISTINGS ──────────────────────────────── */}
       <section className="section-py" style={{ background: "#f8fafc" }}>
