@@ -169,6 +169,7 @@ export default function RootLayout({
                 {[
                   { href: "/",          label: "Home" },
                   { href: "/about",     label: "About" },
+                  { href: "/pros",      label: "For Pros — Market Intel" },
                   { href: "/privacy",   label: "Privacy Policy" },
                   { href: `mailto:hello@${siteConfig.domain}`, label: "Contact" },
                 ].map(({ href, label }) => (

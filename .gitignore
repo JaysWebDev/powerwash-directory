@@ -46,3 +46,7 @@ data/*.db-shm
 data/*.db-wal
 data/vectors/
 .playwright-mcp/
+
+# WashPro Signal local snapshots
+data/snapshots/
+supabase/.temp/
