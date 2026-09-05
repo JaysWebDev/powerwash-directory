@@ -278,6 +278,26 @@ export default async function CityPage({ params }: Props) {
                 <p className="text-[#475569] text-sm leading-relaxed">{cityContext.pricing}</p>
               </div>
             </div>
+            {editorial.guides.length > 0 && (
+              <div className="mt-8 pt-6 border-t border-[#e2e8f0]">
+                <h3 className="font-semibold mb-3" style={{ color: "var(--cd)" }}>
+                  Helpful guides for {city} homeowners
+                </h3>
+                <ul className="flex flex-wrap gap-x-8 gap-y-2">
+                  {editorial.guides.map((g) => (
+                    <li key={g.slug}>
+                      <a
+                        href={`/guides/${g.slug}`}
+                        className="text-sm font-medium hover:underline"
+                        style={{ color: "var(--cp)" }}
+                      >
+                        {g.label} →
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </section>
       ) : (
