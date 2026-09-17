@@ -8,7 +8,7 @@
 //
 import fs from "node:fs";
 import path from "node:path";
-import { fetchAll, ROOT } from "./_client.mjs";
+import { sb, fetchAll, ROOT } from "./_client.mjs";
 
 function arg(name) {
   const i = process.argv.indexOf(name);
@@ -49,3 +49,28 @@ fs.mkdirSync(outDir, { recursive: true });
 const file = path.join(outDir, `snapshot-${today}.json`);
 fs.writeFileSync(file, JSON.stringify({ date: today, count: records.length, companies: records }));
 console.log(`Wrote ${records.length} records → ${file}`);
+
+// Upsert into Supabase — idempotent, re-running same day updates in place.
+const rows = records.map((r) => ({
+  snapshot_date: today,
+  company_slug: r.slug,
+  business_name: r.business_name,
+  city: r.city,
+  state: r.state,
+  rating: r.rating,
+  review_count: r.review_count,
+  has_website: r.has_website,
+  service_count: r.service_count,
+}));
+
+const BATCH = 1000;
+let upserted = 0;
+for (let i = 0; i < rows.length; i += BATCH) {
+  const { error } = await sb
+    .from("market_snapshots")
+    .upsert(rows.slice(i, i + BATCH), { onConflict: "snapshot_date,company_slug" });
+  if (error) throw error;
+  upserted += Math.min(BATCH, rows.length - i);
+  process.stdout.write(`\r  Upserted ${upserted}/${rows.length} …`);
+}
+console.log(`\nDone → market_snapshots (${upserted} rows, date=${today})`);
