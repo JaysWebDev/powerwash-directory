@@ -29,24 +29,22 @@ export async function joinWaitlist(payload: WaitlistPayload): Promise<WaitlistRe
 
   const supabase = createServerClient();
 
-  const business = payload.business_name?.trim() || "";
-  const market = [payload.city?.trim(), payload.state?.trim()].filter(Boolean).join(", ");
-
-  // Stored in the existing `leads` table (no new table needed → no Supabase DDL
-  // access required). Distinguished by the `pro-waitlist` source tag so pro
-  // signups stay cleanly filterable from homeowner quote leads.
-  const { error } = await supabase.from("leads").insert({
-    full_name: payload.contact_name?.trim() || business || email,
-    phone: "",
+  const { error } = await supabase.from("pro_waitlist").insert({
     email,
-    zip_code: market,
-    services: payload.service_focus?.trim() ? [payload.service_focus.trim()] : [],
-    notes: `WashPro Signal waitlist${business ? ` · ${business}` : ""}${market ? ` · ${market}` : ""}`,
-    source: `pro-waitlist ${payload.source || "/pros"}`.trim(),
-    status: "new",
+    business_name: payload.business_name?.trim() || null,
+    contact_name: payload.contact_name?.trim() || null,
+    city: payload.city?.trim() || null,
+    state: payload.state?.trim().toUpperCase() || null,
+    service_focus: payload.service_focus?.trim() || null,
+    source: payload.source || "/pros",
   });
 
   if (error) {
+    // Unique constraint on email → already on the list
+    if (error.code === "23505") {
+      sendWaitlistNotification(payload, email).catch(() => {});
+      return { success: true, alreadyJoined: true };
+    }
     console.error("joinWaitlist db error:", error);
     return { success: false, error: "Something went wrong. Please try again." };
   }
