@@ -34,3 +34,17 @@ export function resolveMarket(slug: string): { city: string; stateAbbr: string }
   const m = MARKETS.find((x) => x.slug === slug);
   return m ? { city: m.city, stateAbbr: m.stateAbbr } : null;
 }
+
+// Off-vertical filter — the Yelp scrape swept in window-cleaning / gutter / lawn businesses and
+// stamped them ALL with the same default power-wash services, so the business NAME is the only
+// usable signal. A name reading as a DIFFERENT trade is excluded UNLESS it also claims
+// pressure/power/soft washing (genuine dual-service pros are kept). This is the single source of
+// truth for "is this a power washer" on the pro funnel; the weekly brief generator
+// (scripts/generate-brief.mjs) carries an IDENTICAL copy of these two regexes — keep them in sync.
+// Validated 2026-09-18: of the rated set, 176 excluded / 106 dual-service kept / 0 false keeps.
+const OFFVERT_RE = /window (clean|wash)|gutter|chimney|carpet|roofing|roof repair|junk|landscap|lawn|tree service|maid|janitor|pool serv|pest|hvac|plumb|paint/i;
+const PWASH_RE = /pressure|power ?wash|soft ?wash|exterior clean/i;
+export function isPowerWasher(name: string | null | undefined): boolean {
+  const n = name ?? "";
+  return !(OFFVERT_RE.test(n) && !PWASH_RE.test(n));
+}

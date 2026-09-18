@@ -19,29 +19,52 @@ const STATE = arg("--state", "NV");
 const OUT_DIR = arg("--out-dir", process.cwd());
 const SNAP_DIR = arg("--snapshots-dir", path.join(ROOT, "data", "snapshots"));
 const fmtSvc = (s) => s.replace(/-/g, " ");
+const rv = (n) => `${n} review${Number(n) === 1 ? "" : "s"}`;
 const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 
+// Off-vertical filter: the Yelp scrape swept in window-cleaning / gutter / lawn businesses and
+// stamped them ALL with the same default power-wash services, so `services` can't tell them apart
+// — the business NAME is the only usable signal. Exclude names that read as a DIFFERENT trade,
+// UNLESS they also claim pressure/power/soft washing (genuine dual-service pros are kept). Applied
+// at the SOURCE so the market count, white-space denominators, and named benchmark/soft-spot
+// sections all agree on "power-washers only" — otherwise a thin city (Chicago) surfaced a gutter
+// co. + window washers as its "top power-washing pros," and Vegas's "287 companies" was ~27%
+// off-vertical. Validated 2026-09-17: across the rated set 176 excluded / 106 dual-service kept /
+// 0 false keeps. Do NOT switch this to `services`-based — every row has identical defaulted services.
+const OFFVERT_RE = /window (clean|wash)|gutter|chimney|carpet|roofing|roof repair|junk|landscap|lawn|tree service|maid|janitor|pool serv|pest|hvac|plumb|paint/i;
+const PWASH_RE = /pressure|power ?wash|soft ?wash|exterior clean/i;
+const isPowerWasher = (name) => !(OFFVERT_RE.test(name || "") && !PWASH_RE.test(name || ""));
+
 // ── Live market ────────────────────────────────────────────────
-const pros = await fetchAll(
+const allApproved = await fetchAll(
   "companies",
   "slug, business_name, city, state, rating, review_count, website, phone, services, created_at",
   { is_approved: true, city: CITY, state: STATE }
 );
+const pros = allApproved.filter((p) => isPowerWasher(p.business_name));
 if (!pros.length) {
-  console.error(`No approved pros for ${CITY}, ${STATE}.`);
+  console.error(`No approved power-washing pros for ${CITY}, ${STATE} (of ${allApproved.length} approved rows).`);
   process.exit(1);
 }
 
 const rated = pros.filter((p) => p.rating != null && Number(p.rating) > 0 && p.review_count > 0);
 const avgRating = rated.length ? (rated.reduce((s, p) => s + Number(p.rating), 0) / rated.length).toFixed(2) : null;
-const noSiteAll = pros.filter((p) => !p.website);
+// NOTE: `website is null` is NOT a real-world "no web presence" signal — audited 2026-08-29 and
+// re-confirmed 2026-09-16: the no-website rows ALSO have null phone, and the set includes
+// 300+ review businesses (Avanti Green etc.). It's a scrape-completeness artifact. Do NOT pitch
+// on it. No "competitors with no website" section, no no-website stat. See [[washpro_signal_state]].
 
 const svcCount = {};
 for (const p of pros) for (const s of p.services || []) svcCount[s] = (svcCount[s] || 0) + 1;
 const whitespace = Object.entries(svcCount).sort((a, b) => a[1] - b[1]).slice(0, 4);
 const saturated = Object.entries(svcCount).sort((a, b) => b[1] - a[1]).slice(0, 3);
+// A "soft spot" is only worth targeting if the gap is real AND the pro has enough reviews
+// for the rating to mean something. Otherwise a 4.9★/7-review pro reads as a laggard against
+// an inflated small-sample average — noise, not signal.
+const SOFT_MIN_REVIEWS = 10;
+const SOFT_MIN_GAP = 0.3;
 const softSpots = rated
-  .filter((p) => avgRating && Number(p.rating) < Number(avgRating))
+  .filter((p) => avgRating && Number(avgRating) - Number(p.rating) >= SOFT_MIN_GAP && Number(p.review_count) >= SOFT_MIN_REVIEWS)
   .sort((a, b) => a.rating - b.rating).slice(0, 4);
 const leaders = [...rated].sort((a, b) => b.rating - a.rating || b.review_count - a.review_count).slice(0, 3);
 
@@ -88,7 +111,7 @@ function markdown() {
   let o = `# WashPro Signal — Weekly Market Brief\n### ${CITY}, ${STATE}\n\n`;
   o += `**Market at a glance:** ${pros.length} active pros`;
   if (rated.length) o += ` · ${rated.length} with public ratings (avg ${avgRating}★)`;
-  o += ` · ${noSiteAll.length} with no website\n\n`;
+  o += `\n\n`;
 
   if (deltas) {
     o += `## What changed since ${deltas.prevDate}\n`;
@@ -103,27 +126,34 @@ function markdown() {
     o += `> Opening snapshot. Week-over-week change tracking begins once the next weekly snapshot runs.\n\n---\n\n`;
   }
 
-  o += `## 1. Competitors with no website — outrank them now\n`;
-  o += `${noSiteAll.length} of ${pros.length} pros have no website — they rely on a single directory listing. A clean site + Google profile beats them on every search.\n\n`;
-  for (const p of noSiteAll.slice(0, 6)) o += `- **${p.business_name}**${p.phone ? ` (${p.phone})` : ""}\n`;
-  o += `\n**Move:** Aim an "instant online quote" page at the ZIPs these crews work.\n\n`;
+  const sections = [];
 
-  o += `## 2. White space — services barely anyone offers\n`;
-  for (const [s, n] of whitespace) o += `- **${fmtSvc(s)}** — only ${n} of ${pros.length} pros offer it.\n`;
-  o += `\nCrowded on: ${saturated.map(([s, n]) => `${fmtSvc(s)} (${n})`).join(", ")}.\n\n**Move:** Headline the least-covered service — own the category locally.\n\n`;
-
-  if (softSpots.length) {
-    o += `## 3. Reputation soft spots\n`;
-    for (const p of softSpots) o += `- **${p.business_name}** — ${p.rating}★ (${p.review_count} reviews), below the ${avgRating}★ average.\n`;
-    o += `\n**Move:** Run a "free second opinion" offer in their service area.\n\n`;
-  } else {
-    o += `## 3. Reputation is wide open\n`;
-    o += `Public ratings are thin here — the first crew to build a visible review base wins the searches.\n\n**Move:** Ask every finished job for a Google review this week.\n\n`;
+  // Lead with white space — it's computed from the well-populated `services` arrays and is
+  // the strongest, most credible signal in the brief.
+  {
+    let s = `White space — services barely anyone offers\n`;
+    for (const [svc, n] of whitespace) s += `- **${fmtSvc(svc)}** — only ${n} of ${pros.length} pros offer it.\n`;
+    s += `\nCrowded on: ${saturated.map(([svc, n]) => `${fmtSvc(svc)} (${n})`).join(", ")}.\n\n**Move:** Headline the least-covered service — own the category locally.\n`;
+    sections.push(s);
   }
 
-  o += `## 4. The benchmark\n`;
-  if (leaders.length) for (const p of leaders) o += `- **${p.business_name}** — ${p.rating}★ (${p.review_count} reviews).\n`;
-  else o += `No standout public rating yet — the "best in town" slot is unclaimed.\n`;
+  if (softSpots.length) {
+    let s = `Reputation soft spots\n`;
+    for (const p of softSpots) s += `- **${p.business_name}** — ${p.rating}★ (${rv(p.review_count)}), below the ${avgRating}★ average.\n`;
+    s += `\n**Move:** Run a "free second opinion" offer in their service area.\n`;
+    sections.push(s);
+  } else {
+    sections.push(`Reputation is wide open\nPublic ratings are thin here — the first crew to build a visible review base wins the searches.\n\n**Move:** Ask every finished job for a Google review this week.\n`);
+  }
+
+  {
+    let s = `The benchmark\n`;
+    if (leaders.length) for (const p of leaders) s += `- **${p.business_name}** — ${p.rating}★ (${rv(p.review_count)}).\n`;
+    else s += `No standout public rating yet — the "best in town" slot is unclaimed.\n`;
+    sections.push(s);
+  }
+
+  sections.forEach((s, i) => { o += `## ${i + 1}. ${s}\n`; });
   o += `\n---\n*Generated from ${pros.length} live ${CITY} listings on ${new Date().toISOString().slice(0, 10)}.*\n`;
   return o;
 }
@@ -148,12 +178,19 @@ function html() {
     deltaCard = card(`${h2(`📈 What changed since ${deltas.prevDate}`)}<ul style="margin:8px 0 0;padding-left:18px">${items.join("")}</ul>`);
   }
 
-  const c1 = card(`${h2("1 · Competitors with no website")}<p style="margin:0 0 8px;font-size:14px;color:${MUTE}">${noSiteAll.length} of ${pros.length} pros have no website — beat them on search.</p><ul style="margin:0;padding-left:18px">${noSiteAll.slice(0, 6).map((p) => li(`${esc(p.business_name)}${p.phone ? ` <span style="color:${MUTE}">(${esc(p.phone)})</span>` : ""}`)).join("")}</ul>${move('Aim an "instant online quote" page at the ZIPs these crews work.')}`);
-  const c2 = card(`${h2("2 · White space — under-served services")}<ul style="margin:0;padding-left:18px">${whitespace.map(([s, n]) => li(`<strong>${fmtSvc(s)}</strong> — only ${n} of ${pros.length}`)).join("")}</ul><p style="margin:8px 0 0;font-size:13px;color:${MUTE}">Crowded on: ${saturated.map(([s, n]) => `${fmtSvc(s)} (${n})`).join(", ")}.</p>${move("Headline the least-covered service — own the category locally.")}`);
-  const c3 = softSpots.length
-    ? card(`${h2("3 · Reputation soft spots")}<ul style="margin:0;padding-left:18px">${softSpots.map((p) => li(`${esc(p.business_name)} — ${p.rating}★ (${p.review_count})`)).join("")}</ul>${move('Run a "free second opinion" offer in their area.')}`)
-    : card(`${h2("3 · Reputation is wide open")}<p style="margin:0;font-size:14px;color:${INK}">Ratings are thin here — the first crew to build a visible review base wins the searches.</p>${move("Ask every finished job for a Google review this week.")}`);
-  const c4 = card(`${h2("4 · The benchmark")}<ul style="margin:0;padding-left:18px">${leaders.length ? leaders.map((p) => li(`${esc(p.business_name)} — ${p.rating}★ (${p.review_count})`)).join("") : li('"Best in town" is unclaimed.')}</ul>`);
+  const cardDefs = [];
+  cardDefs.push({
+    title: "White space — under-served services",
+    body: `<ul style="margin:0;padding-left:18px">${whitespace.map(([s, n]) => li(`<strong>${fmtSvc(s)}</strong> — only ${n} of ${pros.length}`)).join("")}</ul><p style="margin:8px 0 0;font-size:13px;color:${MUTE}">Crowded on: ${saturated.map(([s, n]) => `${fmtSvc(s)} (${n})`).join(", ")}.</p>${move("Headline the least-covered service — own the category locally.")}`,
+  });
+  cardDefs.push(softSpots.length
+    ? { title: "Reputation soft spots", body: `<ul style="margin:0;padding-left:18px">${softSpots.map((p) => li(`${esc(p.business_name)} — ${p.rating}★ (${p.review_count})`)).join("")}</ul>${move('Run a "free second opinion" offer in their area.')}` }
+    : { title: "Reputation is wide open", body: `<p style="margin:0;font-size:14px;color:${INK}">Ratings are thin here — the first crew to build a visible review base wins the searches.</p>${move("Ask every finished job for a Google review this week.")}` });
+  cardDefs.push({
+    title: "The benchmark",
+    body: `<ul style="margin:0;padding-left:18px">${leaders.length ? leaders.map((p) => li(`${esc(p.business_name)} — ${p.rating}★ (${p.review_count})`)).join("") : li('"Best in town" is unclaimed.')}</ul>`,
+  });
+  const bodyCards = cardDefs.map((d, i) => card(`${h2(`${i + 1} · ${d.title}`)}${d.body}`)).join("");
 
   const stat = (v, l) => `<td style="text-align:center;padding:0 10px"><div style="font-size:22px;font-weight:800;color:#fff">${v}</div><div style="font-size:11px;color:#93c5fd;text-transform:uppercase;letter-spacing:.04em">${l}</div></td>`;
 
@@ -165,10 +202,10 @@ function html() {
     <div style="font-size:26px;font-weight:800;margin:6px 0 2px">${CITY}, ${STATE}</div>
     <div style="font-size:13px;color:#cbd5e1">Weekly market brief · ${new Date().toISOString().slice(0, 10)}</div>
     <table style="width:100%;margin-top:18px;border-top:1px solid rgba(255,255,255,.15);padding-top:16px"><tr>
-      ${stat(pros.length, "Active pros")}${stat(rated.length ? `${avgRating}★` : "—", "Avg rating")}${stat(noSiteAll.length, "No website")}
+      ${stat(pros.length, "Active pros")}${stat(rated.length ? `${avgRating}★` : "—", "Avg rating")}${stat(rated.length, "Rated pros")}
     </tr></table>
   </div>
-  ${deltaCard}${c1}${c2}${c3}${c4}
+  ${deltaCard}${bodyCards}
   <p style="text-align:center;font-size:12px;color:${MUTE};margin:20px 0 0">Generated from ${pros.length} live listings. In production this lands every Monday with week-over-week deltas, plus new-business permits and weather-driven demand for your ZIPs.</p>
 </div></body></html>`;
 }
@@ -179,6 +216,6 @@ const mdPath = path.join(OUT_DIR, `signal-${slug}.md`);
 const htmlPath = path.join(OUT_DIR, `signal-${slug}.html`);
 fs.writeFileSync(mdPath, markdown());
 fs.writeFileSync(htmlPath, html());
-console.log(`${CITY}, ${STATE} | pros:${pros.length} rated:${rated.length} no-site:${noSiteAll.length} | deltas:${deltas ? "yes" : "none (need 2nd snapshot)"}`);
+console.log(`${CITY}, ${STATE} | pros:${pros.length} rated:${rated.length} soft-spots:${softSpots.length} | deltas:${deltas ? "yes" : "none (need 2nd snapshot)"}`);
 console.log(`Wrote ${mdPath}`);
 console.log(`Wrote ${htmlPath}`);

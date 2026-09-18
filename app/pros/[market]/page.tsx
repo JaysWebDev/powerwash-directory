@@ -4,7 +4,7 @@ import { Radar, Clock, Mail, TrendingUp, Trophy, MapPin, ArrowRight } from "luci
 import WaitlistForm from "@/components/WaitlistForm";
 import { siteConfig } from "@/config/site";
 import { cityToSlug } from "@/lib/directory";
-import { MARKETS, resolveMarket } from "@/lib/market";
+import { MARKETS, resolveMarket, isPowerWasher } from "@/lib/market";
 import { createServerClient } from "@/lib/supabase";
 
 const PRODUCT = "WashPro Signal";
@@ -19,12 +19,15 @@ export const revalidate = 86400;
 
 async function getMarketStats(city: string, state: string) {
   const sb = createServerClient();
-  const [{ count }, { data: rated }] = await Promise.all([
-    sb.from("companies").select("id", { count: "exact", head: true }).eq("city", city).eq("state", state).eq("is_approved", true),
+  // Fetch names (not a bare count) so off-vertical businesses can be filtered out in JS — the
+  // same `isPowerWasher` rule the weekly brief uses, so the page's "N pros" matches the brief.
+  // Every market is < 1000 rows (largest is Las Vegas at 287) so a single select is safe.
+  const [{ data: all }, { data: rated }] = await Promise.all([
+    sb.from("companies").select("business_name").eq("city", city).eq("state", state).eq("is_approved", true),
     sb.from("companies").select("business_name, rating, review_count").eq("city", city).eq("state", state).eq("is_approved", true).gt("review_count", 0).not("rating", "is", null).order("rating", { ascending: false }).limit(100),
   ]);
-  const total = count ?? 0;
-  const r = rated ?? [];
+  const total = (all ?? []).filter((x) => isPowerWasher(x.business_name)).length;
+  const r = (rated ?? []).filter((x) => isPowerWasher(x.business_name));
   const avg = r.length ? (r.reduce((s, x) => s + Number(x.rating), 0) / r.length).toFixed(2) : null;
   return { total, ratedCount: r.length, avg, leader: r[0] ?? null };
 }
