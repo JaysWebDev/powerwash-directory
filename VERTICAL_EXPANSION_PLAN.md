@@ -23,7 +23,7 @@ The powerwash-directory codebase is designed as a **vertical template**. The ent
 ## Technical Implementation
 
 ### Per-Vertical Setup Process:
-1. **Copy codebase** to new directory: `/home/j/_DEV/{vertical}-directory/`
+1. **Copy codebase** to new directory: `~/_DEV/{vertical}-directory/`
 2. **Edit config/site.ts**:
    - Brand name, colors, icon
    - Vertical slug, services, FAQs

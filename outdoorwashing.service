@@ -6,7 +6,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 User=j
-WorkingDirectory=/home/j/_DEV/powerwash-directory
+WorkingDirectory=%h/_DEV/powerwash-directory
 ExecStart=/usr/bin/node .next/standalone/server.js
 Restart=on-failure
 RestartSec=5
@@ -16,7 +16,7 @@ Environment=PORT=3031
 Environment=HOSTNAME=127.0.0.1
 
 # Supabase — fill these in before enabling
-EnvironmentFile=-/home/j/_DEV/powerwash-directory/.env.local
+EnvironmentFile=-%h/_DEV/powerwash-directory/.env.local
 
 StandardOutput=journal
 StandardError=journal

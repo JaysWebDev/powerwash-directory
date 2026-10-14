@@ -28,7 +28,7 @@ This project is **separate from trading, rental, and OpenClaw**. Do not cross-re
 
 ## Data & Scraper
 - 1,445 approved companies across original 20 cities (seeded via Yelp Fusion API)
-- Scraper lives at `/home/j/_DEV/personal_scraper_lab/` (separate repo)
+- Scraper lives at `~/_DEV/personal_scraper_lab/` (separate repo)
 - Run: `venv/bin/python3 run_directory.py --config configs/powerwash.yaml --source yelp`
 - Config: `configs/powerwash.yaml` — city list, pages_per_city, `conflict_col=slug`
 - Output: CSV backup to `data/` + Supabase upsert
